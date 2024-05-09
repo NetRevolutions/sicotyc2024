@@ -1,0 +1,25 @@
+﻿using sicotyc.entities.Models;
+using System.ComponentModel.DataAnnotations;
+
+namespace sicotyc.entities.DataTransferObjects
+{
+    public class UserForRegistrationDto
+    {
+        [Required(ErrorMessage = "El Nombre es requerido")]
+        public string? FirstName { get; set; }
+        [Required(ErrorMessage = "El apellido es requerido")]
+        public string? LastName { get; set; }
+        [Required(ErrorMessage = "Nombre de usuario es requerido")]
+        public string? UserName { get; set; }
+        [Required(ErrorMessage = "Contraseña es requerido")]
+        public string? Password { get; set; }
+        [Required(ErrorMessage = "El correo electronico es requerido")]
+        public string? Email { get; set; }
+        public string? PhoneNumber { get; set; }
+        //[Required(ErrorMessage = "El usuario debe de tener el menos un rol")]
+        public IEnumerable<string>? Roles { get; set; }
+        [Required(ErrorMessage = "El RUC de la empresa a la que pertenece es requerido")]
+        public string? Ruc { get; set; }
+        public UserDetail? UserDetail { get; set; }
+    }
+}
