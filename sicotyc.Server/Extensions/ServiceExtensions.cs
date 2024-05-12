@@ -12,6 +12,7 @@ using sicotyc.Server.ActionFilters;
 using sicotyc.service.contracts;
 using sicotyc.service;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace sicotyc.Server.Extensions
 {
@@ -123,13 +124,13 @@ namespace sicotyc.Server.Extensions
 
             builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
             builder.AddEntityFrameworkStores<RepositoryContext>().AddDefaultTokenProviders();
-
         }
 
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {
             var jwtSettings = configuration.GetSection("JwtSettings");
-            var secretKey = Environment.GetEnvironmentVariable("SECRET");
+            var secretKey = configuration.GetSection("SecretKey").Value;
+            //var secretKey = Environment.GetEnvironmentVariable("SECRET");
 
             services.AddAuthentication(opt =>
             {

@@ -73,7 +73,7 @@ namespace sicotyc.Server.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Hubo un error al tratar de subir la imagen de tipo {type}, aca el detalle: {ex.Message}");
-                return BadRequest("Hubo un error al tratar de subir la imagen");
+                return BadRequest($"Hubo un error al tratar de subir la imagen: {ex.Message}");
             }
 
         }
@@ -114,7 +114,7 @@ namespace sicotyc.Server.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Error al obtener la imagen: {ex.Message}");
-                return BadRequest("Hubo un error al tratar de obtener la imagen");
+                return BadRequest($"Hubo un error al tratar de obtener la imagen");
             }
 
         }

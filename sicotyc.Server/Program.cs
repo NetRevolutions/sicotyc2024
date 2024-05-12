@@ -10,7 +10,7 @@ LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentD
 
 // Add services to the container.
 builder.Services.ConfigureCORS();
-builder.Services.ConfigureSpecificCORS();
+//builder.Services.ConfigureSpecificCORS();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
@@ -77,13 +77,13 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 
 
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseCors("CorsPolicy");
-}
-else {
-    app.UseCors("SpecificCorsPolicy");   
-}
+//}
+//else {
+//    app.UseCors("SpecificCorsPolicy");   
+//}
 
 app.UseAuthentication();
 //app.UseIpRateLimiting();

@@ -200,18 +200,19 @@ namespace sicotyc.repository
         #region Private Methods
 
         private SigningCredentials GetSigningCredentials()
-        {  
-            var randomNumberGenerator = RandomNumberGenerator.Create();
-            var keyBytes = new Byte[32]; // 32 bytes = 256 bits
-            randomNumberGenerator.GetBytes(keyBytes);
+        {
+            //var randomNumberGenerator = RandomNumberGenerator.Create();
+            //var keyBytes = new Byte[32]; // 32 bytes = 256 bits
+            //randomNumberGenerator.GetBytes(keyBytes);
 
-            // Convertir la clave a una cadena base64
-            var base64Key = Convert.ToBase64String(keyBytes);
-            
-            // Establecer la cadena base64 como el valor de la variable de entorno "SECRET"
-            Environment.SetEnvironmentVariable("SECRET", base64Key);
+            //// Convertir la clave a una cadena base64
+            //var base64Key = Convert.ToBase64String(keyBytes);
 
-            var key = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
+            //// Establecer la cadena base64 como el valor de la variable de entorno "SECRET"
+            //Environment.SetEnvironmentVariable("SECRET", base64Key);
+
+            //var key2 = Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"));
+            var key = Encoding.UTF8.GetBytes(_configuration.GetSection("SecretKey").Value);
             var secret = new SymmetricSecurityKey(key);
 
             return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
@@ -263,7 +264,8 @@ namespace sicotyc.repository
             var validationParameters = new TokenValidationParameters
             {
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"))),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("SecretKey").Value)),
+                //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"))),
                 ValidateIssuer = false,
                 ValidateAudience = false
             };

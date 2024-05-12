@@ -42,4 +42,10 @@
     <Folder Include="Uploads\Transports\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Uploads\imagen-no-disponible.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
