@@ -5,9 +5,8 @@ import Swal from 'sweetalert2';
 import { UserService } from 'src/app/services/user.service';
 import { IResultProcess } from 'src/app/interfaces/result-process.interface';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
 
-const ui_url = environment.ui_url;
+
 
 @Component({
   selector: 'app-confim-email',

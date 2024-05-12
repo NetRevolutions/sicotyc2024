@@ -12,9 +12,8 @@ import { EmailService } from 'src/app/services/email.service';
 import { IEmailItem } from 'src/app/interfaces/email-item.interface';
 import { IResetPassword } from 'src/app/interfaces/reset-password.interface';
 import { IResultProcess } from 'src/app/interfaces/result-process.interface';
-import { environment } from 'src/environments/environment.development';
 
-const ui_url = environment.ui_url;
+const ui_url = window.location.host;
 
 @Component({
   selector: 'app-reset-password',
