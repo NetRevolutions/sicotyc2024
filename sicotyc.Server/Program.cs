@@ -10,7 +10,6 @@ LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentD
 
 // Add services to the container.
 builder.Services.ConfigureCORS();
-//builder.Services.ConfigureSpecificCORS();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
@@ -55,7 +54,18 @@ var app = builder.Build();
 var logger = app.Services.GetRequiredService<ILoggerManager>();
 app.ConfigureExceptionHandler(logger);
 
-//app.UseDefaultFiles();
+app.UseHttpsRedirection();
+// Usado para soportar archivos staticos dentro del wwwroot
+app.Use(async (context, next) => { 
+    await next();
+    if (context.Response.StatusCode == 404 && !System.IO.Path.HasExtension(context.Request.Path.Value))
+    {
+        context.Request.Path = "/index.html";
+        await next();
+    }
+});
+
+app.UseDefaultFiles();
 app.UseStaticFiles();
 
 // Configure the HTTP request pipeline.
@@ -64,38 +74,40 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else { // TODO: Cuando este mas maduro el proyecto comentar esta parte
+else {   
+
+    // TODO: Cuando este mas maduro el proyecto comentar esta parte
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.All
 });
 
+app.UseCors("CorsPolicy");
 
-//if (app.Environment.IsDevelopment())
-//{
-    app.UseCors("CorsPolicy");
-//}
-//else {
-//    app.UseCors("SpecificCorsPolicy");   
-//}
 
 app.UseAuthentication();
 //app.UseIpRateLimiting();
 app.UseRouting();
 app.UseAuthorization();
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllers();
-//});
+
+app.UseEndpoints(endpoints =>
+{
+    // Configurar las rutas para la API
+    endpoints.MapControllers();
+
+    endpoints.MapControllerRoute(
+        name: "api",
+        pattern: "api/{controller}/{action=Index}/{id?}"
+    );
+    
+    //endpoints.MapFallbackToFile("/index.html");
+});
 
 app.MapControllers();
-
-app.MapFallbackToFile("/index.html");
+//app.MapFallbackToFile("/index.html");
 
 app.Run();

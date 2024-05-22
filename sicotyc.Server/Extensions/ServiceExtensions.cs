@@ -25,17 +25,7 @@ namespace sicotyc.Server.Extensions
                 .AllowAnyMethod() //Despues podemos usar esto: WithMethods("POST", "GET")
                 .AllowAnyHeader()); //Despues podemos usar esto: WithHeaders("accept", "content-type")
             });
-
-        public static void ConfigureSpecificCORS(this IServiceCollection services) =>
-            services.AddCors(options => {
-                options.AddPolicy("SpecificCorsPolicy", builder =>
-                {
-                    builder.WithOrigins("https://www.sicotyc-dev1.somee.com", "http://www.sicotyc-dev1.somee.com")
-                    .AllowAnyMethod()
-                    .AllowAnyHeader();
-                });
-            });
-
+        
         public static void ConfigureIISIntegration(this IServiceCollection services) =>
             services.Configure<IISOptions>(options => {
                 // Usado para hostear la aplicacion en IIS

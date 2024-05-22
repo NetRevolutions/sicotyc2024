@@ -7,7 +7,12 @@
     <SpaRoot>..\sicotyc.client</SpaRoot>
     <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:4200</SpaProxyServerUrl>
+    <RootNamespace>sicotyc.Server</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\**\*.*" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AspNetCoreRateLimit" Version="5.0.0" />
@@ -40,6 +45,7 @@
     <Folder Include="Migrations\" />
     <Folder Include="Uploads\Users\" />
     <Folder Include="Uploads\Transports\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
