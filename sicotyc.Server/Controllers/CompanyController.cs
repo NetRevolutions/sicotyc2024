@@ -78,7 +78,7 @@ namespace sicotyc.Server.Controllers
             }
         }
 
-        [HttpGet("ruc", Name = "CompanyByRuc")]
+        [HttpGet("ruc/{ruc}", Name = "CompanyByRuc")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> GetCompany(string ruc)
         {
@@ -135,6 +135,25 @@ namespace sicotyc.Server.Controllers
                 return BadRequest("Hubo un error al tratar de realizar la busqueda de Empresas");
             }
         }
+
+        [HttpGet("GetCompanies/All")] //without pagination
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> GetCompaniesAll()
+        {
+            try
+            {
+                var companiesDb = await _repository.Company.GetAllCompaniesAsync(trackChanges: false);
+                var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companiesDb);
+
+                return Ok(companiesDto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Hubo un error al tratar de realizar la busqueda de Empresas (All), aca el detalle: {ex.Message}");
+                return BadRequest("Hubo un error al tratar de realizar la busqueda de Empresas (All)");
+            }
+        }
+
 
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]

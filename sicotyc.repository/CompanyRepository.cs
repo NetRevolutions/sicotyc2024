@@ -24,6 +24,11 @@ namespace sicotyc.repository
                 .ToPagedList(companies, companyParameters.PageNumber, companyParameters.PageSize);
         }
 
+        public async Task<IEnumerable<Company>> GetAllCompaniesAsync(bool trackChanges) =>
+            await FindByCondition(c => c.Ruc != string.Empty, trackChanges)
+            .Sort("CompanyName")
+            .ToListAsync();
+
         public async Task<Company> GetCompanyByIdAsync(Guid id, bool trackChanges) =>
             await FindByCondition(o => o.CompanyId.Equals(id), trackChanges)
             .SingleOrDefaultAsync();
@@ -41,6 +46,8 @@ namespace sicotyc.repository
             Company company = await GetCompanyByRucAsync(ruc, false);
             if (company != null)
                 DeleteCompany(company);
-        }        
+        }
+
+        
     }
 }
