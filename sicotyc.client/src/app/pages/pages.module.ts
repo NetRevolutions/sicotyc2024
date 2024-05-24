@@ -26,6 +26,8 @@ import { LookupCodesComponent } from './maintenance/lookup/lookup-codes.componen
 import { LookupCodeComponent } from './maintenance/lookup/lookup-code.component';
 import { SearchComponent } from './search/search.component';
 import { MenuComponent } from './maintenance/menu/menu.component';
+import { CompaniesComponent } from './maintenance/companies/companies.component';
+import { CompanyComponent } from './maintenance/companies/company.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { MenuComponent } from './maintenance/menu/menu.component';
     LookupCodeComponent,
     SearchComponent,
     MenuComponent,
+    CompaniesComponent,
+    CompanyComponent
     
   ],
   exports: [

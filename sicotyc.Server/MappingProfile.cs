@@ -33,6 +33,9 @@ namespace sicotyc.Server
             CreateMap<UserDetailForUpdateDto, UserDetail>()
                 .ForMember(d => d.UpdateDtm, opt => opt.MapFrom(o => o.LastUpdatedOn))
                 .ReverseMap();
+            CreateMap<CompanyForRegistrationDto, Company>().ReverseMap();
+            CreateMap<CompanyDto, Company>().ReverseMap();
+            CreateMap<CompanyForUpdateDto, Company>().ReverseMap();
 
         }
     }

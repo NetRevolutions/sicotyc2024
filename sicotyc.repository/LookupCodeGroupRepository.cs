@@ -26,6 +26,7 @@ namespace sicotyc.repository
 
         public async Task<IEnumerable<LookupCodeGroup>> GetAllLookupCodeGroupsAsync(bool trackChanges) =>
             await FindByCondition(e => e.Name != string.Empty, trackChanges)
+                .Sort("Name")
                 .ToListAsync();
 
         public async Task<bool> ExistsLookupCodeGroupAsync(string lookupCodeGroupName, bool trackChanges)

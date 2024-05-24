@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using sicotyc.contracts;
 using sicotyc.entities.Models;
+using sicotyc.entities.RequestFeatures;
+using sicotyc.repository.Extensions;
 
 namespace sicotyc.repository
 {
@@ -9,6 +11,17 @@ namespace sicotyc.repository
         public CompanyRepository(RepositoryContext repositoryContext)
             : base(repositoryContext)
         {
+        }
+
+        public async Task<PagedList<Company>> GetAllCompaniesAsync(CompanyParameters companyParameters, bool trackChanges)
+        {
+            var companies = await FindByCondition(c => c.Ruc != string.Empty, trackChanges)
+                .Search(companyParameters.SearchTerm)
+                .Sort(companyParameters.OrderBy)
+                .ToListAsync();
+
+            return PagedList<Company>
+                .ToPagedList(companies, companyParameters.PageNumber, companyParameters.PageSize);
         }
 
         public async Task<Company> GetCompanyByIdAsync(Guid id, bool trackChanges) =>
@@ -28,8 +41,6 @@ namespace sicotyc.repository
             Company company = await GetCompanyByRucAsync(ruc, false);
             if (company != null)
                 DeleteCompany(company);
-        }
-
-
+        }        
     }
 }
