@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { catchError, map, tap } from "rxjs/operators";
 import { Observable, of, throwError } from 'rxjs';
 
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';

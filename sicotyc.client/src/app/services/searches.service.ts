@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 // Models
 import { User } from '../models/user.model';
