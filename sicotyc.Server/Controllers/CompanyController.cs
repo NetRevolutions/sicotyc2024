@@ -6,6 +6,7 @@ using sicotyc.entities.DataTransferObjects;
 using sicotyc.entities.Models;
 using sicotyc.entities.RequestFeatures;
 using sicotyc.Server.ActionFilters;
+using sicotyc.Server.ModelBinders;
 
 namespace sicotyc.Server.Controllers
 {
@@ -152,6 +153,27 @@ namespace sicotyc.Server.Controllers
                 _logger.LogError($"Hubo un error al tratar de realizar la busqueda de Empresas (All), aca el detalle: {ex.Message}");
                 return BadRequest("Hubo un error al tratar de realizar la busqueda de Empresas (All)");
             }
+        }
+
+        [HttpGet("collection({ids})", Name = "CompanyCollection")]
+        public async Task<IActionResult> GetCompanyCollection(
+            [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
+        {
+            if (ids == null)
+            {
+                _logger.LogError("Parametro ids es nulo");
+                return BadRequest("Parametro ids es nulo");
+            }
+
+            var companyEntities = await _repository.Company.GetByIdsAsync(ids, trackChanges: false);
+
+            if (ids.Count() != companyEntities.Count()) {
+                _logger.LogError("Algunos de los Ids de la coleccion no son validos");
+                return NotFound();
+            }
+
+            var companiesToReturn = _mapper.Map<IEnumerable<CompanyDto>>(companyEntities);
+            return Ok(companiesToReturn);
         }
 
 

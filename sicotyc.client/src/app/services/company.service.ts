@@ -93,6 +93,32 @@ export class CompanyService {
       );
   };
 
+  getCompaniesByIdCollection(ids: string[]) {
+    const url = `${ base_url }/company/collection(${ids.join(',')})`;
+    return this.http.get(url)
+    .pipe(
+      map((resp: any) => {
+        let companies: ICompany[] = resp.map((c: any) => ({
+          companyId: c.companyId,
+          ruc: c.ruc,
+          companyName: c.companyName,
+          companyComercialName: c.companyComercialName,
+          companyState: c.companyState,
+          companyCondition: c.companyCondition,
+          companyFiscalAddress: c.companyFiscalAddress,
+          companyEmail: c.companyEmail,
+          companyPhone: c.companyPhone
+        }));
+        return {
+          data: companies
+        }
+      }),
+      catchError(error => {
+        return throwError(() => new Error(this.validationErrorsCustomize.messageCatchError(error)));
+      })
+    )
+  };
+
   getAllCompanies() {
     const url = `${ base_url }/company/getCompanies/All`;
     return this.http.get(url)
