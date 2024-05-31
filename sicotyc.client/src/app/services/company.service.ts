@@ -64,6 +64,7 @@ export class CompanyService {
     var userId = claims.find(f => f.type == 'Id').value.toString();  
     const data = {
       ...formData,
+      
       updatedBy: userId
     };
 
@@ -141,7 +142,7 @@ export class CompanyService {
     return this.http.get(url)
       .pipe(
         map((resp:any) => {
-          let company: ICompany = resp.data;
+          let company: ICompany = resp;
 
           return {
             data: company
