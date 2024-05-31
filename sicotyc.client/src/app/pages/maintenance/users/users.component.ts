@@ -90,10 +90,10 @@ export class UsersComponent implements OnInit, OnDestroy{
 
     this.searchesService.search('USERS', searchTerm)
     .subscribe((resp: any) => {
-      if (resp.length > 0)
+      if (resp.result.length > 0)
       {
         this.useSearch = true;
-        var ids = resp.map((e:any) => e.id);
+        var ids = resp.result.map((e:any) => e.id);
         // console.log(ids);
 
         this.userService.findUsersByIdCollection(ids)

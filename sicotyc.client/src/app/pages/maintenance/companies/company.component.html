@@ -1,1 +1,136 @@
-<p>company works!</p>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{title}}</h4>
+                <h6 class="card-subtitle">{{subtitle}}</h6>
+                <form class="form-horizontal p-t-20"
+                    [formGroup]="companyForm"
+                    (submit)="save()">
+                    <div class="form-group row">
+                        <label for="ruc" class="col-sm-4 control-label">Ruc*</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="ruc"
+                                    class="form-control" 
+                                    id="ruc" 
+                                    placeholder="Ingrese el RUC">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyName" class="col-sm-4 control-label">Nombre de Empresa</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="companyName"
+                                    class="form-control" 
+                                    id="companyName" 
+                                    placeholder="Nombre de la empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyComercialName" class="col-sm-4 control-label">Nombre Comercial*</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="companyComercialName"
+                                    class="form-control" 
+                                    id="companyComercialName" 
+                                    placeholder="Ingrese un nombre comercial">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyState" class="col-sm-4 control-label">Estado de la empresa</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="companyState"
+                                    class="form-control" 
+                                    id="companyState" 
+                                    placeholder="Estado de la empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyCondition" class="col-sm-4 control-label">Condicion de la empresa</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="companyCondition"
+                                    class="form-control" 
+                                    id="companyCondition" 
+                                    placeholder="Condicion de la empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyFiscalAddress" class="col-sm-4 control-label">Direccion Fiscal</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="companyFiscalAddress"
+                                    class="form-control" 
+                                    id="companyFiscalAddress" 
+                                    placeholder="Direccion de la empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyEmail" class="col-sm-4 control-label">Correo de la empresa*</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="email" 
+                                    formControlName="companyEmail"
+                                    class="form-control" 
+                                    id="companyEmail" 
+                                    placeholder="Correo de la empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="companyPhone" class="col-sm-4 control-label">Telefono de la empresa*</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                <input 
+                                    type="text" 
+                                    formControlName="companyPhone"
+                                    class="form-control" 
+                                    id="companyPhone" 
+                                    placeholder="Telefono de la empresa">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button type="submit"
+                                    [disabled]="companyForm.invalid"
+                                    class="btn btn-success waves-effect waves-light">
+                                <i class="fa fa-save"></i>
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

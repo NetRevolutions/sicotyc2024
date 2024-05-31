@@ -36,6 +36,8 @@ namespace sicotyc.service
                     return await SearchLookupCodeGroupsAsync(searchTerm);
                 case "LOOKUPCODES":
                     return await SearchLookupCodesAsync(searchTerm);
+                case "COMPANIES":
+                    return await SearchCompaniesAsync(searchTerm);
                 default:
                     throw new ArgumentException("Coleccion no valida", nameof(collection));
 
@@ -89,6 +91,20 @@ namespace sicotyc.service
 
             return searchesDto;
 
+        }
+
+        public async Task<IEnumerable<SearchResultDto>> SearchCompaniesAsync(string searchTerm)
+        {   
+            CompanyParameters companyParameters = new CompanyParameters();
+            companyParameters.SearchTerm = searchTerm;
+            companyParameters._pageSize = 1000;
+
+            var companiesFromDB = await _repository.Company.GetAllCompaniesAsync(companyParameters, trackChanges: false);
+            
+            var searchesDto = _mapper.Map<IEnumerable<SearchResultDto>>(companiesFromDB);
+            searchesDto.ForEach(x => { x.Entity = "Companies"; });
+
+            return searchesDto;
         }
     }
 }

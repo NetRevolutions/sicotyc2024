@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 const base_url = environment.base_url;
 

@@ -1,4 +1,4 @@
-import { environment } from "src/environments/environment.development";
+import { environment } from "src/environments/environment";
 import { UserDetail } from "./user-detail.model";
 
 const base_url = environment.base_url;

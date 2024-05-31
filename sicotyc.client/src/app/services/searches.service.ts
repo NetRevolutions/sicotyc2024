@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 // Models
 import { User } from '../models/user.model';
@@ -12,6 +12,7 @@ import { User } from '../models/user.model';
 // Services
 import { ValidationErrorsCustomizeService } from './validation-errors-customize.service';
 import { ILookupCode, ILookupCodeGroup } from '../interfaces/lookup.interface';
+import { ICompany } from '../interfaces/company.interface';
 
 
 
@@ -59,8 +60,12 @@ export class SearchesService {
     return results;
   }
 
+  private transformCompanies(results: any): ICompany[] {
+    return results;
+  }
+
   search(
-    collection: 'USERS'|'TRANSPORTS'|'LOOKUPCODEGROUPS'|'LOOKUPCODES',
+    collection: 'USERS'|'TRANSPORTS'|'LOOKUPCODEGROUPS'|'LOOKUPCODES'|'COMPANIES',
     term: string,
 
     ) {
@@ -77,6 +82,8 @@ export class SearchesService {
             return this.transformLookupCodeGroups(resp);
           case 'LOOKUPCODES':
             return this.transformLookupCodes(resp);
+          case 'COMPANIES':
+            return this.transformCompanies(resp);
           default:
             return [];
         };

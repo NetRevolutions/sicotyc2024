@@ -12,6 +12,8 @@ import { LookupCodeGroupsComponent } from './maintenance/lookup/lookup-code-grou
 import { LookupCodesComponent } from './maintenance/lookup/lookup-codes.component';
 import { LookupCodeComponent } from './maintenance/lookup/lookup-code.component';
 import { MenuComponent } from './maintenance/menu/menu.component';
+import { CompaniesComponent } from './maintenance/companies/companies.component';
+import { CompanyComponent } from './maintenance/companies/company.component';
 
 const maintenanceRoutes: Routes = [
   { path: '', component: MaintenanceComponent, data: {title: 'Mantenimientos' } },
@@ -20,6 +22,8 @@ const maintenanceRoutes: Routes = [
   { path: 'lookupCodeGroups', component: LookupCodeGroupsComponent, data: {title: 'Lookup Code Groups'}},
   { path: 'lookupCodeGroups/lookupCodes', component: LookupCodesComponent, data: {title: 'Lookup Codes'}},
   { path: 'lookupCodeGroups/:lcgId/lookupCodes/:lcId', component: LookupCodeComponent, data: {title: 'Lookup Code'}},
+  { path: 'companies', component: CompaniesComponent, data: {title: 'Empresas Registradas'}},
+  { path: 'companies/:id', component: CompanyComponent, data: {title: 'Empresa'}},
   { path: 'menu', component: MenuComponent, data: {title: 'Menu de la Aplicacion'}},
 ]
 
