@@ -14480,3 +14480,1459 @@
 2024-05-30 01:33:46.6291 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
 2024-05-30 01:33:46.6291 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
 2024-05-30 01:33:46.6291 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:30.3996 Debug Message Template Auto Format enabled
+2024-05-30 17:39:30.4584 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-30 17:39:30.5154 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.11.1082. Product version: 5.3.11+6a33919b2cf5fd3206f473d2230556ffa0b67d67. GlobalAssemblyCache: False
+2024-05-30 17:39:30.5154 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2024-05-30 17:39:30.5983 Debug Loading assembly name: NLog.Web.AspNetCore succeeded!
+2024-05-30 17:39:30.6170 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6170 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 17:39:30.6170 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 17:39:30.6170 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6170 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 17:39:30.6170 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6170 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 17:39:30.6170 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6323 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 17:39:30.6323 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 17:39:30.6323 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 17:39:30.6323 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6323 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 17:39:30.6323 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 17:39:30.6323 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6323 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 17:39:30.6494 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6494 Trace Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 17:39:30.6494 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6494 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 17:39:30.6494 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6494 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 17:39:30.6494 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6645 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 17:39:30.6645 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6645 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 17:39:30.6645 Trace  Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 17:39:30.6645 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6645 Trace Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 17:39:30.6801 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.6801 Trace Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 17:39:30.6801 Debug Adding target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 17:39:30.6801 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 17:39:30.6801 Trace ParseRulesElement
+2024-05-30 17:39:30.6952 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-05-30 17:39:30.6952 Debug Start watching file-filter 'nlog.config' in directory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server
+2024-05-30 17:39:30.6952 Debug --- NLog configuration dump ---
+2024-05-30 17:39:30.6952 Debug Targets:
+2024-05-30 17:39:30.6952 Debug FileTarget(Name=logfile)
+2024-05-30 17:39:30.6952 Debug FileTarget(Name=ownFile-web)
+2024-05-30 17:39:30.7094 Debug Rules:
+2024-05-30 17:39:30.7094 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2024-05-30 17:39:30.7094 Debug logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True
+2024-05-30 17:39:30.7094 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]
+2024-05-30 17:39:30.7094 Debug --- End of NLog configuration dump ---
+2024-05-30 17:39:30.7094 Trace FindReachableObject<System.Object>:
+2024-05-30 17:39:30.7094 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2024-05-30 17:39:30.7094 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 17:39:30.7094 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 17:39:30.7269 Trace   Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 17:39:30.7269 Trace   Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 17:39:30.7269 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.7269 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7269 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 17:39:30.7269 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7269 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 17:39:30.7269 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 17:39:30.7269 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.7426 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 17:39:30.7426 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7426 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 17:39:30.7426 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7426 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 17:39:30.7426 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 17:39:30.7426 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 17:39:30.7567 Trace Scanning LoggingRule 'logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True'
+2024-05-30 17:39:30.7567 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 17:39:30.7567 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 17:39:30.7567 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 17:39:30.7567 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]'
+2024-05-30 17:39:30.7567 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 17:39:30.7567 Trace  Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 17:39:30.7567 Trace   Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 17:39:30.7734 Trace   Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 17:39:30.7734 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.7734 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7734 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 17:39:30.7734 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7734 Trace   Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 17:39:30.7734 Trace   Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 17:39:30.7896 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.7896 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 17:39:30.7896 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7896 Trace    Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 17:39:30.7896 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7896 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 17:39:30.7896 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.7896 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 17:39:30.8057 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8057 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 17:39:30.8057 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8057 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 17:39:30.8057 Trace     Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 17:39:30.8057 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8198 Trace    Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 17:39:30.8198 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8198 Trace    Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 17:39:30.8198 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 17:39:30.8198 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 17:39:30.8198 Info Validating config: TargetNames=logfile, ownFile-web, ConfigItems=35, FilePath=E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\nlog.config
+2024-05-30 17:39:30.8198 Debug Unused target checking is started... Rule Count: 3, Target Count: 2
+2024-05-30 17:39:30.8396 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 2, Unused Target Count: 0
+2024-05-30 17:39:30.8396 Trace Initializing Layout Renderer: ${aspnet-mvc-action}
+2024-05-30 17:39:30.8396 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8396 Trace Initializing Layout Renderer: ${aspnet-request-url}
+2024-05-30 17:39:30.8396 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8396 Trace Initializing Layout Renderer: ${exception}
+2024-05-30 17:39:30.8396 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${message}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${level}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${loggername}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8509 Trace Initializing Layout Renderer: ${event-properties}
+2024-05-30 17:39:30.8683 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.8683 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 17:39:30.8683 Trace Initializing ${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}
+2024-05-30 17:39:30.8683 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.8683 Trace Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 17:39:30.8683 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.8683 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 17:39:30.8833 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8833 Trace  Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 17:39:30.8833 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8833 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 17:39:30.8833 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8833 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 17:39:30.8833 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8833 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 17:39:30.8995 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8995 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 17:39:30.8995 Trace   Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 17:39:30.8995 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.8995 Trace  Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 17:39:30.8995 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.9142 Trace  Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 17:39:30.9142 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.9142 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 17:39:30.9142 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.9142 Trace Initializing .\logs\nlog-own-${shortdate}.log
+2024-05-30 17:39:30.9142 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.9142 Trace Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 17:39:30.9306 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.9306 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.9306 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 17:39:30.9306 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.9306 Trace Initializing FileTarget(Name=ownFile-web)
+2024-05-30 17:39:30.9306 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 17:39:30.9306 Trace Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 17:39:30.9461 Trace  Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 17:39:30.9461 Trace  Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 17:39:30.9461 Trace FileTarget(Name=ownFile-web) has 2 layouts
+2024-05-30 17:39:30.9461 Trace FileTarget(Name=ownFile-web): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 17:39:30.9461 Trace Initializing Layout Renderer: ${message}
+2024-05-30 17:39:30.9461 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.9461 Trace Initializing Layout Renderer: ${level}
+2024-05-30 17:39:30.9625 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.9625 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 17:39:30.9625 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2024-05-30 17:39:30.9625 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.9625 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 17:39:30.9757 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:30.9757 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 17:39:30.9757 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.9757 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 17:39:30.9757 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:30.9757 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 17:39:30.9757 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.9929 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 17:39:30.9929 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 17:39:30.9929 Trace Initializing .\logs\${shortdate}_logfile.txt
+2024-05-30 17:39:30.9929 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 17:39:30.9929 Trace Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 17:39:31.0073 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 17:39:31.0073 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:31.0073 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 17:39:31.0073 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 17:39:31.0073 Trace Initializing FileTarget(Name=logfile)
+2024-05-30 17:39:31.0073 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 17:39:31.0243 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 17:39:31.0243 Trace  Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 17:39:31.0243 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 17:39:31.0243 Trace FileTarget(Name=logfile) has 2 layouts
+2024-05-30 17:39:31.0243 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 17:39:31.0243 Info Configuration initialized.
+2024-05-30 17:39:51.0907 Debug Targets configured when LogLevel >= Trace for Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:51.0907 Debug Logger sicotyc.logger.service.LoggerManager [Trace] => logfile ownFile-web
+2024-05-30 17:39:51.0907 Debug Logger sicotyc.logger.service.LoggerManager [Debug] => logfile ownFile-web
+2024-05-30 17:39:51.0907 Debug Logger sicotyc.logger.service.LoggerManager [Info] => logfile ownFile-web
+2024-05-30 17:39:51.0907 Debug Logger sicotyc.logger.service.LoggerManager [Warn] => logfile ownFile-web
+2024-05-30 17:39:51.1026 Debug Logger sicotyc.logger.service.LoggerManager [Error] => logfile ownFile-web
+2024-05-30 17:39:51.1026 Debug Logger sicotyc.logger.service.LoggerManager [Fatal] => logfile ownFile-web
+2024-05-30 17:39:51.1026 Debug FileTarget(Name=logfile): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 17:39:51.1184 Debug FileTarget(Name=logfile): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 17:39:51.1184 Trace FileTarget(Name=logfile): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt with allowFileSharedWriting=False
+2024-05-30 17:39:51.1184 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:39:51.1184 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:51.1184 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:39:51.1318 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:51.1318 Debug FileTarget(Name=ownFile-web): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 17:39:51.1318 Debug FileTarget(Name=ownFile-web): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 17:39:51.1318 Trace FileTarget(Name=ownFile-web): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log with allowFileSharedWriting=False
+2024-05-30 17:39:51.6559 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:39:51.6559 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:51.6559 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:39:51.6559 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:57.0533 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:39:57.0538 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:39:57.0538 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:39:57.0538 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:41:00.2701 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:41:00.2701 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:41:00.2743 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:41:00.2743 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:41:21.9464 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:41:21.9464 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:41:21.9464 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:41:21.9464 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:44:03.7581 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:44:03.7581 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 17:44:03.7581 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 17:44:03.7581 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 18:24:26.8586 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 18:24:26.8586 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 18:24:26.8586 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 18:24:26.8586 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:43:57.7158 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:43:57.7158 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:43:57.7158 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:43:57.7158 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:43:57.8477 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:43:57.8477 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:43:57.8504 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:43:57.8504 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:44:00.7441 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:44:00.7441 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:44:00.7441 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:44:00.7441 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:45:29.2894 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:45:29.2894 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:45:29.2894 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:45:29.2894 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:45:35.7144 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:45:35.7144 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:45:35.7144 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:45:35.7144 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:25.7895 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:25.7895 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:25.7895 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:25.7895 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:32.5772 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:32.5772 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:32.5772 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:32.5772 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:32.5856 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:32.5856 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:32.5856 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:32.5856 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:50.0220 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:50.0224 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:50.0224 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:50.0224 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:53.3249 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:53.3249 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:53.3249 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:53.3249 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:53.3249 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:53.3249 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:47:53.3370 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:47:53.3370 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:50:05.0162 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:50:05.0162 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:50:05.0162 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:50:05.0238 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:50:27.5252 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:50:27.5252 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:50:27.5252 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:50:27.5252 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:50:27.5252 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:50:27.5252 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:50:27.5391 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:50:27.5391 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:19.0571 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:19.0571 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:19.0571 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:19.0571 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:19.0571 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:19.0571 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:19.0571 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:19.0698 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:23.0765 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:23.0765 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:23.0765 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:23.0765 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:26.8119 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:26.8119 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:26.8119 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:26.8119 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:41.0600 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:41.0600 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:51:41.0600 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:51:41.0600 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:52:29.0863 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:52:29.0863 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 19:52:29.0863 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 19:52:29.0863 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:08:25.1419 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:08:25.1419 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:08:25.1419 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:08:25.1481 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:08:26.5922 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:08:26.5922 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:08:26.5922 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:08:26.5922 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:09:55.4581 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:09:55.4581 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:09:55.4624 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:09:55.4624 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:09:55.6754 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:09:55.6754 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:09:55.6790 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:09:55.6790 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:09:58.1730 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:09:58.1730 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:09:58.1730 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:09:58.1730 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:10:00.4712 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:10:00.4712 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:10:00.4712 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:10:00.4766 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:02.8362 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:02.8362 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:02.8362 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:02.8362 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:11.9852 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:11.9852 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:11.9852 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:11.9852 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:11.9917 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:11.9917 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:11.9917 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:11.9917 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:34.5871 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:34.5871 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:34.5871 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:34.5871 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:42.3100 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:42.3100 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:42.3100 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:42.3100 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:46.6612 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:46.6612 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:11:46.6638 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:11:46.6638 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:12:57.4152 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:12:57.4152 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:12:57.4152 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:12:57.4152 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:12:57.4152 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:12:57.4152 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:12:57.4307 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:12:57.4307 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:02.8363 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:02.8363 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:02.8363 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:02.8363 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:05.8713 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:05.8713 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:05.8713 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:05.8713 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:29.9101 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:29.9101 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:29.9146 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:29.9146 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:29.9146 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:29.9146 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:29.9146 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:29.9308 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:56.0850 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:56.0850 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:56.0850 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:56.0850 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:56.1206 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:56.1206 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:13:56.1206 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:13:56.1206 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:02.6178 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:02.6178 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:02.6178 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:02.6178 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:24.4805 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:24.4805 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:24.4805 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:24.4805 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:32.2731 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:32.2731 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:32.2731 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:32.2731 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:32.2731 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:32.2731 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:32.2731 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:32.2731 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:43.0999 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:43.1003 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:14:43.1003 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:14:43.1003 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:02.4280 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:02.4285 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:02.4285 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:02.4285 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:02.4285 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:02.4285 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:02.4285 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:02.4285 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:19.3891 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:19.3891 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:19.3891 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:19.3891 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:28.5888 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:28.5888 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:28.5888 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:28.5888 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:34.5690 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:34.5690 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:34.5721 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:34.5721 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:41.3212 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:41.3212 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:41.3212 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:41.3212 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:45.4061 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:45.4061 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:18:45.4061 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:18:45.4061 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:08.1180 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:08.1180 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:08.1180 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:08.1180 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:11.2199 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:11.2199 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:11.2199 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:11.2256 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:18.1031 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:18.1031 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:18.1031 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:18.1031 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:19.4462 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:19.4462 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:23:19.4462 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:23:19.4462 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:24:35.7525 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:24:35.7525 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:24:35.7525 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:24:35.7573 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:24:40.2560 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:24:40.2560 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:24:40.2590 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:24:40.2590 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:24:57.9691 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:24:57.9691 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:24:57.9691 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:24:57.9691 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:25:25.3131 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:25:25.3131 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:25:25.3131 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:25:25.3131 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:27:18.3574 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:27:18.3574 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:27:18.3574 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:27:18.3574 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:28:25.1455 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:28:25.1455 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:28:25.1488 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:28:25.1488 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:30:05.8070 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:30:05.8070 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:30:05.8070 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:30:05.8070 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:30:05.8239 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:30:05.8239 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:30:05.8239 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:30:05.8239 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:31:39.5362 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:31:39.5362 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:31:39.5392 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:31:39.5392 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:31:39.5392 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:31:39.5392 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:31:39.5392 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:31:39.5392 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:31:47.3844 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:31:47.3844 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:31:47.3844 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:31:47.3844 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:04.8756 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:04.8756 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:04.8756 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:04.8823 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.0750 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.0750 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.0750 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.0750 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.0750 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.0868 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.0868 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.0868 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2066 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2066 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2123 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2123 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2123 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2123 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2123 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2123 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2255 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2255 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2255 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2255 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2255 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2255 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:14.2255 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:14.2255 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:15.9863 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:15.9863 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:15.9863 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:15.9863 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:17.0359 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:17.0359 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:17.0359 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:17.0401 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:18.5819 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:18.5819 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:18.5819 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:18.5866 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:19.4807 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:19.4807 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:19.4807 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:19.4807 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:37.1945 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:37.1945 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:37.1945 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:37.1945 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:37.3345 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:37.3345 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:37.3372 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:37.3372 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:40.3174 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:40.3174 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:40.3198 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:40.3198 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.0919 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.0919 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.0919 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.0919 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.0919 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.1023 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.1023 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.1023 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2063 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2063 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2063 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2114 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2114 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2114 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2114 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2114 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2354 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2354 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2354 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2431 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2431 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2431 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:43.2431 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:43.2431 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:47.5335 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:47.5335 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:47.5335 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:47.5391 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:51.2678 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:51.2678 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:32:51.2678 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:32:51.2731 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:27.7511 Debug Message Template Auto Format enabled
+2024-05-30 20:35:27.8045 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-30 20:35:27.8269 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.11.1082. Product version: 5.3.11+6a33919b2cf5fd3206f473d2230556ffa0b67d67. GlobalAssemblyCache: False
+2024-05-30 20:35:27.8269 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2024-05-30 20:35:27.8485 Debug Loading assembly name: NLog.Web.AspNetCore succeeded!
+2024-05-30 20:35:27.8625 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8625 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 20:35:27.8662 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 20:35:27.8662 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8662 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 20:35:27.8662 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8662 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 20:35:27.8662 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8662 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 20:35:27.8833 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 20:35:27.8833 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 20:35:27.8833 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8833 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 20:35:27.8833 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 20:35:27.8833 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8833 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 20:35:27.8980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8980 Trace Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 20:35:27.8980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8980 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 20:35:27.8980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8980 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 20:35:27.8980 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.8980 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 20:35:27.9171 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.9171 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 20:35:27.9171 Trace  Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 20:35:27.9171 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.9171 Trace Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 20:35:27.9171 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:27.9287 Trace Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 20:35:27.9287 Debug Adding target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 20:35:27.9287 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 20:35:27.9287 Trace ParseRulesElement
+2024-05-30 20:35:27.9287 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-05-30 20:35:27.9461 Debug Start watching file-filter 'nlog.config' in directory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server
+2024-05-30 20:35:27.9461 Debug --- NLog configuration dump ---
+2024-05-30 20:35:27.9461 Debug Targets:
+2024-05-30 20:35:27.9461 Debug FileTarget(Name=logfile)
+2024-05-30 20:35:27.9461 Debug FileTarget(Name=ownFile-web)
+2024-05-30 20:35:27.9461 Debug Rules:
+2024-05-30 20:35:27.9461 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2024-05-30 20:35:27.9595 Debug logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True
+2024-05-30 20:35:27.9595 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]
+2024-05-30 20:35:27.9595 Debug --- End of NLog configuration dump ---
+2024-05-30 20:35:27.9595 Trace FindReachableObject<System.Object>:
+2024-05-30 20:35:27.9595 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2024-05-30 20:35:27.9595 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 20:35:27.9595 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 20:35:27.9595 Trace   Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 20:35:27.9754 Trace   Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 20:35:27.9754 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:27.9754 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:27.9754 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 20:35:27.9754 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:27.9754 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 20:35:27.9754 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 20:35:27.9754 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:27.9916 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 20:35:27.9916 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:27.9916 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 20:35:27.9916 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:27.9916 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 20:35:27.9916 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 20:35:27.9916 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 20:35:27.9916 Trace Scanning LoggingRule 'logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True'
+2024-05-30 20:35:28.0086 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 20:35:28.0086 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 20:35:28.0086 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 20:35:28.0086 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]'
+2024-05-30 20:35:28.0086 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 20:35:28.0086 Trace  Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 20:35:28.0086 Trace   Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 20:35:28.0228 Trace   Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 20:35:28.0228 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:28.0228 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0228 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 20:35:28.0228 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0228 Trace   Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 20:35:28.0228 Trace   Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 20:35:28.0228 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:28.0402 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 20:35:28.0402 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0402 Trace    Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 20:35:28.0402 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0402 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 20:35:28.0402 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0545 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 20:35:28.0545 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0545 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 20:35:28.0545 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0545 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 20:35:28.0545 Trace     Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 20:35:28.0699 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0699 Trace    Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 20:35:28.0699 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.0699 Trace    Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 20:35:28.0699 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 20:35:28.0699 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 20:35:28.0878 Info Validating config: TargetNames=logfile, ownFile-web, ConfigItems=35, FilePath=E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\nlog.config
+2024-05-30 20:35:28.0878 Debug Unused target checking is started... Rule Count: 3, Target Count: 2
+2024-05-30 20:35:28.0878 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 2, Unused Target Count: 0
+2024-05-30 20:35:28.0878 Trace Initializing Layout Renderer: ${aspnet-mvc-action}
+2024-05-30 20:35:28.0878 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${aspnet-request-url}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${exception}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${message}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${level}
+2024-05-30 20:35:28.1008 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1176 Trace Initializing Layout Renderer: ${loggername}
+2024-05-30 20:35:28.1176 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1176 Trace Initializing Layout Renderer: ${event-properties}
+2024-05-30 20:35:28.1176 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1176 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 20:35:28.1176 Trace Initializing ${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}
+2024-05-30 20:35:28.1324 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:28.1324 Trace Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 20:35:28.1324 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:28.1324 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 20:35:28.1324 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1324 Trace  Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 20:35:28.1324 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1324 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 20:35:28.1479 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1479 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 20:35:28.1479 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1479 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 20:35:28.1479 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1479 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 20:35:28.1479 Trace   Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 20:35:28.1629 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1629 Trace  Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 20:35:28.1629 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1629 Trace  Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 20:35:28.1629 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1629 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 20:35:28.1629 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.1796 Trace Initializing .\logs\nlog-own-${shortdate}.log
+2024-05-30 20:35:28.1796 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:28.1796 Trace Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 20:35:28.1796 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:28.1796 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1796 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 20:35:28.1796 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.1956 Trace Initializing FileTarget(Name=ownFile-web)
+2024-05-30 20:35:28.1956 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 20:35:28.1956 Trace Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 20:35:28.1956 Trace  Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 20:35:28.1956 Trace  Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 20:35:28.1956 Trace FileTarget(Name=ownFile-web) has 2 layouts
+2024-05-30 20:35:28.1956 Trace FileTarget(Name=ownFile-web): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 20:35:28.2104 Trace Initializing Layout Renderer: ${message}
+2024-05-30 20:35:28.2104 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.2104 Trace Initializing Layout Renderer: ${level}
+2024-05-30 20:35:28.2104 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.2104 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 20:35:28.2104 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2024-05-30 20:35:28.2104 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:28.2104 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 20:35:28.2253 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:28.2253 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 20:35:28.2253 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.2253 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 20:35:28.2253 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.2253 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 20:35:28.2253 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.2253 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 20:35:28.2433 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 20:35:28.2433 Trace Initializing .\logs\${shortdate}_logfile.txt
+2024-05-30 20:35:28.2433 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 20:35:28.2433 Trace Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 20:35:28.2433 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 20:35:28.2433 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.2433 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 20:35:28.2578 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 20:35:28.2578 Trace Initializing FileTarget(Name=logfile)
+2024-05-30 20:35:28.2578 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 20:35:28.2578 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 20:35:28.2578 Trace  Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 20:35:28.2578 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 20:35:28.2578 Trace FileTarget(Name=logfile) has 2 layouts
+2024-05-30 20:35:28.2732 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 20:35:28.2732 Info Configuration initialized.
+2024-05-30 20:35:32.5337 Debug Targets configured when LogLevel >= Trace for Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:32.5337 Debug Logger sicotyc.logger.service.LoggerManager [Trace] => logfile ownFile-web
+2024-05-30 20:35:32.5337 Debug Logger sicotyc.logger.service.LoggerManager [Debug] => logfile ownFile-web
+2024-05-30 20:35:32.5409 Debug Logger sicotyc.logger.service.LoggerManager [Info] => logfile ownFile-web
+2024-05-30 20:35:32.5409 Debug Logger sicotyc.logger.service.LoggerManager [Warn] => logfile ownFile-web
+2024-05-30 20:35:32.5409 Debug Logger sicotyc.logger.service.LoggerManager [Error] => logfile ownFile-web
+2024-05-30 20:35:32.5409 Debug Logger sicotyc.logger.service.LoggerManager [Fatal] => logfile ownFile-web
+2024-05-30 20:35:32.5723 Debug FileTarget(Name=logfile): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 20:35:32.5723 Debug FileTarget(Name=logfile): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 20:35:32.5723 Trace FileTarget(Name=logfile): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt with allowFileSharedWriting=False
+2024-05-30 20:35:32.5916 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:32.5916 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:32.5916 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:32.5916 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:32.6021 Debug FileTarget(Name=ownFile-web): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 20:35:32.6021 Debug FileTarget(Name=ownFile-web): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 20:35:32.6021 Trace FileTarget(Name=ownFile-web): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log with allowFileSharedWriting=False
+2024-05-30 20:35:49.7006 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:49.7006 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:49.7006 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:49.7006 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:55.9979 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:55.9979 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:55.9979 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:55.9979 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:55.9979 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.0084 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.0084 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.0084 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1490 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1490 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1490 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1490 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1490 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1490 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1634 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1634 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1634 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1634 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1634 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1634 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1634 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1793 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:35:56.1793 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:35:56.1793 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:00.7506 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:00.7506 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:00.7506 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:00.7506 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.7516 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.7516 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.7516 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.7588 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.7588 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.7588 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.7588 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.7588 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.8672 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.8672 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.8672 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.8672 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.8672 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.8672 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.8814 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.8814 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.8814 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.8814 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:05.8814 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:05.8814 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:28.9680 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:28.9680 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:28.9680 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:28.9680 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:53.3314 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:53.3314 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:53.3314 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:53.3367 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:58.0741 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:58.0741 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:36:58.0741 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:36:58.0741 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:03.8730 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:03.8730 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:03.8730 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:03.8730 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:15.8164 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:15.8164 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:15.8202 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:15.8202 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:17.7953 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:17.7953 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:17.7953 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:17.7953 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:23.0301 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:23.0301 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:23.0301 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:23.0301 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:27.5420 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:27.5420 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:27.5420 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:27.5420 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:39.5014 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:39.5014 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:37:39.5014 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:37:39.5086 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:00.9247 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:00.9247 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:00.9287 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:00.9287 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:00.9287 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:00.9287 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:00.9287 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:00.9287 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:01.0377 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:01.0377 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:01.0377 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:01.0377 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:01.0377 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:01.0377 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:01.0377 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:01.0377 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:01.0551 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:01.0551 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:01.0551 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:01.0551 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:22.2109 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:22.2109 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:38:22.2109 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:38:22.2109 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:39:26.6153 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:39:26.6153 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:39:26.6186 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:39:26.6186 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:39:44.1016 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:39:44.1016 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:39:44.1016 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:39:44.1016 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:01.0008 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:01.0008 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:01.0008 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:01.0008 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:22.8789 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:22.8789 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:22.8816 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:22.8816 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:22.8816 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:22.8816 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:22.8816 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:22.8816 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:23.0091 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:23.0091 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:23.0091 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:23.0091 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:23.0091 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:23.0091 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:23.0240 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:23.0240 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:23.0240 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:23.0240 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:23.0240 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:23.0240 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:34.0703 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:34.0703 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:34.0703 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:34.0703 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:36.0335 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:36.0335 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:40:36.0335 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:40:36.0412 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:41:27.5970 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:41:27.5970 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:41:27.6039 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:41:27.6039 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:41:34.1813 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:41:34.1813 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:41:34.1813 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:41:34.1813 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:41:56.4808 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:41:56.4808 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 20:41:56.4808 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 20:41:56.4936 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:47:43.0892 Debug Message Template Auto Format enabled
+2024-05-30 22:47:43.1381 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-30 22:47:43.1705 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.11.1082. Product version: 5.3.11+6a33919b2cf5fd3206f473d2230556ffa0b67d67. GlobalAssemblyCache: False
+2024-05-30 22:47:43.1705 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2024-05-30 22:47:43.2080 Debug Loading assembly name: NLog.Web.AspNetCore succeeded!
+2024-05-30 22:47:43.2226 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2226 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 22:47:43.2226 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 22:47:43.2226 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2226 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 22:47:43.2345 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2345 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 22:47:43.2345 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2345 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 22:47:43.2345 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 22:47:43.2345 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 22:47:43.2476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2476 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 22:47:43.2476 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 22:47:43.2476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2476 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 22:47:43.2476 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2476 Trace Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 22:47:43.2660 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2660 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 22:47:43.2660 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2660 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 22:47:43.2660 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2660 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 22:47:43.2874 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2874 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 22:47:43.2874 Trace  Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 22:47:43.2943 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2943 Trace Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 22:47:43.2943 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.2943 Trace Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 22:47:43.2943 Debug Adding target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 22:47:43.2943 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 22:47:43.2943 Trace ParseRulesElement
+2024-05-30 22:47:43.3235 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-05-30 22:47:43.3334 Debug Start watching file-filter 'nlog.config' in directory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server
+2024-05-30 22:47:43.3334 Debug --- NLog configuration dump ---
+2024-05-30 22:47:43.3334 Debug Targets:
+2024-05-30 22:47:43.3334 Debug FileTarget(Name=logfile)
+2024-05-30 22:47:43.3411 Debug FileTarget(Name=ownFile-web)
+2024-05-30 22:47:43.3411 Debug Rules:
+2024-05-30 22:47:43.3411 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2024-05-30 22:47:43.3411 Debug logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True
+2024-05-30 22:47:43.3411 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]
+2024-05-30 22:47:43.3411 Debug --- End of NLog configuration dump ---
+2024-05-30 22:47:43.3605 Trace FindReachableObject<System.Object>:
+2024-05-30 22:47:43.3605 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2024-05-30 22:47:43.3605 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 22:47:43.3605 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 22:47:43.3605 Trace   Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 22:47:43.3605 Trace   Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 22:47:43.3749 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.3749 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.3749 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 22:47:43.3749 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.3749 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 22:47:43.3882 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 22:47:43.3882 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.3882 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 22:47:43.3882 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.3882 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 22:47:43.3882 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4044 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 22:47:43.4044 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 22:47:43.4044 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 22:47:43.4044 Trace Scanning LoggingRule 'logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True'
+2024-05-30 22:47:43.4044 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 22:47:43.4044 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 22:47:43.4214 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 22:47:43.4214 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]'
+2024-05-30 22:47:43.4214 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 22:47:43.4214 Trace  Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 22:47:43.4214 Trace   Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 22:47:43.4369 Trace   Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 22:47:43.4369 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.4369 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4369 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 22:47:43.4369 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4527 Trace   Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 22:47:43.4527 Trace   Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 22:47:43.4527 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.4527 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 22:47:43.4527 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4673 Trace    Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 22:47:43.4673 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4673 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 22:47:43.4673 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4673 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 22:47:43.4856 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4856 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 22:47:43.4856 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4856 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 22:47:43.4986 Trace     Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 22:47:43.4986 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.4986 Trace    Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 22:47:43.4986 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.5134 Trace    Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 22:47:43.5134 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 22:47:43.5134 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 22:47:43.5134 Info Validating config: TargetNames=logfile, ownFile-web, ConfigItems=35, FilePath=E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\nlog.config
+2024-05-30 22:47:43.5336 Debug Unused target checking is started... Rule Count: 3, Target Count: 2
+2024-05-30 22:47:43.5535 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 2, Unused Target Count: 0
+2024-05-30 22:47:43.5535 Trace Initializing Layout Renderer: ${aspnet-mvc-action}
+2024-05-30 22:47:43.5620 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5620 Trace Initializing Layout Renderer: ${aspnet-request-url}
+2024-05-30 22:47:43.5620 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5620 Trace Initializing Layout Renderer: ${exception}
+2024-05-30 22:47:43.5620 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5620 Trace Initializing Layout Renderer: ${message}
+2024-05-30 22:47:43.5771 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5771 Trace Initializing Layout Renderer: ${level}
+2024-05-30 22:47:43.5771 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5771 Trace Initializing Layout Renderer: ${loggername}
+2024-05-30 22:47:43.5771 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5771 Trace Initializing Layout Renderer: ${event-properties}
+2024-05-30 22:47:43.5924 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.5924 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 22:47:43.5924 Trace Initializing ${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}
+2024-05-30 22:47:43.5924 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.5924 Trace Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 22:47:43.5924 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.5924 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 22:47:43.6088 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6088 Trace  Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 22:47:43.6088 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6088 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 22:47:43.6088 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6088 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 22:47:43.6242 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6242 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 22:47:43.6242 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6242 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 22:47:43.6242 Trace   Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 22:47:43.6242 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6388 Trace  Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 22:47:43.6388 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6388 Trace  Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 22:47:43.6388 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.6388 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 22:47:43.6388 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.6544 Trace Initializing .\logs\nlog-own-${shortdate}.log
+2024-05-30 22:47:43.6544 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.6544 Trace Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 22:47:43.6544 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.6544 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6544 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 22:47:43.6710 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.6710 Trace Initializing FileTarget(Name=ownFile-web)
+2024-05-30 22:47:43.6710 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 22:47:43.6710 Trace Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 22:47:43.6710 Trace  Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 22:47:43.6710 Trace  Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 22:47:43.6864 Trace FileTarget(Name=ownFile-web) has 2 layouts
+2024-05-30 22:47:43.6864 Trace FileTarget(Name=ownFile-web): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 22:47:43.6864 Trace Initializing Layout Renderer: ${message}
+2024-05-30 22:47:43.6864 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.6864 Trace Initializing Layout Renderer: ${level}
+2024-05-30 22:47:43.6864 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.7012 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 22:47:43.7012 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2024-05-30 22:47:43.7012 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.7012 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 22:47:43.7012 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.7012 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 22:47:43.7012 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.7168 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 22:47:43.7168 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.7168 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 22:47:43.7168 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.7168 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 22:47:43.7168 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 22:47:43.7168 Trace Initializing .\logs\${shortdate}_logfile.txt
+2024-05-30 22:47:43.7168 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 22:47:43.7341 Trace Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 22:47:43.7341 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 22:47:43.7341 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.7341 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 22:47:43.7341 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 22:47:43.7341 Trace Initializing FileTarget(Name=logfile)
+2024-05-30 22:47:43.7490 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 22:47:43.7490 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 22:47:43.7490 Trace  Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 22:47:43.7490 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 22:47:43.7490 Trace FileTarget(Name=logfile) has 2 layouts
+2024-05-30 22:47:43.7490 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 22:47:43.7665 Info Configuration initialized.
+2024-05-30 22:50:46.2481 Debug Targets configured when LogLevel >= Trace for Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:50:46.2481 Debug Logger sicotyc.logger.service.LoggerManager [Trace] => logfile ownFile-web
+2024-05-30 22:50:46.2481 Debug Logger sicotyc.logger.service.LoggerManager [Debug] => logfile ownFile-web
+2024-05-30 22:50:46.2481 Debug Logger sicotyc.logger.service.LoggerManager [Info] => logfile ownFile-web
+2024-05-30 22:50:46.2576 Debug Logger sicotyc.logger.service.LoggerManager [Warn] => logfile ownFile-web
+2024-05-30 22:50:46.2576 Debug Logger sicotyc.logger.service.LoggerManager [Error] => logfile ownFile-web
+2024-05-30 22:50:46.2576 Debug Logger sicotyc.logger.service.LoggerManager [Fatal] => logfile ownFile-web
+2024-05-30 22:50:46.2773 Debug FileTarget(Name=logfile): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 22:50:46.2773 Debug FileTarget(Name=logfile): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 22:50:46.2773 Trace FileTarget(Name=logfile): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt with allowFileSharedWriting=False
+2024-05-30 22:50:46.2773 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:50:46.2773 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:50:46.2903 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:50:46.2903 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:50:46.2903 Debug FileTarget(Name=ownFile-web): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 22:50:46.2903 Debug FileTarget(Name=ownFile-web): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 22:50:46.2903 Trace FileTarget(Name=ownFile-web): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log with allowFileSharedWriting=False
+2024-05-30 22:50:56.2162 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:50:56.2162 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:50:56.2162 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:50:56.2162 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:50:56.8354 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:50:56.8359 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:50:56.8359 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:50:56.8359 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:51:04.0889 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:51:04.0889 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:51:04.0889 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:51:04.0889 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:51:08.7447 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:51:08.7447 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 22:51:08.7447 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 22:51:08.7447 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:18.9026 Debug Message Template Auto Format enabled
+2024-05-30 23:26:18.9747 Info Loading assembly name: NLog.Web.AspNetCore
+2024-05-30 23:26:19.0043 Info NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.11.1082. Product version: 5.3.11+6a33919b2cf5fd3206f473d2230556ffa0b67d67. GlobalAssemblyCache: False
+2024-05-30 23:26:19.0043 Debug ScanAssembly('NLog.Web.AspNetCore, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c')
+2024-05-30 23:26:19.0555 Debug Loading assembly name: NLog.Web.AspNetCore succeeded!
+2024-05-30 23:26:19.0754 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0754 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 23:26:19.0801 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 23:26:19.0801 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0801 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 23:26:19.0801 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0801 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 23:26:19.0801 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0801 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 23:26:19.0801 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 23:26:19.0951 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-05-30 23:26:19.0951 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0951 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 23:26:19.0951 Debug FileTarget FilePathLayout with FilePathKind.Relative using AppDomain.BaseDirectory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\
+2024-05-30 23:26:19.0951 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0951 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 23:26:19.0951 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.0951 Trace Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 23:26:19.1106 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.1106 Trace Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 23:26:19.1106 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.1106 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 23:26:19.1106 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.1106 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 23:26:19.1317 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.1317 Trace Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 23:26:19.1317 Trace  Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 23:26:19.1317 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.1317 Trace Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 23:26:19.1415 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.1415 Trace Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 23:26:19.1415 Debug Adding target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 23:26:19.1415 Info Registered target NLog.Targets.FileTarget(Name=ownFile-web)
+2024-05-30 23:26:19.1415 Trace ParseRulesElement
+2024-05-30 23:26:19.1606 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-05-30 23:26:19.1606 Debug Start watching file-filter 'nlog.config' in directory: E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server
+2024-05-30 23:26:19.1606 Debug --- NLog configuration dump ---
+2024-05-30 23:26:19.1606 Debug Targets:
+2024-05-30 23:26:19.1726 Debug FileTarget(Name=logfile)
+2024-05-30 23:26:19.1726 Debug FileTarget(Name=ownFile-web)
+2024-05-30 23:26:19.1726 Debug Rules:
+2024-05-30 23:26:19.1726 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2024-05-30 23:26:19.1726 Debug logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True
+2024-05-30 23:26:19.1726 Debug logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]
+2024-05-30 23:26:19.1726 Debug --- End of NLog configuration dump ---
+2024-05-30 23:26:19.1726 Trace FindReachableObject<System.Object>:
+2024-05-30 23:26:19.1726 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2024-05-30 23:26:19.1896 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 23:26:19.1896 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 23:26:19.1896 Trace   Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 23:26:19.1896 Trace   Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 23:26:19.1896 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.1896 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.1896 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 23:26:19.2042 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2042 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 23:26:19.2042 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 23:26:19.2042 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.2042 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 23:26:19.2042 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2042 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 23:26:19.2042 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2218 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 23:26:19.2218 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 23:26:19.2218 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 23:26:19.2218 Trace Scanning LoggingRule 'logNamePattern: (Microsoft.:StartsWith) levels: [ Trace Debug Info ] writeTo: [ ] final: True'
+2024-05-30 23:26:19.2218 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 23:26:19.2218 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 23:26:19.2218 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 23:26:19.2362 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Trace Debug Info Warn Error Fatal ] writeTo: [ ownFile-web ]'
+2024-05-30 23:26:19.2362 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2024-05-30 23:26:19.2362 Trace  Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 23:26:19.2362 Trace   Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 23:26:19.2362 Trace   Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 23:26:19.2362 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.2362 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2521 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 23:26:19.2521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2521 Trace   Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 23:26:19.2521 Trace   Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 23:26:19.2521 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.2521 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 23:26:19.2521 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2521 Trace    Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 23:26:19.2684 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2684 Trace    Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 23:26:19.2684 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2684 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 23:26:19.2684 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2684 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 23:26:19.2684 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2684 Trace    Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 23:26:19.2833 Trace     Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 23:26:19.2833 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2833 Trace    Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 23:26:19.2833 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.2833 Trace    Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 23:26:19.2833 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2024-05-30 23:26:19.2833 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2024-05-30 23:26:19.2998 Info Validating config: TargetNames=logfile, ownFile-web, ConfigItems=35, FilePath=E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\nlog.config
+2024-05-30 23:26:19.2998 Debug Unused target checking is started... Rule Count: 3, Target Count: 2
+2024-05-30 23:26:19.2998 Debug Unused target checking is completed. Total Rule Count: 3, Total Target Count: 2, Unused Target Count: 0
+2024-05-30 23:26:19.2998 Trace Initializing Layout Renderer: ${aspnet-mvc-action}
+2024-05-30 23:26:19.2998 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.2998 Trace Initializing Layout Renderer: ${aspnet-request-url}
+2024-05-30 23:26:19.2998 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.2998 Trace Initializing Layout Renderer: ${exception}
+2024-05-30 23:26:19.3154 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3154 Trace Initializing Layout Renderer: ${message}
+2024-05-30 23:26:19.3154 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3154 Trace Initializing Layout Renderer: ${level}
+2024-05-30 23:26:19.3154 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3154 Trace Initializing Layout Renderer: ${loggername}
+2024-05-30 23:26:19.3291 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3291 Trace Initializing Layout Renderer: ${event-properties}
+2024-05-30 23:26:19.3291 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3291 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 23:26:19.3291 Trace Initializing ${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}
+2024-05-30 23:26:19.3291 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.3291 Trace Scanning SimpleLayout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}'
+2024-05-30 23:26:19.3291 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.3457 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 23:26:19.3457 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3457 Trace  Scanning EventPropertiesLayoutRenderer 'Layout Renderer: ${event-properties}'
+2024-05-30 23:26:19.3457 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3457 Trace  Scanning LoggerNameLayoutRenderer 'Layout Renderer: ${loggername}'
+2024-05-30 23:26:19.3457 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3457 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 23:26:19.3457 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3623 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 23:26:19.3623 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3623 Trace  Scanning ExceptionLayoutRenderer 'Layout Renderer: ${exception}'
+2024-05-30 23:26:19.3623 Trace   Scanning Property Formats 'System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]' System.Collections.Generic.List`1[NLog.Config.ExceptionRenderingFormat]
+2024-05-30 23:26:19.3623 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3623 Trace  Scanning AspNetRequestUrlRenderer 'Layout Renderer: ${aspnet-request-url}'
+2024-05-30 23:26:19.3623 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3778 Trace  Scanning AspNetMvcActionRenderer 'Layout Renderer: ${aspnet-mvc-action}'
+2024-05-30 23:26:19.3778 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3778 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 23:26:19.3778 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.3778 Trace Initializing .\logs\nlog-own-${shortdate}.log
+2024-05-30 23:26:19.3778 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.3934 Trace Scanning SimpleLayout '.\logs\nlog-own-${shortdate}.log'
+2024-05-30 23:26:19.3934 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.3934 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3934 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 23:26:19.3934 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.3934 Trace Initializing FileTarget(Name=ownFile-web)
+2024-05-30 23:26:19.4088 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 23:26:19.4088 Trace Scanning FileTarget 'FileTarget(Name=ownFile-web)'
+2024-05-30 23:26:19.4088 Trace  Scanning Property FileName '.\logs\nlog-own-${shortdate}.log' NLog.Layouts.Layout
+2024-05-30 23:26:19.4088 Trace  Scanning Property Layout '${longdate}|${event-properties:item=EventId_Id}|${logger}|${level:uppercase=true}|  ${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}' NLog.Layouts.Layout
+2024-05-30 23:26:19.4088 Trace FileTarget(Name=ownFile-web) has 2 layouts
+2024-05-30 23:26:19.4234 Trace FileTarget(Name=ownFile-web): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 23:26:19.4234 Trace Initializing Layout Renderer: ${message}
+2024-05-30 23:26:19.4234 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.4234 Trace Initializing Layout Renderer: ${level}
+2024-05-30 23:26:19.4234 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.4234 Trace Initializing Layout Renderer: ${longdate}
+2024-05-30 23:26:19.4385 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2024-05-30 23:26:19.4385 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.4385 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2024-05-30 23:26:19.4385 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.4385 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2024-05-30 23:26:19.4385 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.4543 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2024-05-30 23:26:19.4543 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.4543 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2024-05-30 23:26:19.4543 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.4543 Trace Initializing Layout Renderer: ${shortdate}
+2024-05-30 23:26:19.4543 Trace Initializing Layout Renderer: ${literal}
+2024-05-30 23:26:19.4543 Trace Initializing .\logs\${shortdate}_logfile.txt
+2024-05-30 23:26:19.4706 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2024-05-30 23:26:19.4706 Trace Scanning SimpleLayout '.\logs\${shortdate}_logfile.txt'
+2024-05-30 23:26:19.4706 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2024-05-30 23:26:19.4706 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.4706 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2024-05-30 23:26:19.4706 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2024-05-30 23:26:19.4706 Trace Initializing FileTarget(Name=logfile)
+2024-05-30 23:26:19.4863 Trace FindReachableObject<NLog.Layouts.Layout>:
+2024-05-30 23:26:19.4863 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2024-05-30 23:26:19.4863 Trace  Scanning Property FileName '.\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2024-05-30 23:26:19.4863 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2024-05-30 23:26:19.4863 Trace FileTarget(Name=logfile) has 2 layouts
+2024-05-30 23:26:19.4863 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2024-05-30 23:26:19.5035 Info Configuration initialized.
+2024-05-30 23:26:35.2207 Debug Targets configured when LogLevel >= Trace for Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:35.2207 Debug Logger sicotyc.logger.service.LoggerManager [Trace] => logfile ownFile-web
+2024-05-30 23:26:35.2207 Debug Logger sicotyc.logger.service.LoggerManager [Debug] => logfile ownFile-web
+2024-05-30 23:26:35.2207 Debug Logger sicotyc.logger.service.LoggerManager [Info] => logfile ownFile-web
+2024-05-30 23:26:35.2207 Debug Logger sicotyc.logger.service.LoggerManager [Warn] => logfile ownFile-web
+2024-05-30 23:26:35.2207 Debug Logger sicotyc.logger.service.LoggerManager [Error] => logfile ownFile-web
+2024-05-30 23:26:35.2207 Debug Logger sicotyc.logger.service.LoggerManager [Fatal] => logfile ownFile-web
+2024-05-30 23:26:35.2391 Debug FileTarget(Name=logfile): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 23:26:35.2391 Debug FileTarget(Name=logfile): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt'
+2024-05-30 23:26:35.2391 Trace FileTarget(Name=logfile): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\2024-05-30_logfile.txt with allowFileSharedWriting=False
+2024-05-30 23:26:35.2541 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:35.2541 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:35.2541 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:35.2541 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:35.2541 Debug FileTarget(Name=ownFile-web): Preparing for new file: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 23:26:35.2541 Debug FileTarget(Name=ownFile-web): Creating file appender: 'E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log'
+2024-05-30 23:26:35.2679 Trace FileTarget(Name=ownFile-web): Opening E:\WS\JARASOFT\sicotyc2024\sicotyc\sicotyc.Server\bin\Debug\net8.0\.\logs\nlog-own-2024-05-30.log with allowFileSharedWriting=False
+2024-05-30 23:26:43.4530 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:43.4530 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:43.4565 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:43.4565 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:44.2750 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:44.2750 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:44.2750 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:44.2750 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:47.0451 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:47.0451 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:47.0451 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:47.0505 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:50.3379 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:50.3379 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:26:50.3379 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:26:50.3379 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:05.3051 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:05.3051 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:05.3051 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:05.3051 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:21.7905 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:21.7905 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:21.7905 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:21.7994 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.8679 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:41.8679 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.8679 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:41.8679 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.8819 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:41.8819 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.8819 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:41.8819 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.9934 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:41.9934 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.9934 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:41.9934 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:41.9934 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.0039 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.0039 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.0039 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.0039 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.0039 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.0039 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.0039 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.0227 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.0227 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.0227 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.0227 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.8486 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.8486 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:42.8486 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:42.8486 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:43.5845 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:43.5845 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:43.5845 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:43.5845 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:44.2014 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:44.2014 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:44.2014 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:44.2064 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:44.7724 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:44.7724 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
+2024-05-30 23:27:44.7724 Debug ServiceProvider has not been registered. Cannot resolve: Microsoft.AspNetCore.Http.IHttpContextAccessor
+2024-05-30 23:27:44.7724 Debug No available HttpContext, because outside valid request context. Logger: sicotyc.logger.service.LoggerManager
