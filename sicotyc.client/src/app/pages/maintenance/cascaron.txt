@@ -4,7 +4,9 @@
             <div class="card-body">
                 <input type="text"
                         class="form-control"
-                        placeholder="Buscar usuario...">
+                        placeholder="Buscar usuario..."
+                        #txtTerm
+                        (keyup)="search(txtTerm.value)">
             </div>
         </div>
     </div>
@@ -71,9 +73,16 @@
                         </tbody>
                     </table>
                 </div>
-                <button class="btn btn-secondary">Anteriores</button>
-                &nbsp;
-                <button class="btn btn-secondary">Siguientes</button>
+                <div *ngIf="txtTerm.value.length === 0">
+                    <app-pagination
+                        [totalItems]="pagination.totalItems"
+                        [itemsPerPage]="pagination.pageSize"
+                        (paginaCambiada)="changePage($event)"                >                    
+                    </app-pagination>
+                    <!-- <button (click)="changePage(-5)" class="btn btn-secondary">Anteriores</button>
+                    &nbsp;
+                    <button (click)="changePage(5)" class="btn btn-secondary">Siguientes</button> -->
+                </div>
             </div>
         </div>
     </div>

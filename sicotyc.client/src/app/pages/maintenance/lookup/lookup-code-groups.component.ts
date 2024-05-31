@@ -56,9 +56,9 @@ export class LookupCodeGroupsComponent implements OnInit {
 
     this.searchService.search('LOOKUPCODEGROUPS', searchTerm)
     .subscribe((resp: any) => {
-      if (resp.length > 0) {
+      if (resp.result.length > 0) {
         this.useSearch = true;
-        var ids = resp.map((e:any) => e.id)
+        var ids = resp.result.map((e:any) => e.id)
 
         this.lookupService.findLookupCodeGroupsByIdCollection(ids)
         .subscribe((resp: any) => {

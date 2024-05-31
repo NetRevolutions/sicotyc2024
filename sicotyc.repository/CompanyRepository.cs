@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using sicotyc.contracts;
 using sicotyc.entities.Models;
+using sicotyc.entities.RequestFeatures;
+using sicotyc.repository.Extensions;
 
 namespace sicotyc.repository
 {
@@ -11,9 +13,44 @@ namespace sicotyc.repository
         {
         }
 
+        public async Task<PagedList<Company>> GetAllCompaniesAsync(CompanyParameters companyParameters, bool trackChanges)
+        {
+            var companies = new List<Company>();
+            if (!String.IsNullOrEmpty(companyParameters.SearchTerm))
+            {
+                companies = await FindAll(trackChanges)
+                    .Where(c => c.Ruc.Contains(companyParameters.SearchTerm) ||
+                            c.CompanyName.Contains(companyParameters.SearchTerm) ||
+                            c.CompanyComercialName.Contains(companyParameters.SearchTerm))
+                    .OrderBy(o => o.Ruc)
+                    .ToListAsync();
+                
+            }
+            else
+            {
+                companies = await FindByCondition(c => c.Ruc != string.Empty, trackChanges)
+                .Search(companyParameters.SearchTerm)
+                .Sort(companyParameters.OrderBy)
+                .ToListAsync();
+            }
+            
+
+            return PagedList<Company>
+                .ToPagedList(companies, companyParameters.PageNumber, companyParameters.PageSize);
+        }
+
+        public async Task<IEnumerable<Company>> GetAllCompaniesAsync(bool trackChanges) =>
+            await FindByCondition(c => c.Ruc != string.Empty, trackChanges)
+            .Sort("CompanyName")
+            .ToListAsync();
+
         public async Task<Company> GetCompanyByIdAsync(Guid id, bool trackChanges) =>
             await FindByCondition(o => o.CompanyId.Equals(id), trackChanges)
             .SingleOrDefaultAsync();
+
+        public async Task<IEnumerable<Company>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges) =>
+            await FindByCondition(x => ids.Contains(x.CompanyId), trackChanges)
+            .ToListAsync();
 
         public async Task<Company> GetCompanyByRucAsync(string ruc, bool trackChanges) =>
             await FindByCondition(o => o.Ruc.Equals(ruc), trackChanges)
@@ -30,6 +67,6 @@ namespace sicotyc.repository
                 DeleteCompany(company);
         }
 
-
+        
     }
 }

@@ -10,5 +10,6 @@ namespace sicotyc.service.contracts
         Task<IEnumerable<SearchResultDto>> SearchLookupCodeGroupsAsync(string searchTerm);
         Task<IEnumerable<SearchResultDto>> SearchLookupCodesAsync(string searchTerm);
         Task<IEnumerable<SearchResultDto>> SearchByCollectionAsync(string collection, string searchTerm);
+        Task<IEnumerable<SearchResultDto>> SearchCompaniesAsync(string searchTerm);
     }
 }
