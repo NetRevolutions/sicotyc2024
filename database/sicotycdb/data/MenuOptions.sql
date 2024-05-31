@@ -138,6 +138,42 @@ BEGIN
 	INSERT INTO SCT.OPTIONS (OptionId, Title, Icon, Url, OptionOrder, OptionLevel, OptionParentId, CreatedBy, CreatedOn)
 	VALUES (NEWID(), 'Menu', NULL, '/mantenimientos/menu', @maxOrderNum, 2, @parentOptionID, 'SYSTEM', GETUTCDATE())
 END
+
+IF NOT EXISTS (SELECT * FROM SCT.OPTIONS WHERE Title = 'Empresas' AND OptionParentId = @parentOptionID AND OptionLevel = 2)
+BEGIN
+	SET @maxOrderNum = @maxOrderNum + 1
+	INSERT INTO SCT.OPTIONS (OptionId, Title, Icon, Url, OptionOrder, OptionLevel, OptionParentId, CreatedBy, CreatedOn)
+	VALUES (NEWID(), 'Empresas', NULL, '/mantenimientos/companies', @maxOrderNum, 2, @parentOptionID, 'SYSTEM', GETUTCDATE())
+END
+
+IF NOT EXISTS (SELECT * FROM SCT.OPTIONS WHERE Title = 'Choferes' AND OptionParentId = @parentOptionID AND OptionLevel = 2)
+BEGIN
+	SET @maxOrderNum = @maxOrderNum + 1
+	INSERT INTO SCT.OPTIONS (OptionId, Title, Icon, Url, OptionOrder, OptionLevel, OptionParentId, CreatedBy, CreatedOn)
+	VALUES (NEWID(), 'Choferes', NULL, '/mantenimientos/drivers', @maxOrderNum, 2, @parentOptionID, 'SYSTEM', GETUTCDATE())
+END
+
+IF NOT EXISTS (SELECT * FROM SCT.OPTIONS WHERE Title = 'Unidades de Transporte' AND OptionParentId = @parentOptionID AND OptionLevel = 2)
+BEGIN
+	SET @maxOrderNum = @maxOrderNum + 1
+	INSERT INTO SCT.OPTIONS (OptionId, Title, Icon, Url, OptionOrder, OptionLevel, OptionParentId, CreatedBy, CreatedOn)
+	VALUES (NEWID(), 'Unidades de Transporte', NULL, '/mantenimientos/unit-transports', @maxOrderNum, 2, @parentOptionID, 'SYSTEM', GETUTCDATE())
+END
+
+IF NOT EXISTS (SELECT * FROM SCT.OPTIONS WHERE Title = 'Almacenes' AND OptionParentId = @parentOptionID AND OptionLevel = 2)
+BEGIN
+	SET @maxOrderNum = @maxOrderNum + 1
+	INSERT INTO SCT.OPTIONS (OptionId, Title, Icon, Url, OptionOrder, OptionLevel, OptionParentId, CreatedBy, CreatedOn)
+	VALUES (NEWID(), 'Almacenes', NULL, '/mantenimientos/warehouses', @maxOrderNum, 2, @parentOptionID, 'SYSTEM', GETUTCDATE())
+END
+
+IF NOT EXISTS (SELECT * FROM SCT.OPTIONS WHERE Title = 'Zonas' AND OptionParentId = @parentOptionID AND OptionLevel = 2)
+BEGIN
+	SET @maxOrderNum = @maxOrderNum + 1
+	INSERT INTO SCT.OPTIONS (OptionId, Title, Icon, Url, OptionOrder, OptionLevel, OptionParentId, CreatedBy, CreatedOn)
+	VALUES (NEWID(), 'Zonas', NULL, '/mantenimientos/zones', @maxOrderNum, 2, @parentOptionID, 'SYSTEM', GETUTCDATE())
+END
+
 -------------------------------------------------------------------------------------------------------------------
 -- Tutoriales options
 SELECT @parentOptionID = OptionID FROM SCT.OPTIONS WHERE Title = 'Tutoriales' AND OptionLevel = 1
