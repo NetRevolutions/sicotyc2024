@@ -8,6 +8,8 @@
         ICompanyRepository Company { get; }
         IUserCompanyRepository UserCompany { get; }
         IUserDetailRepository UserDetail { get; }
+        IDriverRepository Driver { get; }
+        IDriverLicenseRepository DriverLicense { get; }
         IRepositoryStoreProcedure RepositoryStoreProcedure { get; }
 
         Task SaveAsync();

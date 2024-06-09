@@ -1,12 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using sicotyc.entities.Models;
 
-namespace sicotyc.entities.Models
+namespace sicotyc.entities.DataTransferObjects
 {
-    [Table("DRIVER", Schema = "SCT")]
-    public class Driver : TrackingBase
+    public class DriverDto
     {
-        [Key]
         public Guid DriverId { get; set; }
         public string? Ruc { get; set; }
         public string? FirsName { get; set; }
@@ -14,8 +11,8 @@ namespace sicotyc.entities.Models
         public string? Img { get; set; }
         public string? DocumentType { get; set; }
         public string? DocumentNumber { get; set; }
-        public DateTime? DocumentExpiration { get; set; }  
-        public ICollection<DriverLicense>? DriverLicenses { get; set; }        
+        public DateTime? DocumentExpiration { get; set; }
+        public ICollection<DriverLicense>? DriverLicenses { get; set; }
         public bool EnableIMO { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string? Address { get; set; }

@@ -9,7 +9,6 @@ using sicotyc.entities.RequestFeatures;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace sicotyc.repository

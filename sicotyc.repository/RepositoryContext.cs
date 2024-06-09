@@ -31,7 +31,7 @@ namespace sicotyc.repository
                 .HasKey(u => new { u.DriverId, u.WhareHouseId });
 
             modelBuilder.Entity<MenuOptionRole>()
-                .HasKey(u => new { u.RoleId, u.OptionId });
+                .HasKey(u => new { u.RoleId, u.OptionId });            
 
         }
 
@@ -45,10 +45,10 @@ namespace sicotyc.repository
         public DbSet<UserDetail>? UserDetails { get; set; }
         public DbSet<ComplementTransport>? ComplementTransports { get; set; }
         public DbSet<Driver>? Drivers { get; set; }
+        public DbSet<DriverLicense>? DriverLicenses { get; set; }        
         public DbSet<TransportDetail>? TransportDetails { get; set; }
         public DbSet<UnitTransport>? UnitTransports { get; set; }
         public DbSet<WhareHouse>? WhareHouses { get; set; }
-        public DbSet<DriverLicense>? DriverLicenses { get; set; }
         public DbSet<DriverWhareHouse>? DriverWhareHouses { get; set; }
         public DbSet<MenuOption>? MenuOptions { get; set; }
         public DbSet<MenuOptionRole>? MenuOptionRoles { get; set; }

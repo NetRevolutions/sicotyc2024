@@ -39,6 +39,8 @@ namespace sicotyc.Server
             CreateMap<Company, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.CompanyId))
                 .ForMember(d => d.Name, opt => opt.MapFrom(o => o.CompanyName));
+            CreateMap<DriverForRegistrationDto, Driver>().ReverseMap();
+            CreateMap<DriverForUpdateDto, Driver>().ReverseMap();           
 
         }
     }

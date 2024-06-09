@@ -7,10 +7,9 @@ namespace sicotyc.entities.Models
     {
         [ForeignKey(nameof(Driver))]
         public Guid DriverId { get; set; }
-        public Driver? Driver { get; set; }
-
-        public string? LicenseNumber { get; set; }
-        public string? LicenseType { get; set; }
+        public Driver? Driver { get; set; }        
+        public string? LicenseNumber { get; set; }        
+        public string? LicenseType { get; set; }        
         public DateTime? LicenseExpiration { get; set; }
     }
 }

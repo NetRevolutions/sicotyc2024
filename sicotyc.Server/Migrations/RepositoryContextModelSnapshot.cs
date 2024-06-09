@@ -976,7 +976,7 @@ namespace sicotyc.Server.Migrations
 
                     b.HasKey("OptionId");
 
-                    b.ToTable("OptionByRoles");
+                    b.ToTable("OptionByRoles", (string)null);
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.TransportDetail", b =>
