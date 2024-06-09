@@ -9,7 +9,7 @@ namespace sicotyc.service
 {
     public class SearchService : ISearchService
     {
-        private readonly IRepositoryManager _repository;
+        private readonly IRepositoryManager _repository;        
         private readonly IMapper _mapper;
 
         public SearchService(IRepositoryManager repository, IMapper mapper)
@@ -38,6 +38,8 @@ namespace sicotyc.service
                     return await SearchLookupCodesAsync(searchTerm);
                 case "COMPANIES":
                     return await SearchCompaniesAsync(searchTerm);
+                case "DRIVERS":
+                    return await SearchDriversAsync(searchTerm);
                 default:
                     throw new ArgumentException("Coleccion no valida", nameof(collection));
 
@@ -103,6 +105,26 @@ namespace sicotyc.service
             
             var searchesDto = _mapper.Map<IEnumerable<SearchResultDto>>(companiesFromDB);
             searchesDto.ForEach(x => { x.Entity = "Companies"; });
+
+            return searchesDto;
+        }
+
+        public async Task<IEnumerable<SearchResultDto>> SearchDriversAsync(string searchTerm)
+        {
+            string[] search = searchTerm.Split('|');
+            bool isAdmin = bool.Parse(search[0].ToString());
+            string ruc = search[1].ToString().Trim();
+            string term = search[2].ToString();
+
+            DriverParameters driverParameters = new DriverParameters();
+            driverParameters.SearchTerm = term;
+            driverParameters._pageSize = 1000;
+
+            var driversFromDB = isAdmin ? await _repository.Driver.GetAllDriversAsAdminAsync(driverParameters, trackChanges: false) :
+                                                        await _repository.Driver.GetAllDriversAsync(driverParameters, ruc, trackChanges: false);  
+            
+            var searchesDto = _mapper.Map<IEnumerable<SearchResultDto>>(driversFromDB);
+            searchesDto.ForEach(x => { x.Entity = "Drivers"; });
 
             return searchesDto;
         }

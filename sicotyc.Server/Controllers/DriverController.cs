@@ -7,7 +7,6 @@ using sicotyc.entities.Models;
 using sicotyc.entities.RequestFeatures;
 using sicotyc.Server.ActionFilters;
 using sicotyc.Server.ModelBinders;
-using sicotyc.service.contracts;
 
 namespace sicotyc.Server.Controllers
 {
@@ -22,7 +21,6 @@ namespace sicotyc.Server.Controllers
         private readonly IAuthenticationManager _authManager;
         private readonly IRepositoryManager _repository;
         private readonly IConfiguration _configuration;
-        private readonly IServiceManager _service;
 
         public DriverController(ILoggerManager logger,
             IMapper mapper,
@@ -30,8 +28,7 @@ namespace sicotyc.Server.Controllers
             RoleManager<IdentityRole> roleManager,
             IAuthenticationManager authManager,
             IRepositoryManager repository,
-            IConfiguration configuration,
-            IServiceManager service)
+            IConfiguration configuration)
         {
             _authManager = authManager;
             _logger = logger;
@@ -40,7 +37,6 @@ namespace sicotyc.Server.Controllers
             _roleManager = roleManager;
             _repository = repository;
             _configuration = configuration;
-            _service = service;
         }
 
         #region CRUD Driver
@@ -56,7 +52,7 @@ namespace sicotyc.Server.Controllers
                 var driverEntity = _mapper.Map<Driver>(driverForRegistration);                
                 driverEntity.CreatedBy = currentUserDto != null ? currentUserDto.Id : "system";
 
-                _service.Driver.CreateDriver(driverEntity);
+                _repository.Driver.CreateDriver(driverEntity);
                 await _repository.SaveAsync();
 
                 var driverToReturn = _mapper.Map<DriverForRegistrationDto>(driverEntity);
@@ -74,7 +70,7 @@ namespace sicotyc.Server.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> GetDriver(Guid id)
         {            
-            var driver = await _service.Driver.GetDriverByIdAsync(id, trackChanges: false);
+            var driver = await _repository.Driver.GetDriverByIdAsync(id, trackChanges: false);
             if (driver == null)
             {
                 _logger.LogError($"El conductor con id {id} no existe en la base de datos.");
@@ -96,7 +92,7 @@ namespace sicotyc.Server.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> GetDriverByIDRuc(string docNumber)
         {
-            var driver = await _service.Driver.GetDriverByDocumentNumberAsync(docNumber, trackChanges: false);
+            var driver = await _repository.Driver.GetDriverByDocumentNumberAsync(docNumber, trackChanges: false);
             if (driver == null)
             {
                 //_logger.LogError($"El conductor con documento {docNumber} no existe en la base de datos.");
@@ -122,7 +118,10 @@ namespace sicotyc.Server.Controllers
             try
             {
                 var currentUserDto = await GetUserInfoFromToken();
-                var driversDb = await _service.Driver.GetAllDriversAsync(driverParameters, currentUserDto.Ruc, currentUserDto.Roles[0] == "Administrator", trackChanges: false);
+                var driversDb = currentUserDto.Roles[0] == "Administrator" ? 
+                                await _repository.Driver.GetAllDriversAsAdminAsync(driverParameters, trackChanges: false) :
+                                await _repository.Driver.GetAllDriversAsync(driverParameters, currentUserDto.Ruc, trackChanges: false); 
+
                 if (driversDb.Any())
                 {
                     foreach (var driver in driversDb) 
@@ -158,7 +157,10 @@ namespace sicotyc.Server.Controllers
             try
             {
                 var currentUserDto = await GetUserInfoFromToken();
-                var driversDb = await _service.Driver.GetAllDriversAsync(currentUserDto.Ruc, currentUserDto.Roles[0] == "Administrator", trackChanges: false);
+                var driversDb = currentUserDto.Roles[0] == "Administrator" ? 
+                                await _repository.Driver.GetAllDriversAsAdminAsync(trackChanges: false) :
+                                await _repository.Driver.GetAllDriversAsync(currentUserDto.Ruc, trackChanges: false);
+                    
                 var driversDto = _mapper.Map<IEnumerable<DriverDto>>(driversDb);
 
                 return Ok(driversDto);
@@ -180,7 +182,7 @@ namespace sicotyc.Server.Controllers
                 return BadRequest("Parametro ids es nulo");
             }
 
-            var driverEntities = await _service.Driver.GetByIdsAsync(ids, trackChanges: false);
+            var driverEntities = await _repository.Driver.GetByIdsAsync(ids, trackChanges: false);
 
             if (ids.Count() != driverEntities.Count()) {
                 _logger.LogError("Algunos de los Ids de la coleccion no son validos");
@@ -197,7 +199,7 @@ namespace sicotyc.Server.Controllers
         {
             try
             {
-                var driverDb = _service.Driver.GetDriverByIdAsync(id, trackChanges: false);
+                var driverDb = _repository.Driver.GetDriverByIdAsync(id, trackChanges: false);
                 if (driverDb == null)
                 {
                     _logger.LogInfo($"El conductor con id: {id} no existe en la base de datos.");
@@ -224,14 +226,14 @@ namespace sicotyc.Server.Controllers
         {
             try
             {
-                var driverDb = await _service.Driver.GetDriverByIdAsync(id, trackChanges: false);
+                var driverDb = await _repository.Driver.GetDriverByIdAsync(id, trackChanges: false);
                 if (driverDb == null)
                 {
                     _logger.LogInfo($"El conductor con id: {id} no existe en la base de datos.");
                     return NotFound();
                 }
 
-                _service.Driver.DeleteDriver(driverDb);
+                _repository.Driver.DeleteDriver(driverDb);
                 await _repository.SaveAsync();
 
                 return NoContent();

@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using sicotyc.contracts;
-using sicotyc.entities.Models;
 using sicotyc.service.contracts;
 
 namespace sicotyc.service
@@ -10,22 +8,18 @@ namespace sicotyc.service
     {        
         private readonly Lazy<ISearchService> _searchService;
         private readonly Lazy<ISunatService> _sunatService;
-        private readonly Lazy<IDriverService> _driverService;
 
-        public ServiceManager(IRepositoryManager repositoryManager,
+        public ServiceManager(IRepositoryManager repository,                                
                                 ILoggerManager logger,
                                 IMapper mapper,
-                                //UserManager<User> userManager,
                                 IAuthenticationManager authManager)
         {            
-            _searchService = new Lazy<ISearchService>(() => new SearchService(repositoryManager, mapper));
-            _sunatService = new Lazy<ISunatService>(() => new SunatService(repositoryManager, mapper));
-            _driverService = new Lazy<IDriverService>(() => new DriverService(repositoryManager, mapper));
+            _searchService = new Lazy<ISearchService>(() => new SearchService(repository, mapper));
+            _sunatService = new Lazy<ISunatService>(() => new SunatService(repository, mapper));
         }        
 
         public ISearchService SearchService => _searchService.Value;
 
-        public ISunatService Sunat => _sunatService.Value;
-        public IDriverService Driver => _driverService.Value;        
+        public ISunatService Sunat => _sunatService.Value;       
     }
 }
