@@ -787,6 +787,31 @@ namespace sicotyc.Server.Controllers
             }
         }
 
+
+        // Read
+        [HttpGet("user/docNumber/{docNumber}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> GetUserByDocNumber(string docNumber)
+        {
+            try
+            {
+                var userDetailResult = await _repository.UserDetail.GetUserDetailByNumDocAsync(docNumber, trackChanges: false);
+                if (userDetailResult != null)
+                {
+                    return await GetUser(new Guid(userDetailResult.Id));                    
+                }
+                else 
+                {
+                    return NoContent();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Hubo un error al tratar de realizar la busqueda de usuario por numero de documento, aca el detalle: {ex.Message}");
+                return BadRequest("Hubo un error al tratar de realizar la busqueda de usuario por numero de documento");
+            }
+        }
+
         // Update
         [HttpPut("user/{id:guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]

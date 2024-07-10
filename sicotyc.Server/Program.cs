@@ -32,7 +32,10 @@ builder.Services.AddControllers(config => {
     config.RespectBrowserAcceptHeader = true; // Con esto habilito otros tipos de respuestas (ej. text/xml) 
     config.ReturnHttpNotAcceptable = true; // Con esto retrinjo respuestas aceptables (ej: text/json, text/xml
     //config.CacheProfiles.Add("120SecondsDuration", new CacheProfile { Duration = 120});
-}).AddXmlDataContractSerializerFormatters(); // Serializo en XML
+}).AddXmlDataContractSerializerFormatters() // Serializo en XML
+.AddJsonOptions(options => { 
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+}); 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

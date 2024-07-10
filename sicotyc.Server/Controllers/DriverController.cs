@@ -44,18 +44,23 @@ namespace sicotyc.Server.Controllers
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [ServiceFilter(typeof(ValidationTokenFilter))]
-        public async Task<IActionResult> RegisterDriver([FromBody] DriverForRegistrationDto driverForRegistration)
+        public async Task<IActionResult> RegisterDriver([FromBody] DriverForCreationDto driverForRegistration)
         {
             try
             {
-                var currentUserDto = await GetUserInfoFromToken();
-                var driverEntity = _mapper.Map<Driver>(driverForRegistration);                
-                driverEntity.CreatedBy = currentUserDto != null ? currentUserDto.Id : "system";
+                foreach (var item in driverForRegistration.DriverLicenses)
+                {
+                    if (item.DriverLicenseId == Guid.Parse("00000000-0000-0000-0000-000000000000")) {
+                        item.DriverLicenseId = Guid.NewGuid();
+                    }
+                }
+
+                var driverEntity = _mapper.Map<Driver>(driverForRegistration);
 
                 _repository.Driver.CreateDriver(driverEntity);
                 await _repository.SaveAsync();
 
-                var driverToReturn = _mapper.Map<DriverForRegistrationDto>(driverEntity);
+                var driverToReturn = _mapper.Map<DriverForCreationDto>(driverEntity);
 
                 return CreatedAtRoute("DriverById", new { id = driverToReturn.DriverId }, driverToReturn);
             }
@@ -66,7 +71,7 @@ namespace sicotyc.Server.Controllers
             }
         }
 
-        [HttpGet("driver/{id:guid}", Name = "DriverById")]
+        [HttpGet("{id}", Name = "DriverById")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> GetDriver(Guid id)
         {            
@@ -77,20 +82,21 @@ namespace sicotyc.Server.Controllers
                 return NotFound();
             }
             else {
+                var driverDto = _mapper.Map<DriverDto>(driver);
+
                 var driverLicenses = await _repository.DriverLicense.GetDriverLicensesByDriverAsync(id, trackChanges: false);
-                if (!driverLicenses.Any())
+                if (driverLicenses.Any())
                 {
-                    driver.DriverLicenses = driverLicenses.ToList();
+                    driverDto.DriverLicenses = driverLicenses.ToList();
                 }
 
-                var driverDto = _mapper.Map<DriverDto>(driver);
                 return Ok(driverDto);
             }
         }
 
-        [HttpGet("driver/docNumber/{docNumber}")]
+        [HttpGet("docNumber/{docNumber}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        public async Task<IActionResult> GetDriverByIDRuc(string docNumber)
+        public async Task<IActionResult> GetDriverByDocument(string docNumber)
         {
             var driver = await _repository.Driver.GetDriverByDocumentNumberAsync(docNumber, trackChanges: false);
             if (driver == null)
@@ -113,6 +119,7 @@ namespace sicotyc.Server.Controllers
 
         [HttpGet("GetDrivers")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [ServiceFilter(typeof(ValidationTokenFilter))]
         public async Task<IActionResult> GetDrivers([FromQuery] DriverParameters driverParameters)
         {
             try
@@ -127,13 +134,13 @@ namespace sicotyc.Server.Controllers
                     foreach (var driver in driversDb) 
                     { 
                         var driverLicenses = await _repository.DriverLicense.GetDriverLicensesByDriverAsync(driver.DriverId, trackChanges: false);
-                        if (!driverLicenses.Any())
+                        if (driverLicenses.Any())
                         {
                             driver.DriverLicenses = driverLicenses.ToList();
                         }
                     }
                 }
-
+                
                 var driversDto = _mapper.Map<IEnumerable<DriverDto>>(driversDb);
 
                 return Ok(new
@@ -152,6 +159,7 @@ namespace sicotyc.Server.Controllers
 
         [HttpGet("GetDrivers/All")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [ServiceFilter(typeof(ValidationTokenFilter))]
         public async Task<IActionResult> GetDriversAll()
         {
             try
@@ -189,22 +197,32 @@ namespace sicotyc.Server.Controllers
                 return NotFound();
             }
 
+            if (driverEntities.Any()) {
+                foreach (var driverEntity in driverEntities) { 
+                    var driverLicenses = await _repository.DriverLicense.GetDriverLicensesByDriverAsync(driverEntity.DriverId, trackChanges: false);
+                    if (driverLicenses.Any()) {
+                        driverEntity.DriverLicenses = driverLicenses.ToList();
+                    }
+                }
+            }
+
             var driversToReturn = _mapper.Map<IEnumerable<DriverDto>>(driverEntities);
             return Ok(driversToReturn);
         }
 
         [HttpPut("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [ServiceFilter(typeof(ValidationTokenFilter))]
         public async Task<IActionResult> UpdateDriver(Guid id, [FromBody] DriverForUpdateDto driverDto)
         {
             try
-            {
+            {                
                 var driverDb = _repository.Driver.GetDriverByIdAsync(id, trackChanges: false);
                 if (driverDb == null)
                 {
                     _logger.LogInfo($"El conductor con id: {id} no existe en la base de datos.");
                     return NotFound();
-                }
+                }               
 
                 _mapper.Map(driverDto, driverDb);
 
@@ -222,6 +240,7 @@ namespace sicotyc.Server.Controllers
 
         [HttpDelete("{id}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
+        [ServiceFilter(typeof(ValidationTokenFilter))]
         public async Task<IActionResult> DeleteDriver(Guid id)
         {
             try

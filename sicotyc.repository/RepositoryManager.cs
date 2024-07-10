@@ -7,7 +7,7 @@ namespace sicotyc.repository
 {
     public sealed class RepositoryManager : IRepositoryManager
     {
-        private readonly RepositoryContext _repositoryContext;
+        private readonly RepositoryContext _repositoryContext;       
 
         private readonly Lazy<IAuthenticationManager> _authenticationManager;
         private readonly Lazy<ILookupCodeGroupRepository> _lookupCodeGroupRepository;
@@ -18,6 +18,7 @@ namespace sicotyc.repository
         private readonly Lazy<IDriverLicenseRepository> _driverLicenseRepository;
         private readonly Lazy<IDriverRepository> _driverRepository;
         private readonly Lazy<IRepositoryStoreProcedure> _repositoryStoreProcedure;
+        
 
         public RepositoryManager(UserManager<User> userManager, IConfiguration configuration, RepositoryContext repositoryContext)
         {

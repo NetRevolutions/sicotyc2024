@@ -17,7 +17,7 @@ namespace sicotyc.repository.Extensions
                             d.Address.Contains(lowerCaseTerm) ||
                             d.DocumentNumber.Contains(lowerCaseTerm) ||
                             d.DocumentType.Contains(lowerCaseTerm) ||
-                            d.FirsName.Contains(lowerCaseTerm) ||
+                            d.FirstName.Contains(lowerCaseTerm) ||
                             d.LastName.Contains(lowerCaseTerm));
         }
 

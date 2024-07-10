@@ -8,7 +8,7 @@ const base_url = environment.base_url;
 })
 export class ModalImageService {
   private _hideModal: boolean = true;
-  public folderFile?: 'USERS'|'TRANSPORTS';
+  public folderFile?: 'USERS'|'TRANSPORTS'|'DRIVERS';
   public id?: string;
   public img?: string;
 
@@ -19,7 +19,7 @@ export class ModalImageService {
   }
 
   openModal(
-    folderFile: 'USERS'|'TRANSPORTS',
+    folderFile: 'USERS'|'TRANSPORTS'|'DRIVERS',
     id: string = '',
     img: string = 'no-image'
   ) {

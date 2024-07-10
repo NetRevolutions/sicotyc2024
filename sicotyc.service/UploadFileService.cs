@@ -26,6 +26,7 @@ namespace sicotyc.service
 
         public async Task<bool> UpdateImageAsync(string type, Guid id, string rootPath, string fileName)
         {
+            string oldPath = String.Empty;
             switch (type.ToUpper())
             {
                 case "USERS":
@@ -36,7 +37,7 @@ namespace sicotyc.service
                         return false;
                     }
 
-                    string oldPath = Path.Combine(rootPath, "Uploads", type!, userDB.Img == null ? string.Empty : userDB.Img);
+                    oldPath = Path.Combine(rootPath, "Uploads", type!, userDB.Img == null ? string.Empty : userDB.Img);
 
                     this.DeleteImage(oldPath);
 
@@ -46,8 +47,24 @@ namespace sicotyc.service
 
                 //break;
                 case "TRANSPORTS":
+                    // TODO: Pending implement
                     return true;
                 //break;
+                case "DRIVERS":
+                    var driverDB = await _respository.Driver.GetDriverByIdAsync(id, trackChanges: true);
+                    if (driverDB == null)
+                    {
+                        _logger.LogError($"Driver con id {id} no existe en la BD");
+                        return false;
+                    }
+
+                    oldPath = Path.Combine(rootPath, "Uploads", type!, driverDB.Img == null ? string.Empty : driverDB.Img);
+
+                    this.DeleteImage(oldPath);
+
+                    driverDB.Img = fileName;
+                    await _respository.SaveAsync();
+                    return true;
 
                 default:
                     return false;

@@ -23,7 +23,7 @@ namespace sicotyc.repository
                             d.Address.Contains(driverParameters.SearchTerm) ||
                             d.DocumentNumber.Contains(driverParameters.SearchTerm) ||
                             d.DocumentType.Contains(driverParameters.SearchTerm) ||
-                            d.FirsName.Contains(driverParameters.SearchTerm) ||
+                            d.FirstName.Contains(driverParameters.SearchTerm) ||
                             d.LastName.Contains(driverParameters.SearchTerm))
                     .OrderBy(o => o.LastName)
                     .ToListAsync();                
@@ -50,7 +50,7 @@ namespace sicotyc.repository
                             d.Address.Contains(driverParameters.SearchTerm) ||
                             d.DocumentNumber.Contains(driverParameters.SearchTerm) ||
                             d.DocumentType.Contains(driverParameters.SearchTerm) ||
-                            d.FirsName.Contains(driverParameters.SearchTerm) ||
+                            d.FirstName.Contains(driverParameters.SearchTerm) ||
                             d.LastName.Contains(driverParameters.SearchTerm) ||
                             d.Ruc.Contains(driverParameters.SearchTerm))
                     .OrderBy(o => o.LastName)

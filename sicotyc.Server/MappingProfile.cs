@@ -39,11 +39,15 @@ namespace sicotyc.Server
             CreateMap<Company, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.CompanyId))
                 .ForMember(d => d.Name, opt => opt.MapFrom(o => o.CompanyName));
-            CreateMap<DriverForRegistrationDto, Driver>().ReverseMap();
+            CreateMap<DriverDto, Driver>().ReverseMap();
+            CreateMap<DriverForCreationDto, Driver>().ReverseMap();
             CreateMap<DriverForUpdateDto, Driver>().ReverseMap();
+            CreateMap<DriverLicenseDto, DriverLicense>();
+            CreateMap<DriverLicenseForCreationDto, DriverLicense>().ReverseMap();
+            CreateMap<DriverLicenseForUpdateDto, DriverLicense>().ReverseMap();
             CreateMap<Driver, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.DriverId))
-                .ForMember(d => d.Name, opt => opt.MapFrom(o => o.FirsName + " " + o.LastName));
+                .ForMember(d => d.Name, opt => opt.MapFrom(o => o.FirstName + " " + o.LastName));
 
         }
     }

@@ -411,7 +411,7 @@ namespace sicotyc.Server.Migrations
                     b.Property<bool>("EnableIMO")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirsName")
+                    b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Img")

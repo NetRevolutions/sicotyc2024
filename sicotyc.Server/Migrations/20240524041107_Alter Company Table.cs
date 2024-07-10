@@ -19,9 +19,9 @@ namespace sicotyc.Server.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {   
-            migrationBuilder.DropTable(
-                name: "COMPANY",
-                schema: "SCT");
+            //migrationBuilder.DropTable(
+            //    name: "COMPANY",
+            //    schema: "SCT");
         }
     }
 }

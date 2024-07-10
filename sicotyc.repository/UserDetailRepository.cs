@@ -22,6 +22,12 @@ namespace sicotyc.repository
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<UserDetail> GetUserDetailByNumDocAsync(string numdoc, bool trackChanges)
+        {
+            return await FindByCondition(ud => ud.DocumentNumber.Equals(numdoc), trackChanges)
+                .FirstOrDefaultAsync();
+        }
+
         public void CreateUserDetail(UserDetail userDetail) => Create(userDetail);
 
         public void DeleteUserDetail(UserDetail userDetail) => Delete(userDetail);

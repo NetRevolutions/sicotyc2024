@@ -9,7 +9,7 @@
                     (submit)="saveUser()">
                     <div class="form-group row"
                             *ngIf="userSelected">
-                        <label for="exampleInputuname3" class="col-sm-3 control-label">Foto</label>
+                        <label for="photo" class="col-sm-3 control-label">Foto</label>
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <img [src]="userSelected.img | img: 'users'" 

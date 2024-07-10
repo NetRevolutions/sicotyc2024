@@ -21,7 +21,7 @@ import { ITuple } from 'src/app/interfaces/tuple.interface';
   styles: [
   ]
 })
-export class UsersComponent implements OnInit, OnDestroy{
+export class UsersComponent implements OnInit, OnDestroy{  
   public users: User[] = [];
   public usersTemp: User[] = [];
   public pagination: IPagination = {
@@ -56,7 +56,7 @@ export class UsersComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.imgSubs.unsubscribe(); // Con esto evitamos fuga de memoria
   };
-
+  
   loadUsers() {
     this.loading = true;
     this.userService.loadUsers(this.pagination)
@@ -161,10 +161,7 @@ export class UsersComponent implements OnInit, OnDestroy{
     });
   };
 
-  onSelectedValues(user: User) {
-    // TODO: Validar que no me este actualizando yo mismo
-    console.log('userId_logued',this.userService.uid);
-    console.log('userId_changed', user.id);
+  onSelectedValues(user: User) {    
     if (user.roles?.indexOf('Administrator') !== -1)
     {
       Swal.fire({
@@ -220,8 +217,7 @@ export class UsersComponent implements OnInit, OnDestroy{
   };
 
   openModalImage(user: User)
-  {
-    console.log(user);
+  {    
     this.modalImageService.openModal('USERS', user.id, user.img)
   }
 }

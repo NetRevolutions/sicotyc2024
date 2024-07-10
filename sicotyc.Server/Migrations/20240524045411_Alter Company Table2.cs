@@ -13,12 +13,12 @@ namespace sicotyc.Server.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "CompanyComercialName",
-                schema: "SCT",
-                table: "COMPANY",
-                type: "nvarchar(max)",
-                nullable: true);
+            //migrationBuilder.AddColumn<string>(
+            //    name: "CompanyComercialName",
+            //    schema: "SCT",
+            //    table: "COMPANY",
+            //    type: "nvarchar(max)",
+            //    nullable: true);
 
             //migrationBuilder.DropColumn(
             //    name: "CompanyComercialName",
@@ -29,12 +29,12 @@ namespace sicotyc.Server.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {            
-            migrationBuilder.AddColumn<string>(
-                name: "CompanyComercialName",
-                schema: "SCT",
-                table: "COMPANY",
-                type: "nvarchar(max)",
-                nullable: true);
+            //migrationBuilder.AddColumn<string>(
+            //    name: "CompanyComercialName",
+            //    schema: "SCT",
+            //    table: "COMPANY",
+            //    type: "nvarchar(max)",
+            //    nullable: true);
             
         }
     }

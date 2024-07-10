@@ -17,6 +17,7 @@ namespace sicotyc.repository
     {
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
+        
         private User? _user;
 
         public AuthenticationManager(UserManager<User> userManager, IConfiguration configuration, RepositoryContext repositoryContext)
@@ -180,12 +181,10 @@ namespace sicotyc.repository
             return PagedList<User>
                 .ToPagedList(users, userParameters.PageNumber, userParameters.PageSize);
 
-        }
-
-
+        }        
 
         public async Task<User> FindUserByEmailAsync(string email, bool trackChanges)
-        {
+        {            
             return await FindByCondition(u => u.Email.ToLower().Trim() == email.ToLower().Trim(), trackChanges).FirstOrDefaultAsync();
         }
 
@@ -236,7 +235,7 @@ namespace sicotyc.repository
             {
                 //claims.Add(new Claim(ClaimTypes.Role, role));
                 claims.Add(new Claim("Role", role));
-            }
+            };      
 
             return claims;
         }
