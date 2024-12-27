@@ -15,6 +15,14 @@ namespace sicotyc.entities.Models
         [MaxLength(60, ErrorMessage = " La longitud maxima del nombre del LookupCodeGroup es de 60 caracteres")]
         public string? Name { get; set; }
 
-        public ICollection<LookupCode>? LookupCodes { get; set; } // Navigational properties
+        // Relation 1:1
+
+
+        // Relation 1:*
+        public List<LookupCode>? LookupCodes { get; set; }
+
+        // Relation *:*
+
+        
     }
 }
