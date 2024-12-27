@@ -798,7 +798,7 @@ namespace sicotyc.Server.Controllers
                 var userDetailResult = await _repository.UserDetail.GetUserDetailByNumDocAsync(docNumber, trackChanges: false);
                 if (userDetailResult != null)
                 {
-                    return await GetUser(new Guid(userDetailResult.Id));                    
+                    return await GetUser(new Guid(userDetailResult.User.Id));                    
                 }
                 else 
                 {

@@ -1,1 +1,331 @@
-<p>unit-transport works!</p>
+<div class="row animated fadeIn fast">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Unidad de Transporte</h4>
+                <h6 class="card-subtitle">{{subTitle}}</h6>
+                <form class="form-horizontal p-t-20"
+                    [formGroup]="unitTransportForm">
+                    <!-- <div class="form-group row"
+                            *ngIf="driverSelected">
+                        <label for="photoDriver" class="col-sm-4 control-label">Foto</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <img [src]="driverSelected.img | img: 'drivers'" 
+                                     class="w200"/>
+                            </div>
+                        </div>
+                    </div>                     -->
+                    <div class="form-group row">
+                        <label for="plate" class="col-sm-2 control-label">Placa*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="text"
+                                        formControlName="plate" 
+                                        class="form-control" 
+                                        id="plate" 
+                                        placeholder="Placa">
+                            </div>
+                        </div>
+                        <label for="typeOfTransport" class="col-sm-2 control-label">Tipo de Transporte*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <select class="form-control" formControlName="typeOfTransport" id="typeOfTransport">
+                                    <option value="">Seleccione</option>
+                                    <option *ngFor="let item of typeOfTransports" value="{{item.lookupCodeValue}}">{{item.lookupCodeName}}</option>                                    
+                                </select>
+                            </div>
+                        </div>
+                        <label for="fabricationYear" class="col-sm-2 control-label">Año de Fabricacion.*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="number"
+                                        formControlName="fabricationYear" 
+                                        class="form-control" 
+                                        id="fabricationYear" 
+                                        placeholder="Año de Fabricacion">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="modelYear" class="col-sm-2 control-label">Año del Modelo.*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="number"
+                                        formControlName="modelYear" 
+                                        class="form-control" 
+                                        id="modelYear" 
+                                        placeholder="Año del Modelo">
+                            </div>
+                        </div>
+                        <label for="soatExpiredDate" class="col-sm-2 control-label">Vigencia SOAT*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="date"
+                                        formControlName="soatExpiredDate" 
+                                        class="form-control" 
+                                        id="soatExpiredDate" 
+                                        placeholder="Vigencia SOAT">
+                            </div>
+                        </div>
+                        <label for="technicalReviewExpiredDate" class="col-sm-2 control-label">Vigencia Rev. Tecnica*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="date"
+                                        formControlName="technicalReviewExpiredDate" 
+                                        class="form-control" 
+                                        id="technicalReviewExpiredDate" 
+                                        placeholder="Vigencia Rev. Tecnica">
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="form-group row">
+                        <label for="vehicleQualificationExpirationDate" class="col-sm-2 control-label">Vigencia MTC*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="date"
+                                        formControlName="vehicleQualificationExpirationDate" 
+                                        class="form-control" 
+                                        id="vehicleQualificationExpirationDate" 
+                                        placeholder="Vigencia MTC">
+                            </div>
+                        </div>
+                        <label for="vehicleQualificationNumber" class="col-sm-2 control-label">Nro. MTC</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="text"
+                                        formControlName="vehicleQualificationNumber" 
+                                        class="form-control" 
+                                        id="vehicleQualificationNumber" 
+                                        placeholder="Nro. MTC">
+                            </div>
+                        </div>
+                        <label for="vehicleConfiguration" class="col-sm-2 control-label">Conf. Vehicular*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="text"
+                                        formControlName="vehicleConfiguration" 
+                                        class="form-control" 
+                                        id="vehicleConfiguration" 
+                                        placeholder="Conf. Vehicular">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="ruc" class="col-sm-2 control-label">Ruc*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="text"
+                                        formControlName="ruc" 
+                                        class="form-control" 
+                                        id="ruc" 
+                                        placeholder="ruc">
+                            </div>
+                        </div>
+                        <label for="brand" class="col-sm-2 control-label">Marca de Vehiculo*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                <input type="text"
+                                        formControlName="brand" 
+                                        class="form-control" 
+                                        id="brand" 
+                                        placeholder="Marca de vehiculo">
+                            </div>
+                        </div>
+                        <label for="fuel" class="col-sm-2 control-label">Tipo de Combustible*</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <select class="form-control" formControlName="fuel" id="fuel">
+                                    <option value="">Seleccione</option>
+                                    <option *ngFor="let item of typeOfFuels" value="{{item.lookupCodeValue}}">{{item.lookupCodeName}}</option>                                    
+                                </select>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="form-group row">
+                        <label for="additionalNotes" class="col-sm-2 control-label">Notas adicionales</label>
+                        <div class="col-sm-4">
+                            <div class="input-group">                                
+                                <textarea formControlName = "additionalNotes"
+                                        rows="3"                                                                               
+                                        class="form-control" 
+                                        id="additionalNotes" 
+                                        placeholder="Notas adicionales">
+                                </textarea>
+                            </div>
+                        </div>
+                        
+                    </div> 
+                    <hr class="my-4">
+                    <div class="form-group row">    
+                        <div class="card-body">
+                            <h4 class="card-title">Detalles</h4>
+                        </div>                    
+                    </div>                                   
+                    <div class="form-group row">
+                        <label for="category" class="col-sm-2 control-label">Categoria</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <select class="form-control" formControlName="category" id="category">
+                                    <option value="">Seleccione</option>
+                                    <option *ngFor="let item of categories" value="{{item.lookupCodeValue}}">{{item.lookupCodeName}}</option>                                    
+                                </select>
+                            </div>
+                        </div>
+                        <label for="model" class="col-sm-2 control-label">Modelo</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="text"
+                                        formControlName="model" 
+                                        class="form-control" 
+                                        id="model" 
+                                        placeholder="Modelo">
+                            </div>
+                        </div>
+                        <label for="color" class="col-sm-2 control-label">Color</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="text"
+                                        formControlName="color" 
+                                        class="form-control" 
+                                        id="color" 
+                                        placeholder="Color">
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="form-group row">
+                        <label for="serialNumber" class="col-sm-2 control-label">Nro de Serie</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="text"
+                                        formControlName="serialNumber" 
+                                        class="form-control" 
+                                        id="serialNumber" 
+                                        placeholder="Nro de Serie">
+                            </div>
+                        </div>
+                        <label for="engineNumber" class="col-sm-2 control-label">Nro de Motor</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="text"
+                                        formControlName="engineNumber" 
+                                        class="form-control" 
+                                        id="engineNumber" 
+                                        placeholder="Nro de Motor">
+                            </div>
+                        </div>
+                        <label for="bodyWork" class="col-sm-2 control-label">Potencia</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="text"
+                                        formControlName="bodyWork" 
+                                        class="form-control" 
+                                        id="bodyWork" 
+                                        placeholder="Potencia">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="large" class="col-sm-2 control-label">Largo (mts.)</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="number"
+                                        formControlName="large" 
+                                        class="form-control" 
+                                        id="large" 
+                                        placeholder="Largo (mts.)">
+                            </div>
+                        </div>
+                        <label for="width" class="col-sm-2 control-label">Ancho (mts.)</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="number"
+                                        formControlName="width" 
+                                        class="form-control" 
+                                        id="width" 
+                                        placeholder="Ancho (mts.)">
+                            </div>
+                        </div>
+                        <label for="height" class="col-sm-2 control-label">Altura (mts.)</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="number"
+                                        formControlName="height" 
+                                        class="form-control" 
+                                        id="height" 
+                                        placeholder="Altura (mts.)">
+                            </div>
+                        </div>
+                    </div>    
+                    <div class="form-group row">
+                        <label for="axles" class="col-sm-2 control-label">Ejes</label>
+                        <div class="col-sm-2">
+                            <div class="input-group">
+                                <!-- <div class="input-group-addon"><i class="ti-lock"></i></div> -->
+                                <input type="number"
+                                        formControlName="axles" 
+                                        class="form-control" 
+                                        id="axles" 
+                                        placeholder="Ejes">
+                            </div>
+                        </div>
+                        <div *ngIf="unitTransportSelected" class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Avatar</h4>
+                                    <h6 class="card-subtitle">Imagen de la Unidad de Transporte</h6>
+                                    <div class="text-center">                                        
+                                        <img *ngIf="!imgTemp" [src]="!unitTransportSelected ? noImageUnitTransport : unitTransportSelected!.imgUrl" class="img-avatar">
+                                        <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
+                                    </div>
+                                    <input type="file"
+                                            (change)="changeImage($any($event.target).files[0])">
+                                    <br>
+                                    <br>
+                                    <button type="button" 
+                                            class="btn btn-success btn-block waves-effect waves-light m-r-10"
+                                            [disabled]="!imgUpload"
+                                            (click)="uploadImage()">
+                                        <i class="fa fa-save"></i>
+                                        Cambiar Imagen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>           
+                    <div class="form-group row">
+                        <div class="form-group row m-b-0" >
+                            <div class="offset-sm-3 col-sm-6">
+                                <button type="submit"
+                                        [disabled]="formIsValid()"
+                                        class="btn btn-success waves-effect waves-light"
+                                        (click)="saveUnitTransport()">
+                                    <i class="fa fa-save"></i>
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>                                                    
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>

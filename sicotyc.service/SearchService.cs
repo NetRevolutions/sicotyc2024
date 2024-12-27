@@ -40,6 +40,8 @@ namespace sicotyc.service
                     return await SearchCompaniesAsync(searchTerm);
                 case "DRIVERS":
                     return await SearchDriversAsync(searchTerm);
+                case "UNIT_TRANSPORTS":
+
                 default:
                     throw new ArgumentException("Coleccion no valida", nameof(collection));
 
@@ -127,6 +129,21 @@ namespace sicotyc.service
             searchesDto.ForEach(x => { x.Entity = "Drivers"; });
 
             return searchesDto;
+        }
+
+        public async Task<IEnumerable<SearchResultDto>> SearchUnitTransportsAsync(string searchTerm) 
+        { 
+            UnitTransportParameters unitTransportParameters = new UnitTransportParameters();
+            unitTransportParameters.SearchTerm = searchTerm;
+            unitTransportParameters._pageSize = 1000;
+
+            var unitTransportsFromDB = await _repository.UnitTransport.GetAllUnitTransportsAsync(unitTransportParameters, trackChanges: false);
+
+            var searchesDto = _mapper.Map<IEnumerable<SearchResultDto>>(unitTransportsFromDB);
+            searchesDto.ForEach(x => { x.Entity = "UnitTransports"; });
+
+            return searchesDto;            
+
         }
     }
 }

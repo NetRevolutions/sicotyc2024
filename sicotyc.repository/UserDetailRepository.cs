@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using sicotyc.contracts;
 using sicotyc.entities.Models;
 
@@ -12,13 +13,13 @@ namespace sicotyc.repository
         }
         public async Task<bool> ExistsUserDetailAsync(UserDetail userDetail, bool trackChanges)
         {
-            return await FindByCondition(ud => ud.Id.Equals(userDetail.Id), trackChanges)
+            return await FindByCondition(ud => ud.User.Id.Equals(userDetail.User.Id), trackChanges)
                 .AnyAsync();
         }
 
         public async Task<UserDetail> GetUserDetailByUserIdAsync(string userId, bool trackChanges)
         {
-            return await FindByCondition(ud => ud.Id.Equals(userId), trackChanges)
+            return await FindByCondition(ud => ud.User.Id.Equals(userId), trackChanges)
                 .FirstOrDefaultAsync();
         }
 

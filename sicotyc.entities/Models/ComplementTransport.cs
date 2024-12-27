@@ -10,7 +10,7 @@ namespace sicotyc.entities.Models
         public Guid ComplementTransportId { get; set; }
         [ForeignKey(nameof(TransportDetail))]
         public Guid TransportDetailId { get; set; }
-        public TransportDetail? TransportDetail { get; set; }
+        public UnitTransportDetail? TransportDetail { get; set; }
         public string? Plate { get; set; }
         public string? Brand { get; set; }
         public DateTime? FabricationYear { get; set; }

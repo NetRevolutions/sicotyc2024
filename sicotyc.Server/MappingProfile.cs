@@ -48,7 +48,12 @@ namespace sicotyc.Server
             CreateMap<Driver, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.DriverId))
                 .ForMember(d => d.Name, opt => opt.MapFrom(o => o.FirstName + " " + o.LastName));
-
+            CreateMap<UnitTransportForRegistrationDto, UnitTransport>().ReverseMap();
+            CreateMap<UnitTransportDto, UnitTransport>().ReverseMap();
+            CreateMap<UnitTransportForUpdateDto, UnitTransport>().ReverseMap();
+            CreateMap<UnitTransport, SearchResultDto>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(o => o.UnitTransportId))
+                .ForMember(d => d.Name, opt => opt.MapFrom(o => o.Plate));
         }
     }
 }

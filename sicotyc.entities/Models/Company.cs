@@ -13,13 +13,26 @@ namespace sicotyc.entities.Models
         [Required(ErrorMessage = "El valor del Ruc es requerido")]
         [RucValidation(ErrorMessage = "El Ruc debe tener 11 digitos numericos")]
         public string? Ruc { get; set; }
+        [Required(ErrorMessage ="Nombre de la empresa es requerido")]
+        [MaxLength(30)]
         public string? CompanyName { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "[NULL]")]
+        [MaxLength(100)]
         public string? CompanyComercialName { get; set; }
         public CompanyStateEnum? CompanyState { get; set; }
         public CompanyConditionEnum? CompanyCondition { get; set; }
         public string? CompanyFiscalAddress { get; set; }
         public string? CompanyEmail { get; set; }
         public string? CompanyPhone { get; set; }
+
+        // Relation 1:1
+        public User? User { get; set; }
+
+        // Relation 1:*
+
+
+        // Relation *:*        
+        public ICollection<CompanyCompanyType>? CompanyCompanyType { get; set; }
 
     }
 }

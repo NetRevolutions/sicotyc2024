@@ -30,6 +30,8 @@ import { CompaniesComponent } from './maintenance/companies/companies.component'
 import { CompanyComponent } from './maintenance/companies/company.component';
 import { DriversComponent } from './maintenance/drivers/drivers.component';
 import { DriverComponent } from './maintenance/drivers/driver.component';
+import { UnitTransportsComponent } from './maintenance/unit-transports/unit-transports.component';
+import { UnitTransportComponent } from './maintenance/unit-transports/unit-transport.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { DriverComponent } from './maintenance/drivers/driver.component';
     CompaniesComponent,
     CompanyComponent,
     DriversComponent,
-    DriverComponent    
+    DriverComponent,
+    UnitTransportsComponent,
+    UnitTransportComponent    
   ],
   exports: [
     DashboardComponent,

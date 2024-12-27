@@ -21,17 +21,15 @@ namespace sicotyc.repository
             modelBuilder.ApplyConfiguration(new LookupCodeConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
-            modelBuilder.Entity<CompanyCompanyType>()
-                .HasKey(e => new { e.CompanyId, e.CompanyTypeId });
+            modelBuilder.Entity<CompanyCompanyType>().HasKey(cct => new { cct.CompanyId, cct.CompanyTypeId });
 
-            modelBuilder.Entity<DriverLicense>()
-                .HasKey(u => new { u.DriverId, u.LicenseNumber, u.LicenseType });
+            modelBuilder.Entity<DriverLicense>().HasKey(dl => new { dl.DriverId, dl.LicenseNumber, dl.LicenseType });
 
-            modelBuilder.Entity<DriverWhareHouse>()
-                .HasKey(u => new { u.DriverId, u.WhareHouseId });
+            modelBuilder.Entity<DriverWhareHouse>().HasKey(mor => new { mor.DriverId, mor.WhareHouseId });
 
-            modelBuilder.Entity<MenuOptionRole>()
-                .HasKey(u => new { u.RoleId, u.OptionId });            
+            modelBuilder.Entity<MenuOptionRole>().HasKey(mor => new { mor.RoleId, mor.OptionId });            
+
+            modelBuilder.Entity<CompanyCompanyType>().HasKey(cct =>new { cct.CompanyId, cct.CompanyTypeId});
 
         }
 
@@ -40,14 +38,12 @@ namespace sicotyc.repository
         public DbSet<LookupCode>? LookupCodes { get; set; }
         public DbSet<Company>? Companies { get; set; }
         public DbSet<CompanyType>? CompanyTypes { get; set; }
-        public DbSet<CompanyCompanyType>? CompanyCompanyTypes { get; set; }
-        public DbSet<UserCompany>? UserCompanies { get; set; }
         public DbSet<UserDetail>? UserDetails { get; set; }
         public DbSet<ComplementTransport>? ComplementTransports { get; set; }
         public DbSet<Driver>? Drivers { get; set; }
         public DbSet<DriverLicense>? DriverLicenses { get; set; }        
-        public DbSet<TransportDetail>? TransportDetails { get; set; }
         public DbSet<UnitTransport>? UnitTransports { get; set; }
+        public DbSet<UnitTransportDetail>? TransportDetails { get; set; }
         public DbSet<WhareHouse>? WhareHouses { get; set; }
         public DbSet<DriverWhareHouse>? DriverWhareHouses { get; set; }
         public DbSet<MenuOption>? MenuOptions { get; set; }

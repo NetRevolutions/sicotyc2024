@@ -1,13 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace sicotyc.entities.Models
+﻿namespace sicotyc.entities.DataTransferObjects
 {
-    [Table("TRANSPORT_DETAIL", Schema = "SCT")]
-    public class TransportDetail
+    public class UnitTransportDetailDto
     {
-        [Key]
-        public Guid TransportDetailId { get; set; }
+        public Guid UnitTransportDetailId { get; set; }
+        public Guid UnitTransportId { get; set; }
         public string? Category { get; set; }
         public string? Model { get; set; }
         public string? Color { get; set; }

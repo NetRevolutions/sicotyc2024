@@ -46,8 +46,20 @@ namespace sicotyc.service
                     return true;
 
                 //break;
-                case "TRANSPORTS":
-                    // TODO: Pending implement
+                case "UNITTRANSPORTS":
+                    var unitTransportDb = await _respository.UnitTransport.GetUnitTransportByIdAsync(id, trackChanges: true);
+                    if (unitTransportDb == null)
+                    {
+                        _logger.LogError($"Unidad de Transporte con id {id} no existe en la BD");
+                        return false;
+                    }
+
+                    oldPath = Path.Combine(rootPath, "Uploads", type!, unitTransportDb.Img == null ? string.Empty : unitTransportDb.Img);
+
+                    this.DeleteImage(oldPath);
+
+                    unitTransportDb.Img = fileName;
+                    await _respository.SaveAsync();
                     return true;
                 //break;
                 case "DRIVERS":

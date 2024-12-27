@@ -10,6 +10,7 @@
         IUserDetailRepository UserDetail { get; }
         IDriverRepository Driver { get; }
         IDriverLicenseRepository DriverLicense { get; }
+        IUnitTransportRepository UnitTransport { get; }
         IRepositoryStoreProcedure RepositoryStoreProcedure { get; }
 
         Task SaveAsync();

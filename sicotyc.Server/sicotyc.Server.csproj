@@ -51,7 +51,7 @@
     <Folder Include="Uploads\Drivers\" />
     <Folder Include="Uploads\Warehouses\" />
     <Folder Include="Uploads\Users\" />
-    <Folder Include="Uploads\Transports\" />
+    <Folder Include="Uploads\UnitTransports\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

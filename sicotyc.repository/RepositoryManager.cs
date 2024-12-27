@@ -17,6 +17,7 @@ namespace sicotyc.repository
         private readonly Lazy<IUserDetailRepository> _userDetailRepository;
         private readonly Lazy<IDriverLicenseRepository> _driverLicenseRepository;
         private readonly Lazy<IDriverRepository> _driverRepository;
+        private readonly Lazy<IUnitTransportRepository> _unitTransportRepository;
         private readonly Lazy<IRepositoryStoreProcedure> _repositoryStoreProcedure;
         
 
@@ -32,6 +33,7 @@ namespace sicotyc.repository
             _userDetailRepository = new Lazy<IUserDetailRepository>(() => new UserDetailRepository(repositoryContext));
             _driverLicenseRepository = new Lazy<IDriverLicenseRepository>(() => new DriverLicenseRepository(repositoryContext));
             _driverRepository = new Lazy<IDriverRepository>(() => new DriverRepository(repositoryContext));
+            _unitTransportRepository = new Lazy<IUnitTransportRepository>(() => new UnitTransportRepository(repositoryContext));
             _repositoryStoreProcedure = new Lazy<IRepositoryStoreProcedure>(() => new RepositoryStoreProcedure(repositoryContext));            
         }
         public IAuthenticationManager AuthenticationManager => _authenticationManager.Value;
@@ -42,6 +44,7 @@ namespace sicotyc.repository
         public IUserDetailRepository UserDetail => _userDetailRepository.Value;
         public IDriverLicenseRepository DriverLicense => _driverLicenseRepository.Value;
         public IDriverRepository Driver => _driverRepository.Value;
+        public IUnitTransportRepository UnitTransport => _unitTransportRepository.Value;
         public IRepositoryStoreProcedure RepositoryStoreProcedure => _repositoryStoreProcedure.Value;
 
         public Task SaveAsync() => _repositoryContext.SaveChangesAsync();

@@ -7,6 +7,7 @@ import { DonaComponent } from './dona/dona.component';
 import { RatingComponent } from './rating/rating.component';
 import { ModalImageComponent } from './modal-image/modal-image.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchCompanyComponent } from './search-company/search-company.component';
 
 
 
@@ -17,7 +18,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     DonaComponent,
     RatingComponent,
     ModalImageComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchCompanyComponent
   ],
   exports: [
     IncrementadorComponent,
@@ -25,7 +27,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     DonaComponent,
     RatingComponent,
     ModalImageComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchCompanyComponent
   ],
   imports: [
     CommonModule,

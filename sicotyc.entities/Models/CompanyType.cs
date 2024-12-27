@@ -10,5 +10,14 @@ namespace sicotyc.entities.Models
         public Guid CompanyTypeId { get; set; }
         [Required(ErrorMessage = "El tipo de empresa es requerido")]
         public string? CompanyTypeName { get; set; }
+
+        // Relation 1:1
+
+
+        // Relation 1:*
+
+
+        // Relation *:*
+        public ICollection<CompanyCompanyType>? CompanyCompanyType { get; set; }
     }
 }
