@@ -15,9 +15,16 @@ namespace sicotyc.entities.Models
         public string? LicenseType { get; set; }
         [Required (ErrorMessage = "La fecha de expiracion de la licencia es requerido")]
         public DateTime? LicenseExpiration { get; set; }
-        
-        [ForeignKey(nameof(Driver))]    // Navigational Properties
+
+        // Relation 1:1
+
+
+        // Relation 1:*
+        [ForeignKey("Driver")] 
         public Guid DriverId { get; set; }
-        public Driver? Driver { get; set; }        
+        public Driver? Driver { get; set; }       
+        
+        // Relation *:*
+
     }
 }

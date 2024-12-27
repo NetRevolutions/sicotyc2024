@@ -22,13 +22,13 @@ namespace sicotyc.repository
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
             modelBuilder.Entity<CompanyCompanyType>().HasKey(cct => new { cct.CompanyId, cct.CompanyTypeId });
-
+            
             modelBuilder.Entity<DriverLicense>().HasKey(dl => new { dl.DriverId, dl.LicenseNumber, dl.LicenseType });
 
-            modelBuilder.Entity<DriverWhareHouse>().HasKey(mor => new { mor.DriverId, mor.WhareHouseId });
+            // TODO:
+            modelBuilder.Entity<MenuOptionRole>().HasKey(mor => new { mor.RoleId, mor.OptionId });
 
-            modelBuilder.Entity<MenuOptionRole>().HasKey(mor => new { mor.RoleId, mor.OptionId });            
-
+            // TODO:
             modelBuilder.Entity<CompanyCompanyType>().HasKey(cct =>new { cct.CompanyId, cct.CompanyTypeId});
 
         }
@@ -45,7 +45,7 @@ namespace sicotyc.repository
         public DbSet<UnitTransport>? UnitTransports { get; set; }
         public DbSet<UnitTransportDetail>? TransportDetails { get; set; }
         public DbSet<WhareHouse>? WhareHouses { get; set; }
-        public DbSet<DriverWhareHouse>? DriverWhareHouses { get; set; }
+        //public DbSet<DriverWhareHouse>? DriverWhareHouses { get; set; }
         public DbSet<MenuOption>? MenuOptions { get; set; }
         public DbSet<MenuOptionRole>? MenuOptionRoles { get; set; }
         public DbSet<OptionByRole>? OptionByRoles { get; set; }
