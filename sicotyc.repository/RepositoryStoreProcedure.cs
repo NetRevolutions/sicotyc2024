@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using sicotyc.contracts;
 using sicotyc.entities.Models;
 
@@ -14,13 +15,21 @@ namespace sicotyc.repository
         }
         public async Task<List<OptionByRole>> GetMenuOptionsByRoleAsync(string roleName)
         {
+            var paramRoleName = new SqlParameter("@ROLE_NAME", roleName);
 
-            return await _repositoryContext.OptionByRoles.FromSqlRaw("EXEC [SCT].[USP_GET_MENU_OPTIONS_BY_ROLE] @p0", roleName).ToListAsync();
+            return await _repositoryContext.Set<OptionByRole>()
+                .FromSqlRaw("EXEC [SCT].[USP_GET_MENU_OPTIONS_BY_ROLE] @ROLE_NAME", paramRoleName)
+                .ToListAsync();
         }
 
         public async Task<List<MenuOptionRole>> UpdateOptionRoleAsync(string roleName, string optionIds)
         {
-            return await _repositoryContext.MenuOptionRoles.FromSqlRaw("EXEC [SCT].[USP_ASSIGN_MENU_OPTIONS] @p0, @p1", roleName, optionIds).ToListAsync();
+            var paramRoleName = new SqlParameter("@roleName", roleName);
+            var paramOptionIds = new SqlParameter("@strOptionIds", optionIds);
+
+            return await _repositoryContext.Set<MenuOptionRole>()
+                .FromSqlRaw("EXEC [SCT].[USP_ASSIGN_MENU_OPTIONS] @roleName, @strOptionIds", paramRoleName, paramOptionIds)
+                .ToListAsync();
         }
     }
 }

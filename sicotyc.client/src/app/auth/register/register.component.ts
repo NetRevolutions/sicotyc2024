@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit{
     ruc: new FormControl('', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
     roles: new FormControl('', [Validators.required]),
     terms: new FormControl(false, [Validators.required]),
-    // roles: ['Administrator']
+    // roles: ['Administrador']
   }, {
     validators: fnpasswordsIguales
   });

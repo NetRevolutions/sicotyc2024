@@ -47,7 +47,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="Uploads\Drivers\" />
     <Folder Include="Uploads\Warehouses\" />
     <Folder Include="Uploads\Users\" />

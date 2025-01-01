@@ -122,7 +122,7 @@ export class UnitTransportComponent implements OnInit{
     .subscribe((userLogged: any) => {
       this.unitTransportForm.get('ruc')?.setValue(userLogged.data.ruc);
 
-      if(role != 'Administrator') {
+      if(role != 'Administrador') {
         const rucControl = this.unitTransportForm.get('ruc');
         if (rucControl) {
           rucControl.disable();
@@ -236,7 +236,7 @@ export class UnitTransportComponent implements OnInit{
         else {
           this.userService.getUserById(userId)
           .subscribe((userLogged: any)=> {
-            if (userLogged.data.ruc != this.unitTransportForm.get('ruc')?.value && role == 'Administrator') {
+            if (userLogged.data.ruc != this.unitTransportForm.get('ruc')?.value && role == 'Administrador') {
               // Unidad de Transporte no existe, lo registro sin problemas.                
               this.unitTransportService.createUnitTransport(data)
               .subscribe((resp: any) => {
@@ -245,7 +245,7 @@ export class UnitTransportComponent implements OnInit{
                 this.router.navigateByUrl(`/mantenimientos/unit-transports/${resp.unitTransportId}`);
               });
             }
-            else if (userLogged.data.ruc != this.unitTransportForm.get('ruc')?.value && role != 'Administrator') {
+            else if (userLogged.data.ruc != this.unitTransportForm.get('ruc')?.value && role != 'Administrador') {
               Swal.fire('Atencion', 'Esta intentando registrar una unidad de transporte con un ruc asociado a otra empresa, debe de enviar la tarjeta de propiedad a actualizacion_datos@sicotyc.com para realizar su registro', 'info');
             }
             else {

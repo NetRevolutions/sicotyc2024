@@ -17,7 +17,7 @@ namespace sicotyc.Server.Controllers
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<Role> _roleManager;
         private readonly IAuthenticationManager _authManager;
         private readonly IRepositoryManager _repository;
         private readonly IConfiguration _configuration;
@@ -25,7 +25,7 @@ namespace sicotyc.Server.Controllers
         public DriverController(ILoggerManager logger,
             IMapper mapper,
             UserManager<User> userManager,
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<Role> roleManager,
             IAuthenticationManager authManager,
             IRepositoryManager repository,
             IConfiguration configuration)
@@ -290,17 +290,17 @@ namespace sicotyc.Server.Controllers
                         _mapper.Map(userDB, userDto);
                         userDto.Roles = userDto.Roles = _userManager.GetRolesAsync(new User
                         {
-                            Id = userDto.Id,
+                            Id = new Guid(userDto.Id),
                             FirstName = userDto.FirstName,
                             LastName = userDto.LastName,
                             Email = userDto.Email,
                             UserName = userDto.UserName
                         }).Result.ToList();
 
-                        Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(uid, false);
+                        Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(uid), false);
                         userDto.Ruc = company.Ruc;
 
-                        UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(uid, false);
+                        UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(uid), false);
                         userDto.UserDetail = userDetail;
                     }
                 }

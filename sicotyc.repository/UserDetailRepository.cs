@@ -17,7 +17,7 @@ namespace sicotyc.repository
                 .AnyAsync();
         }
 
-        public async Task<UserDetail> GetUserDetailByUserIdAsync(string userId, bool trackChanges)
+        public async Task<UserDetail> GetUserDetailByUserIdAsync(Guid userId, bool trackChanges)
         {
             return await FindByCondition(ud => ud.User.Id.Equals(userId), trackChanges)
                 .FirstOrDefaultAsync();

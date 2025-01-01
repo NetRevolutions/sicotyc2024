@@ -15,9 +15,11 @@ namespace sicotyc.entities.Models
 
 
         // Relation 1:*
-
+        [ForeignKey("Company")]
+        public Guid CompanyId { get; set; }
+        public Company? Company { get; set; }
 
         // Relation *:*
-        public ICollection<CompanyCompanyType>? CompanyCompanyType { get; set; }
+
     }
 }

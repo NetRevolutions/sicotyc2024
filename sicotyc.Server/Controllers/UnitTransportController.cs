@@ -17,7 +17,7 @@ namespace sicotyc.Server.Controllers
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<Role> _roleManager;
         private readonly IAuthenticationManager _authManager;
         private readonly IRepositoryManager _repository;
         private readonly IConfiguration _configuration;
@@ -25,7 +25,7 @@ namespace sicotyc.Server.Controllers
         public UnitTransportController(ILoggerManager logger,
             IMapper mapper,
             UserManager<User> userManager,
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<Role> roleManager,
             IAuthenticationManager authManager,
             IRepositoryManager repository,
             IConfiguration configuration

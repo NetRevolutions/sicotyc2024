@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace sicotyc.entities.Models
 {
+    [Keyless]
     public class OptionByRole
-    {
-        [Key]
+    {        
         public Guid OptionId { get; set; }
         public string? Title { get; set; }
         public string? Icon { get; set; }

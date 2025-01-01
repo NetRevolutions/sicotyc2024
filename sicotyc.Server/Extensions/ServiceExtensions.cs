@@ -99,7 +99,7 @@ namespace sicotyc.Server.Extensions
 
         public static void ConfigureIdentity(this IServiceCollection services)
         {
-            var builder = services.AddIdentity<User, IdentityRole>(o =>
+            var builder = services.AddIdentity<User, Role>(o =>
             {
                 o.Password.RequireDigit = true;
                 o.Password.RequireLowercase = false;
@@ -107,13 +107,16 @@ namespace sicotyc.Server.Extensions
                 o.Password.RequireNonAlphanumeric = false;
                 o.Password.RequiredLength = 10;
                 o.User.RequireUniqueEmail = true;
-            });
+            })
+            .AddEntityFrameworkStores<RepositoryContext>()
+            .AddDefaultTokenProviders();
 
             //services.AddScoped<IUserStore<User>, UserStore<User>>();
-            //services.AddScoped<IRoleStore<IdentityRole>, RoleStore<IdentityRole>>();
+            //services.AddScoped<IRoleStore<Role>, RoleStore<Role>>();
 
-            builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
-            builder.AddEntityFrameworkStores<RepositoryContext>().AddDefaultTokenProviders();
+            //builder = new IdentityBuilder(builder.UserType, builder.RoleType, builder.Services);
+            //builder.AddEntityFrameworkStores<RepositoryContext>()
+            //    .AddDefaultTokenProviders();
         }
 
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)

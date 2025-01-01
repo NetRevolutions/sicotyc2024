@@ -106,7 +106,7 @@ export class DriversComponent implements OnInit, OnDestroy {
     }
 
     // TODO: Concatenar el searchTerm con el RUC
-    searchTerm = (this.roleLogged == 'Administrator' ) + '|' + this.userLogged.ruc + '|' +  searchTerm;
+    searchTerm = (this.roleLogged == 'Administrador' ) + '|' + this.userLogged.ruc + '|' +  searchTerm;
 
     this.searchesService.search('DRIVERS', searchTerm)
     .subscribe((resp: any) => {

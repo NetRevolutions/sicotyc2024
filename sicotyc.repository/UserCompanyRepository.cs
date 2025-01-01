@@ -17,7 +17,7 @@ namespace sicotyc.repository
                 .AnyAsync();
         }
 
-        public async Task<Guid> GetCompanyIdByUserIdAsync(string userId, bool trackChanges)
+        public async Task<Guid> GetCompanyIdByUserIdAsync(Guid userId, bool trackChanges)
         {
             return await FindByCondition(o => o.Id.Equals(userId), trackChanges)
                 .Select(s => s.CompanyId)
@@ -25,21 +25,21 @@ namespace sicotyc.repository
 
         }
 
-        public async Task<string> GetUserIdByCompanyIdAsync(Guid companyId, bool trackChanges)
+        public async Task<Guid> GetUserIdByCompanyIdAsync(Guid companyId, bool trackChanges)
         {
             return await FindByCondition(o => o.CompanyId.Equals(companyId), trackChanges)
                 .Select(s => s.Id)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Company> GetCompanyByUserIdAsync(string userId, bool trackChanges)
+        public async Task<Company> GetCompanyByUserIdAsync(Guid userId, bool trackChanges)
         {
             return await FindByCondition(o => o.Id.Equals(userId), trackChanges)
                 .Select(s => s.Company)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<List<Company>> GetAllCompanyIdsByUserIdAsync(string userId, bool trackChanges)
+        public async Task<List<Company>> GetAllCompanyIdsByUserIdAsync(Guid userId, bool trackChanges)
         {
             return await FindByCondition(o => o.Id.Equals(userId), trackChanges)
                 .Select(s => s.Company)
@@ -50,7 +50,7 @@ namespace sicotyc.repository
 
         public void DeleteUserCompany(UserCompany userCompany) => Delete(userCompany);
 
-        public async Task DeleteAllCompaniesAssociatedUserAsync(string userId, bool trackChanges)
+        public async Task DeleteAllCompaniesAssociatedUserAsync(Guid userId, bool trackChanges)
         {
             List<Company> companies = await GetAllCompanyIdsByUserIdAsync(userId, trackChanges);
             foreach (var company in companies)
@@ -65,7 +65,7 @@ namespace sicotyc.repository
             }
         }
 
-        public async Task<List<string>> GetUserIdsByCompanyId(Guid companyId, bool trackChanges)
+        public async Task<List<Guid>> GetUserIdsByCompanyId(Guid companyId, bool trackChanges)
         {
             return await FindByCondition(o => o.CompanyId.Equals(companyId), trackChanges)
                  .Select(s => s.Id)

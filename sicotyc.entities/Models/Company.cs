@@ -26,13 +26,14 @@ namespace sicotyc.entities.Models
         public string? CompanyPhone { get; set; }
 
         // Relation 1:1
-        public User? User { get; set; }
 
-        // Relation 1:*
 
+        // Relation 1:*        
+
+        public List<CompanyType>? CompanyTypes { get; set; }
 
         // Relation *:*        
-        public ICollection<CompanyCompanyType>? CompanyCompanyType { get; set; }
+        public ICollection<UserCompany>? UserCompanies { get; set; }
 
     }
 }

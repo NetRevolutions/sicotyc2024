@@ -29,5 +29,6 @@ namespace sicotyc.entities.Models
         public List<DriverLicense>? DriverLicenses { get; set; }
 
         // Relation *:*
+
     }
 }

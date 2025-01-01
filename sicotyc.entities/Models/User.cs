@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace sicotyc.entities.Models
 {
-    public class User : IdentityUser
+    public class User : IdentityUser<Guid>
     {
         [Required(ErrorMessage ="Nombre es requerido")]
         [MaxLength(20)]
@@ -20,15 +20,12 @@ namespace sicotyc.entities.Models
         public Guid? UserDetailId { get; set; }
         public UserDetail? UserDetail { get; set; }
 
-        [ForeignKey("Company")]
-        public Guid? CompanyId { get; set; }
-        public Company? Company { get; set; }
-
-        // Relation 1:*
-
+        
+        // Relation 1:*       
 
 
         // Relation *:*
+        public ICollection<UserCompany>? UserCompanies { get; set; }
 
     }
 }
