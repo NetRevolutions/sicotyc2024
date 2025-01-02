@@ -290,6 +290,14 @@ namespace sicotyc.Server.Controllers
                             tuple = Tuple.Create(rol.Name, "AGENCIA");
                             finalRoles.Add(tuple);
                             break;
+                        case "FORWARDER-BILLER":
+                            tuple = Tuple.Create(rol.Name, "FACTURADOR DE TRANSPORTE");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-COORDINATOR":
+                            tuple = Tuple.Create(rol.Name, "COORDINADOR DE TRANSPORTE");
+                            finalRoles.Add(tuple);
+                            break;
                         default:
                             tuple = Tuple.Create(rol.Name, rol.NormalizedName);
                             finalRoles.Add(tuple);
@@ -343,6 +351,14 @@ namespace sicotyc.Server.Controllers
                             break;
                         case "AGENCY":
                             tuple = Tuple.Create(rol.Name, "AGENCIA");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-BILLER":
+                            tuple = Tuple.Create(rol.Name, "FACTURADOR DE TRANSPORTE");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-COORDINATOR":
+                            tuple = Tuple.Create(rol.Name, "COORDINADOR DE TRANSPORTE");
                             finalRoles.Add(tuple);
                             break;
                         default:
@@ -848,10 +864,10 @@ namespace sicotyc.Server.Controllers
                         await _userManager.RemoveFromRolesAsync(userDB, userDBRoles);
 
                         // 2.- Add the current roles
-                        var currentUserRoles = userDto.Roles;
+                        var currentUserRoles = userDto.Roles;                        
                         if (currentUserRoles != null)
                         {
-                            await _userManager.AddToRolesAsync(userDB, currentUserRoles);
+                            await _userManager.AddToRolesAsync(userDB, ["FORWARDER"] /*currentUserRoles*/);
                         }
 
                         // Company y UserCompany

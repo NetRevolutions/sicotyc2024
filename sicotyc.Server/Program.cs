@@ -91,7 +91,6 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 app.UseCors("CorsPolicy");
 
-
 app.UseAuthentication();
 //app.UseIpRateLimiting();
 app.UseRouting();
@@ -106,8 +105,6 @@ app.UseEndpoints(endpoints =>
         name: "api",
         pattern: "api/{controller}/{action=Index}/{id?}"
     );
-    
-    //endpoints.MapFallbackToFile("/index.html");
 });
 
 app.MapControllers();

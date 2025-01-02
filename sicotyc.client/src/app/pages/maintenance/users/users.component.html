@@ -75,7 +75,7 @@
                                 <td>{{user.ruc}}</td>
                                 <td>
                                     <select class="form-control" [(ngModel)]="user.roles" (ngModelChange)="onSelectedValues(user)" [disabled]="userService.uid==user.id?true:false" >
-                                        <option *ngFor="let rol of roles" value="{{rol.item1}}">{{rol.item2}}</option>                                        
+                                        <option *ngFor="let rol of roles" value="{{rol.item2}}">{{rol.item1}}</option>                                        
                                     </select>
                                 </td>                                
                                 <td class="text-nowrap text-center">
