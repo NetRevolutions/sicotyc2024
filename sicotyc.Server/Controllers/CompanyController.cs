@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using sicotyc.contracts;
 using sicotyc.entities.DataTransferObjects;
 using sicotyc.entities.Models;
@@ -188,10 +189,9 @@ namespace sicotyc.Server.Controllers
                 {
                     _logger.LogInfo($"La empresa con id: {id} no existe en la base de datos.");
                     return NotFound();
-                }                
-                
-                _mapper.Map(companyDto, companyDB);
+                }
 
+                _mapper.Map(companyDto, companyDB); 
 
                 await _repository.SaveAsync();
 

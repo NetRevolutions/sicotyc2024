@@ -35,7 +35,12 @@ namespace sicotyc.Server
                 .ReverseMap();
             CreateMap<CompanyForRegistrationDto, Company>().ReverseMap();
             CreateMap<CompanyDto, Company>().ReverseMap();
-            CreateMap<CompanyForUpdateDto, Company>().ReverseMap();
+            //CreateMap<CompanyForUpdateDto, Company>().ReverseMap();
+            CreateMap<CompanyForUpdateDto, Company>()
+                .ForMember(d => d.CompanyComercialName, opt => opt.MapFrom(src => src.CompanyComercialName))
+                .ForMember(d => d.CompanyEmail, opt => opt.MapFrom(src => src.CompanyEmail))
+                .ForMember(d => d.CompanyPhone, opt => opt.MapFrom(src => src.CompanyPhone))
+                .ReverseMap();
             CreateMap<Company, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.CompanyId))
                 .ForMember(d => d.Name, opt => opt.MapFrom(o => o.CompanyName));

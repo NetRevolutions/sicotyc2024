@@ -5,9 +5,12 @@ namespace sicotyc.contracts
     public interface IUserCompanyRepository
     {
         Task<bool> ExistUserCompanyAsync(UserCompany userCompany, bool trackChanges);
-        Task<List<Guid>> GetUserIdsByCompanyId(Guid companyId, bool trackChanges);
-        Task<Guid> GetCompanyIdByUserIdAsync(Guid userId, bool trackChanges);
-        Task<Guid> GetUserIdByCompanyIdAsync(Guid companyId, bool trackChanges);
+        //Task<List<Guid>> GetUserIdsByCompanyId(Guid companyId, bool trackChanges);
+        Task<List<Guid>> GetUserIdsByCompanyRuc(string ruc, bool trackChanges);
+        //Task<Guid> GetCompanyIdByUserIdAsync(Guid userId, bool trackChanges);
+        Task<string> GetCompanyRucByUserIdAsync(Guid userId, bool trackChanges);
+        //Task<Guid> GetUserIdByCompanyIdAsync(Guid companyId, bool trackChanges);
+        Task<Guid> GetUserIdByCompanyRucAsync(string ruc, bool trackChanges);
         Task<Company> GetCompanyByUserIdAsync(Guid userId, bool trackChanges);
 
         void CreateUserCompany(UserCompany userCompany);

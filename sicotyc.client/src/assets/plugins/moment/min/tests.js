@@ -32317,7 +32317,7 @@
 
         //https://github.com/moment/moment/issues/1143
         assert.equal(moment(
-            'System Administrador and Database Assistant (7/1/2011), System Administrador and Database Assistant (7/1/2011), Database Coordinator (7/1/2011), Vice President (7/1/2011), System Administrador and Database Assistant (5/31/2012), Database Coordinator (7/1/2012), System Administrador and Database Assistant (7/1/2013)',
+            'System Administrator and Database Assistant (7/1/2011), System Administrador and Database Assistant (7/1/2011), Database Coordinator (7/1/2011), Vice President (7/1/2011), System Administrador and Database Assistant (5/31/2012), Database Coordinator (7/1/2012), System Administrador and Database Assistant (7/1/2013)',
             ['MM/DD/YYYY', 'MM-DD-YYYY', 'YYYY-MM-DD', 'YYYY-MM-DDTHH:mm:ssZ'])
             .format('YYYY-MM-DD'), '2011-07-01', 'Works for long strings');
 

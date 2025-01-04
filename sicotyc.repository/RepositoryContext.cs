@@ -38,6 +38,17 @@ namespace sicotyc.repository
             modelBuilder.ApplyConfiguration(new LookupCodeConfiguration());
             modelBuilder.ApplyConfiguration(new RoleConfiguration());
 
+            // Customize Fields 
+            modelBuilder.Entity<Company>(entity => {
+                
+                entity.Property(e => e.CompanyState)
+                .HasConversion<string>();
+
+                entity.Property(e => e.CompanyCondition)
+                .HasConversion<string>();
+
+            });
+
             // Register Class is not part DataBase model
             modelBuilder.Entity<OptionByRole>().HasNoKey();
 
@@ -47,7 +58,7 @@ namespace sicotyc.repository
             // Relation *:*
             modelBuilder.Entity<MenuOptionRole>().HasKey(mor => new { mor.OptionId, mor.Id });
 
-            modelBuilder.Entity<UserCompany>().HasKey(uc => new { uc.Id, uc.CompanyId });
+            modelBuilder.Entity<UserCompany>().HasKey(uc => new { uc.Id, uc.Ruc });
 
             modelBuilder.Entity<UserCompany>()
                 .HasOne(uc => uc.User)
@@ -57,7 +68,7 @@ namespace sicotyc.repository
             modelBuilder.Entity<UserCompany>()
                 .HasOne(uc => uc.Company)
                 .WithMany(c => c.UserCompanies)
-                .HasForeignKey(uc => uc.CompanyId);
+                .HasForeignKey(uc => uc.Ruc);
 
         }
 

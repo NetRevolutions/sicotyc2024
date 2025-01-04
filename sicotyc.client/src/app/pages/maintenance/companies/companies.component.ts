@@ -56,7 +56,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
   };
   
   search(searchTerm: string) {
-    if (searchTerm.length === 0) {
+    if (searchTerm.length <= 2) {
       this.useSearch = false;
       return this.companies = this.companiesTemp;
     }  

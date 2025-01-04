@@ -75,7 +75,8 @@ export class CompanyComponent implements OnInit{
       // Actualizar
       const data = {
         ...this.companyForm.value,
-        companyId: this.companySelected?.companyId
+        companyId: this.companySelected?.companyId,
+        companyName: this.companySelected?.companyName
       };
 
       this.companyService.updateCompany(data)

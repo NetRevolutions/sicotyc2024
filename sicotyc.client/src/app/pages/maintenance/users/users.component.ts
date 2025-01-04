@@ -114,10 +114,10 @@ export class UsersComponent implements OnInit, OnDestroy{
       return Swal.fire('Error', 'No puede borrarse a si mismo', 'error');
     }
 
-    if (user.roles?.indexOf('Administrador') !== -1) // Tiene un rol con el valor 'Administrador'
+    if (user.roles?.indexOf('Administrator') !== -1) // Tiene un rol con el valor 'Administrador'
     {
       // Validamos el rol del usuario logueado tiene al menos un rol 'Administrador'
-      if ( !(this.userService.roles.indexOf('Administrador') !== -1) ) {
+      if ( !(this.userService.roles.indexOf('Administrator') !== -1) ) {
         return Swal.fire('Error', 'Solo un usuario con rol Administrador puede borrar a otro usuario Administrador', 'error');
       } 
       else {
@@ -162,7 +162,7 @@ export class UsersComponent implements OnInit, OnDestroy{
   };
 
   onSelectedValues(user: User) {    
-    if (user.roles?.indexOf('Administrador') !== -1)
+    if (user.roles?.indexOf('Administrator') !== -1)
     {
       Swal.fire({
         title: "Convertir en Administrador?",

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using sicotyc.contracts;
 using sicotyc.entities.Models;
@@ -6,7 +7,7 @@ using sicotyc.entities.Models;
 namespace sicotyc.repository
 {
     public sealed class RepositoryManager : IRepositoryManager
-    {
+    {       
         private readonly RepositoryContext _repositoryContext;       
 
         private readonly Lazy<IAuthenticationManager> _authenticationManager;

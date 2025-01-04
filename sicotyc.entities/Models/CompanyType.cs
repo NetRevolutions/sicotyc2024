@@ -16,7 +16,7 @@ namespace sicotyc.entities.Models
 
         // Relation 1:*
         [ForeignKey("Company")]
-        public Guid CompanyId { get; set; }
+        public string Ruc { get; set; }
         public Company? Company { get; set; }
 
         // Relation *:*

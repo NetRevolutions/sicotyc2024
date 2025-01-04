@@ -10,7 +10,8 @@ namespace sicotyc.entities.Models
         public User? User { get; set; }
         
         //[ForeignKey("Company")]
-        public Guid CompanyId { get; set; }
+        //public Guid CompanyId { get; set; }
+        public string Ruc { get; set; }
         public Company? Company { get; set; }
     }
 }

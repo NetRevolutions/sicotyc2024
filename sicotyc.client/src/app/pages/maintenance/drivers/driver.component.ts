@@ -102,7 +102,7 @@ export class DriverComponent implements OnInit {
     .subscribe((userLogged: any) => {
       this.driverForm.get('ruc')?.setValue(userLogged.data.ruc);
 
-      if (role !== 'Administrador') {
+      if (role !== 'Administrator') {
         const rucControl = this.driverForm.get('ruc');
         if (rucControl) {
           rucControl.disable();
@@ -222,7 +222,7 @@ export class DriverComponent implements OnInit {
         else {      
           this.userService.getUserById(userId)
           .subscribe((userLogged: any) => {
-            if (userLogged.data.ruc != this.driverForm.get('ruc')?.value && role == 'Administrador') {
+            if (userLogged.data.ruc != this.driverForm.get('ruc')?.value && role == 'Administrator') {
               // Conductor no existe, lo registro sin problemas.        
               this.driverService.createDriver(data)
               .subscribe((resp: any) => {
@@ -232,7 +232,7 @@ export class DriverComponent implements OnInit {
                 
               });
             }
-            else if (userLogged.data.ruc != this.driverForm.get('ruc')?.value && role != 'Administrador') {
+            else if (userLogged.data.ruc != this.driverForm.get('ruc')?.value && role != 'Administrator') {
               Swal.fire('Atencion', 'Esta intentando registrar un conductor con un ruc asociado a otra empresa, debe de enviar el SCTR del conductor a actualizacion_datos@sicotyc.com para realizar su registro', 'info');
             }
             else {

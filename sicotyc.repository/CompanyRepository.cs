@@ -65,8 +65,6 @@ namespace sicotyc.repository
             Company company = await GetCompanyByRucAsync(ruc, false);
             if (company != null)
                 DeleteCompany(company);
-        }
-
-        
+        }        
     }
 }

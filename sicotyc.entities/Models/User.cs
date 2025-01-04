@@ -7,11 +7,11 @@ namespace sicotyc.entities.Models
     public class User : IdentityUser<Guid>
     {
         [Required(ErrorMessage ="Nombre es requerido")]
-        [MaxLength(20)]
+        [MaxLength(100)]
         public string? FirstName { get; set; }
 
         [Required(ErrorMessage = "Apellido es requerido")]
-        [MaxLength(20)]
+        [MaxLength(200)]
         public string? LastName { get; set; }
         public string? Img { get; set; }
 

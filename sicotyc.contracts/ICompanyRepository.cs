@@ -13,5 +13,6 @@ namespace sicotyc.contracts
         void CreateCompany(Company company);
         void DeleteCompany(Company company);
         void DeleteCompanyByRuc(string ruc);
+        
     }
 }

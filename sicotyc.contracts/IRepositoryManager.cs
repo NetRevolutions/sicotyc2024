@@ -11,8 +11,7 @@
         IDriverRepository Driver { get; }
         IDriverLicenseRepository DriverLicense { get; }
         IUnitTransportRepository UnitTransport { get; }
-        IRepositoryStoreProcedure RepositoryStoreProcedure { get; }
-
-        Task SaveAsync();
+        IRepositoryStoreProcedure RepositoryStoreProcedure { get; }        
+        Task SaveAsync();        
     }
 }

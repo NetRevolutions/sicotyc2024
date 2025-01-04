@@ -9,7 +9,7 @@ export const AdminGuard: CanActivateFn = (route, state) => {
   const userService = inject(UserService);
   const router = inject(Router);  
 
-  if (userService.roles?.indexOf('Administrador') !== -1) {
+  if (userService.roles?.indexOf('Administrator') !== -1) {
     return true;
   } else  {
     router.navigateByUrl('/dashboard');

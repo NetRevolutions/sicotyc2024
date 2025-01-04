@@ -331,7 +331,7 @@ namespace sicotyc.Server.Controllers
             List<Tuple<string, string>> finalRoles = new List<Tuple<string, string>>();
             if (roles.Any())
             {
-                var rolesToReturn = currentUserDto.Roles[0] == "Administrador" ?
+                var rolesToReturn = currentUserDto.Roles[0] == "Administrator" ?
                                         roles.Select(s => new { s.Name, s.NormalizedName }).ToList() :
                                         roles.Where(r => r.NormalizedName != "ADMINISTRATOR")
                                         .Select(s => new { s.Name, s.NormalizedName }).ToList();
@@ -496,7 +496,7 @@ namespace sicotyc.Server.Controllers
                 // Validacion para solo registrar 1 cuenta por ruc
                 if (companyDB != null)
                 {
-                    List<Guid> userIds = await _repository.UserCompany.GetUserIdsByCompanyId(companyDB.CompanyId, trackChanges: false);
+                    List<Guid> userIds = await _repository.UserCompany.GetUserIdsByCompanyRuc(companyDB.Ruc, trackChanges: false);
                     if (userIds.Count > 0)
                     {
                         resultProcess.Success = false;
@@ -547,7 +547,7 @@ namespace sicotyc.Server.Controllers
                     UserCompany userCompany = new UserCompany()
                     {
                         Id = user.Id,
-                        CompanyId = company.CompanyId
+                        Ruc = company.Ruc
                     };
                     _repository.UserCompany.CreateUserCompany(userCompany);
                     await _repository.SaveAsync();
@@ -558,7 +558,7 @@ namespace sicotyc.Server.Controllers
                     UserCompany userCompany = new UserCompany()
                     {
                         Id = user.Id,
-                        CompanyId = companyDB.CompanyId
+                        Ruc = companyDB.Ruc
                     };
                     _repository.UserCompany.CreateUserCompany(userCompany);
                     await _repository.SaveAsync();
@@ -867,7 +867,7 @@ namespace sicotyc.Server.Controllers
                         var currentUserRoles = userDto.Roles;                        
                         if (currentUserRoles != null)
                         {
-                            await _userManager.AddToRolesAsync(userDB, ["FORWARDER"] /*currentUserRoles*/);
+                            await _userManager.AddToRolesAsync(userDB, currentUserRoles);
                         }
 
                         // Company y UserCompany
@@ -892,7 +892,7 @@ namespace sicotyc.Server.Controllers
                             UserCompany userCompany = new UserCompany()
                             {
                                 Id = new Guid(userDto.Id),
-                                CompanyId = companyDB.CompanyId
+                                Ruc = companyDB.Ruc
                             };
 
                             _repository.UserCompany.CreateUserCompany(userCompany);
@@ -910,7 +910,7 @@ namespace sicotyc.Server.Controllers
                             UserCompany userCompany = new UserCompany()
                             {
                                 Id = new Guid(userDto.Id),
-                                CompanyId = companyDB.CompanyId
+                                Ruc = companyDB.Ruc
                             };
 
                             _repository.UserCompany.CreateUserCompany(userCompany);
@@ -929,9 +929,13 @@ namespace sicotyc.Server.Controllers
                                 _mapper.Map(userDto.UserDetail, userDetailForCreationDto);
                                 userDetailForCreationDto.CreatedBy = id.ToString();
 
+
+
                                 var userDetailDto = _mapper.Map<UserDetail>(userDetailForCreationDto);
                                 _repository.UserDetail.CreateUserDetail(userDetailDto);
                                 await _repository.SaveAsync();
+                                userDB.UserDetailId = userDetailDto.UserDetailId;
+                                await _userManager.UpdateAsync(userDB);
                             }
                         }
                         else
