@@ -49,6 +49,9 @@ namespace sicotyc.repository
 
             });
 
+            modelBuilder.Entity<LookupCode>()
+                .HasAlternateKey(l => l.LookupCodeValue);
+
             // Register Class is not part DataBase model
             modelBuilder.Entity<OptionByRole>().HasNoKey();
 
@@ -70,10 +73,19 @@ namespace sicotyc.repository
                 .WithMany(c => c.UserCompanies)
                 .HasForeignKey(uc => uc.Ruc);
 
+            modelBuilder.Entity<CompanyType>().HasKey(ct => new { ct.Ruc, ct.LookupCodeValue });
+
+            modelBuilder.Entity<CompanyType>()
+                .HasOne(ct => ct.Company)
+                .WithMany(c => c.CompanyTypes)
+                .HasForeignKey(ct => ct.Ruc);
+
+            modelBuilder.Entity<CompanyType>()
+                .HasOne(ct => ct.TypeOfCompany)
+                .WithMany(t => t.CompanyTypes)
+                .HasForeignKey(ct => ct.LookupCodeValue)
+                .HasPrincipalKey(l => l.LookupCodeValue);
+
         }
-
-        
-
-
     }
 }

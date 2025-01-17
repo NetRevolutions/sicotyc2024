@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using FluentEmail.Core;
 using sicotyc.entities.DataTransferObjects;
+using sicotyc.entities.Enum;
 using sicotyc.entities.Models;
 
 namespace sicotyc.Server
@@ -40,7 +42,17 @@ namespace sicotyc.Server
                 .ForMember(d => d.CompanyComercialName, opt => opt.MapFrom(src => src.CompanyComercialName))
                 .ForMember(d => d.CompanyEmail, opt => opt.MapFrom(src => src.CompanyEmail))
                 .ForMember(d => d.CompanyPhone, opt => opt.MapFrom(src => src.CompanyPhone))
-                .ReverseMap();
+                .ForMember(d => d.UpdateDtm, opt => opt.MapFrom(src => src.LastUpdatedOn))
+                .ForMember(d => d.CompanyTypes, opt => opt.MapFrom(src => 
+                    src.CompanyTypes != null
+                        ? src.CompanyTypes.Select(type => new CompanyType { Ruc = src.Ruc, LookupCodeValue = type}).ToList()
+                        : new List<CompanyType>()))                
+                .ReverseMap()
+                .ForMember(dto => dto.CompanyTypes, opt => opt.MapFrom(src => 
+                    src.CompanyTypes != null
+                        ? src.CompanyTypes.Select(ct => ct.LookupCodeValue).ToList()
+                        : new List<string>()))
+                .ForMember(dto => dto.LastUpdatedOn, opt => opt.MapFrom(src => src.UpdateDtm));
             CreateMap<Company, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.CompanyId))
                 .ForMember(d => d.Name, opt => opt.MapFrom(o => o.CompanyName));

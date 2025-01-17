@@ -108,7 +108,8 @@ export class CompanyService {
           companyCondition: c.companyCondition,
           companyFiscalAddress: c.companyFiscalAddress,
           companyEmail: c.companyEmail,
-          companyPhone: c.companyPhone
+          companyPhone: c.companyPhone,
+          companyTypes: c.companyTypes
         }));
         return {
           data: companies
@@ -163,6 +164,23 @@ export class CompanyService {
 
           return {
             data: company
+          }
+        }),
+        catchError(error => {
+          return throwError(() => new Error(this.validationErrorsCustomize.messageCatchError(error)));
+        })
+      );
+  };
+
+  getCompanyByName(searchName: string) {
+    const url = `${ base_url }/company/ruc/name/${searchName}`;
+    return this.http.get(url)
+      .pipe(
+        map((resp: any) => {
+          let companies: ICompany[] = resp.data;
+
+          return {
+            data: companies
           }
         }),
         catchError(error => {

@@ -19,6 +19,7 @@ import { DriverService } from 'src/app/services/driver.service';
 import { LookupService } from 'src/app/services/lookup.service';
 import { UserService } from 'src/app/services/user.service';
 import { FileUploadService } from 'src/app/services/file-upload.service';
+import { ICompany } from 'src/app/interfaces/company.interface';
 
 @Component({
   selector: 'app-driver',
@@ -41,6 +42,7 @@ export class DriverComponent implements OnInit {
   public imgUpload?: File;
   public imgTemp: any;
   public noImageDriver = `${base_url}/upload/drivers/no-image`;
+  public company?: ICompany;
 
   constructor(
     private fb: FormBuilder,
@@ -427,7 +429,7 @@ export class DriverComponent implements OnInit {
 
   formIsValid() {
     return this.driverForm.invalid;
-  }
+  };
   
   convertDateToString(fecha: Date): string {
     const anio = fecha.getFullYear();
@@ -437,4 +439,8 @@ export class DriverComponent implements OnInit {
     return `${anio}-${mes}-${dia}`;
   };
 
+  onValorSalida(company: ICompany) {
+    console.log(company);
+    // TODO: Pending implement
+  }
 }

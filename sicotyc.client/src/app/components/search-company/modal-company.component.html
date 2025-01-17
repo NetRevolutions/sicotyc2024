@@ -1,0 +1,227 @@
+<div class="fondo-modal-imagen animated fadeIn fast" 
+    [class.oculto] = modalCompanyService.hideModal>
+    <div class="modal fade show" 
+        id="modalCompany" 
+        tabindex="-1" 
+        role="dialog" 
+        aria-labelledby="modalCompanyLabel1" 
+        style="display: block;">
+        <div class="modal-dialog" role="document" style="margin-top: 73px;">
+            <div class="modal-content" [style.width]="modalContentWidth">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalCompanyLabel1">Busqueda de Empresas</h4>
+                    <button type="button" 
+                            class="close" 
+                            data-dismiss="modal" 
+                            aria-label="Close"
+                            (click)="closeModal()"
+                            ><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center align-items-center" style="height: 50px;">
+                                <button type="button" class="btn btn-primary mr-3" (click)="searchType('ruc')">Por RUC</button>
+                                <button type="button" class="btn btn-primary" (click)="searchType('razsoc')">Por Nomb./Raz. Social</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <input type="text" class="me-3" [placeholder]="searchPlaceHolder" [(ngModel)]="searchValue">
+                                <button type="button" class="btn btn-primary" (click)="search()">Buscar</button>
+                            </div>
+                        </div>                        
+                    </div>
+                    <div *ngIf="existCompany" class="row">
+                        <div class="table-responsive">
+                            <table class="table table-bordered color-table muted-table">
+                                <thead class="table-light">
+                                  <tr>
+                                    <th class="small">Empresa</th>
+                                    <th class="small">Nombre Comercial</th>
+                                    <th class="small">RUC</th>
+                                    <th class="small">Estado Contribuyente</th>
+                                    <th class="small">Tipo de Empresa</th>                                
+                                    <th class="text-nowrap small">Acciones</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of companyResults">
+                                        <td class="small"><app-text-truncate [text]="item.companyName"></app-text-truncate></td>
+                                        <td class="small"><app-text-truncate [text]="item.companyComercialName"></app-text-truncate></td>
+                                        <td class="small">{{item.ruc}}</td>
+                                        <td class="small">{{item.companyState}}</td>
+                                        <td class="small" [innerHTML]="item.companyTypesHtml"></td>                               
+                                        <td class="text-nowrap small">                                            
+                                            <a data-toggle="tooltip" 
+                                                data-original-title="Borrar"
+                                                class="cursor text-primary text-decoration-underline"                                        
+                                                (click)="seleccionar(item)">
+                                                Seleccionar
+                                                <!-- <i class="fa fa-pencil text-inverse m-r-10"></i>   -->
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
+                    <div *ngIf="!existCompany && registerNewCompany" class="row">
+                        <h3>Registrar Empresa</h3>
+                        <form class="form-horizontal p-t-20"
+                            [formGroup]="companyForm">
+                            <!-- (submit)="save()" -->
+                            <div class="form-group row">
+                                <label for="ruc" class="col-sm-2 control-label">Ruc*</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="ruc"
+                                            class="form-control" 
+                                            id="ruc" 
+                                            placeholder="Ingrese el RUC">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="companyName" class="col-sm-2 control-label">Nombre de Empresa</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="companyName"
+                                            class="form-control" 
+                                            id="companyName" 
+                                            placeholder="Nombre de la empresa">
+                                    </div>
+                                </div>
+                                <label for="companyComercialName" class="col-sm-2 control-label">Nombre Comercial*</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="companyComercialName"
+                                            class="form-control" 
+                                            id="companyComercialName" 
+                                            placeholder="Ingrese un nombre comercial">
+                                    </div>
+                                </div>
+                            </div>                    
+                            <div class="form-group row">
+                                <label for="companyState" class="col-sm-2 control-label">Estado de la empresa</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="companyState"
+                                            class="form-control" 
+                                            id="companyState" 
+                                            placeholder="Estado de la empresa">
+                                    </div>
+                                </div>
+                                <label for="companyCondition" class="col-sm-2 control-label">Condicion de la empresa</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="companyCondition"
+                                            class="form-control" 
+                                            id="companyCondition" 
+                                            placeholder="Condicion de la empresa">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="companyFiscalAddress" class="col-sm-2 control-label">Direccion Fiscal</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="companyFiscalAddress"
+                                            class="form-control" 
+                                            id="companyFiscalAddress" 
+                                            placeholder="Direccion de la empresa">
+                                    </div>
+                                </div>
+                                <label for="companyEmail" class="col-sm-2 control-label">Correo de la empresa*</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="email" 
+                                            formControlName="companyEmail"
+                                            class="form-control" 
+                                            id="companyEmail" 
+                                            placeholder="Correo de la empresa">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="companyPhone" class="col-sm-2 control-label">Telefono de la empresa*</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
+                                        <input 
+                                            type="text" 
+                                            formControlName="companyPhone"
+                                            class="form-control" 
+                                            id="companyPhone" 
+                                            placeholder="Telefono de la empresa">
+                                    </div>
+                                </div>
+                                <label class="col-sm-2 control-label">Tipo de Empresa*</label>
+                                <div class="col-sm-4">
+                                    <!-- <pre>{{ companyTypes | json }}</pre>
+                                    <pre>{{ companyTypesSelected | json }}</pre> -->
+                                    <div class="checkbox checkbox-info">
+                                        <div *ngFor="let item of companyTypesDB; let i=index">        
+                                            <input 
+                                                    id ="typeOfCompany_{{i}}"
+                                                    type="checkbox"
+                                                    class="form-control" 
+                                                    [value]="item.lookupCodeValue" 
+                                                    [checked]="companyTypesSelected.includes(item.lookupCodeValue)"                                       
+                                                    (change)="onCompanyTypeChange($event)"
+                                                >
+                                            <label for="typeOfCompany_{{i}}">{{item.lookupCodeName}}</label>
+                                        </div>
+                                    </div>                                         
+                                </div>  
+                            </div>
+                            <div class="form-group row m-b-0">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <button type="submit"
+                                            [disabled]="companyForm.invalid"
+                                            (click)="save()"
+                                            class="btn btn-success waves-effect waves-light">                                            
+                                        <i class="fa fa-save"></i>
+                                        Guardar
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" 
+                            class="btn btn-default" 
+                            data-dismiss="modal" 
+                            (click)="closeModal()"
+                            >Cancelar</button>
+                    <!-- <button type="button" 
+                            class="btn btn-primary"
+                            (click)="uploadImage()">Actualizar foto</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

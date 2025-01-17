@@ -484,10 +484,19 @@ namespace sicotyc.repository.Configuration
                 },
                 new LookupCode
                 {
+                    Id = new Guid("3D6EE99D-39D4-471C-BCEB-4D89C3A75B21"),
+                    LookupCodeValue = "AG",
+                    LookupCodeName = "Agencia",
+                    LookupCodeOrder = 2,
+                    LookupCodeGroupId = new Guid("E4D10BC8-A160-4A9D-BC87-C94CF849E14C"),
+                    CreatedBy = "SYSTEM"
+                },
+                new LookupCode
+                {
                     Id = new Guid("58250D62-975A-4883-81F7-946C91CF2DEC"),
                     LookupCodeValue = "OT",
                     LookupCodeName = "Otros",
-                    LookupCodeOrder = 2,
+                    LookupCodeOrder = 3,
                     LookupCodeGroupId = new Guid("E4D10BC8-A160-4A9D-BC87-C94CF849E14C"),
                     CreatedBy = "SYSTEM"
                 },

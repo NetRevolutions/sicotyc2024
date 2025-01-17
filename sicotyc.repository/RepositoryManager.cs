@@ -14,6 +14,7 @@ namespace sicotyc.repository
         private readonly Lazy<ILookupCodeGroupRepository> _lookupCodeGroupRepository;
         private readonly Lazy<ILookupCodeRepository> _lookupCodeRepository;
         private readonly Lazy<ICompanyRepository> _companyRepository;
+        private readonly Lazy<ICompanyTypeRepository> _companyTypeRepository;
         private readonly Lazy<IUserCompanyRepository> _userCompanyRepository;
         private readonly Lazy<IUserDetailRepository> _userDetailRepository;
         private readonly Lazy<IDriverLicenseRepository> _driverLicenseRepository;
@@ -30,6 +31,7 @@ namespace sicotyc.repository
             _lookupCodeGroupRepository = new Lazy<ILookupCodeGroupRepository>(() => new LookupCodeGroupRepository(repositoryContext));
             _lookupCodeRepository = new Lazy<ILookupCodeRepository>(() => new LookupCodeRepository(repositoryContext));
             _companyRepository = new Lazy<ICompanyRepository>(() => new CompanyRepository(repositoryContext));
+            _companyTypeRepository = new Lazy<ICompanyTypeRepository>(() => new CompanyTypeRepository(repositoryContext));
             _userCompanyRepository = new Lazy<IUserCompanyRepository>(() => new UserCompanyRepository(repositoryContext));
             _userDetailRepository = new Lazy<IUserDetailRepository>(() => new UserDetailRepository(repositoryContext));
             _driverLicenseRepository = new Lazy<IDriverLicenseRepository>(() => new DriverLicenseRepository(repositoryContext));
@@ -41,6 +43,7 @@ namespace sicotyc.repository
         public ILookupCodeGroupRepository LookupCodeGroup => _lookupCodeGroupRepository.Value;
         public ILookupCodeRepository LookupCode => _lookupCodeRepository.Value;
         public ICompanyRepository Company => _companyRepository.Value;
+        public ICompanyTypeRepository CompanyType => _companyTypeRepository.Value;
         public IUserCompanyRepository UserCompany => _userCompanyRepository.Value;
         public IUserDetailRepository UserDetail => _userDetailRepository.Value;
         public IDriverLicenseRepository DriverLicense => _driverLicenseRepository.Value;

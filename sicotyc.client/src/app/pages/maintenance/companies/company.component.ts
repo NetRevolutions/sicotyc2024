@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
+import { EnumLookupCodeGroups } from 'src/app/enum/enums.enum';
 
 // Interfaces
 import { ICompany } from 'src/app/interfaces/company.interface';
+import { ILookupCode } from 'src/app/interfaces/lookup.interface';
+
+// Services
 import { CompanyService } from 'src/app/services/company.service';
-import Swal from 'sweetalert2';
+import { LookupService } from 'src/app/services/lookup.service';
 
 @Component({
   selector: 'app-company',
@@ -18,10 +23,13 @@ export class CompanyComponent implements OnInit{
   public companySelected?: ICompany;
   public title: string = 'Empresa';
   public subtitle: string = 'Actualizar información';
+  public companyTypesDB: ILookupCode[] = [];
+  public companyTypesSelected: string[] = []; // Lista de valores seleccionados
 
   constructor(
     private fb: FormBuilder,
     private companyService: CompanyService,
+    private lookupService: LookupService,
     private router: Router,
     private activatedRouter: ActivatedRoute
   ) {
@@ -29,21 +37,13 @@ export class CompanyComponent implements OnInit{
   }
   
   ngOnInit(): void {
+    this.loadCompanyTypes();
     this.activatedRouter.params
-    .subscribe(params => {
-      this.loadCompany(params['id']);
-      
+    .subscribe(params => {      
+      this.loadCompany(params['id']);      
     });
 
-    this.companyForm = this.fb.group({
-      // ruc: [this.companySelected?.ruc, Validators.required],
-      // companyName: [{value: this.companySelected?.companyName, disabled: true}],
-      // companyComercialName: [this.companySelected?.companyComercialName, Validators.required],
-      // companyState: [{value: this.companySelected?.companyState, disabled: true}],
-      // companyCondition: [{value: this.companySelected?.companyCondition, disabled: true}],
-      // companyFiscalAddress: [{value: this.companySelected?.companyFiscalAddress, disabled: true}],
-      // companyEmail: [this.companySelected?.companyEmail, Validators.required],
-      // companyPhone: [this.companySelected?.companyPhone, Validators.required]
+    this.companyForm = this.fb.group({      
       ruc: ['', Validators.required],
       companyName: [{value: '', disabled: true}],
       companyComercialName: ['', Validators.required],
@@ -53,7 +53,7 @@ export class CompanyComponent implements OnInit{
       companyEmail: ['', Validators.required],
       companyPhone: ['', Validators.required]
     });
-  };
+  };  
 
   loadCompany(companyId: string) {
     if (companyId === 'new') {
@@ -63,12 +63,59 @@ export class CompanyComponent implements OnInit{
 
     this.companyService.getCompanyById(companyId)
     .subscribe((resp: any) => {
-      const { ruc, companyName, companyComercialName, companyState, companyCondition, companyFiscalAddress, companyEmail, companyPhone} = resp.data;
-      this.companySelected = resp.data;
-      this.companyForm.setValue({ruc, companyName, companyComercialName, companyState, companyCondition, companyFiscalAddress, companyEmail, companyPhone});
-      return false;
+      const { 
+        ruc, 
+        companyName, 
+        companyComercialName, 
+        companyState, 
+        companyCondition, 
+        companyFiscalAddress, 
+        companyEmail, 
+        companyPhone, 
+        companyTypes
+      } = resp.data;
+      
+      this.companySelected = resp.data;   
+      
+      // Actualiza la lista de valores seleccionados
+      this.companyTypesSelected = companyTypes;
+      
+      this.companyForm.patchValue({
+        ruc, 
+        companyName, 
+        companyComercialName, 
+        companyState, 
+        companyCondition, 
+        companyFiscalAddress, 
+        companyEmail, 
+        companyPhone
+      });
+      //return false;
+    });
+  };
+
+  loadCompanyTypes() {
+    this.lookupService.getLookupCodesByLCGNameALL(EnumLookupCodeGroups.TIPO_DE_EMPRESA)
+    .subscribe((resp: any) => {
+      this.companyTypesDB = resp.data;
     })
   };
+
+  onCompanyTypeChange(event: Event): void {
+    const checkbox = event.target as HTMLInputElement;
+    const value = checkbox.value;
+  
+    if (checkbox.checked) {
+      if (!this.companyTypesSelected.includes(value)) {
+        this.companyTypesSelected.push(value);
+      }
+    } else {
+      this.companyTypesSelected = this.companyTypesSelected.filter(
+        selected => selected !== value
+      );
+    }
+  }
+  
 
   save() {
     if (this.companySelected){
@@ -76,7 +123,8 @@ export class CompanyComponent implements OnInit{
       const data = {
         ...this.companyForm.value,
         companyId: this.companySelected?.companyId,
-        companyName: this.companySelected?.companyName
+        companyName: this.companySelected?.companyName,
+        companyTypes: this.companyTypesSelected // Lista de valores seleccionados
       };
 
       this.companyService.updateCompany(data)
@@ -87,7 +135,9 @@ export class CompanyComponent implements OnInit{
     else {
       // Crear
       const data = {
-        ...this.companyForm.value
+        ...this.companyForm.value,
+        //companyName: this.companySelected?.companyName,
+        companyTypes: this.companyTypesSelected // Lista de valores seleccionados
       };
 
       this.companyService.createCompany(data)
@@ -96,5 +146,5 @@ export class CompanyComponent implements OnInit{
         this.router.navigateByUrl(`/mantenimientos/companies/${resp.companyId}`);
       });
     }
-  }
+  };
 }

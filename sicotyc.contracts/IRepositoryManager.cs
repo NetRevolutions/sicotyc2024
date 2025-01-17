@@ -6,6 +6,7 @@
         ILookupCodeGroupRepository LookupCodeGroup { get; }
         ILookupCodeRepository LookupCode { get; }
         ICompanyRepository Company { get; }
+        ICompanyTypeRepository CompanyType { get; }
         IUserCompanyRepository UserCompany { get; }
         IUserDetailRepository UserDetail { get; }
         IDriverRepository Driver { get; }

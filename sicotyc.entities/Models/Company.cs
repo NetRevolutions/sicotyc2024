@@ -8,7 +8,6 @@ namespace sicotyc.entities.Models
     [Table("COMPANY", Schema = "SCT")]
     public class Company : TrackingBase
     {
-        // [Key]
         public Guid CompanyId { get; set; } = Guid.NewGuid();
         [Key]
         [Required(ErrorMessage = "El valor del Ruc es requerido")]
@@ -26,13 +25,10 @@ namespace sicotyc.entities.Models
 
         // Relation 1:1
 
-
-        // Relation 1:*        
-
-        public List<CompanyType>? CompanyTypes { get; set; }
+        // Relation 1:*  
 
         // Relation *:*        
         public ICollection<UserCompany>? UserCompanies { get; set; }
-
+        public ICollection<CompanyType>? CompanyTypes { get; set; }
     }
 }

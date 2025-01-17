@@ -30,6 +30,7 @@ namespace sicotyc.entities.Models
         public LookupCodeGroup? LookupCodeGroup { get; set; }
 
         // Relation *:*        
+        public ICollection<CompanyType>? CompanyTypes { get; set; }
 
     }
 }

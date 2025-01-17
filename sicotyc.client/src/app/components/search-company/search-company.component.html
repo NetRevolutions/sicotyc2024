@@ -1,1 +1,17 @@
-<p>search-company works!</p>
+<div class="input-group">
+    <input type="number"
+            class="form-control"
+            [value]="ruc"
+            readonly>
+
+    <span class="input-group-btn">
+        <button (click)="buscarEmpresa()"
+                [ngClass]="btnClass"
+                type="button">
+            <i class="fa fa-search"></i>
+        </button>
+    </span>
+
+    <!-- Reutilizando el componente -->
+    <app-modal-company (valorSalida)="onModalCompanyResult($event)"></app-modal-company>
+</div>
