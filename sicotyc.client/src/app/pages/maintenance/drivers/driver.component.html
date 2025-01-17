@@ -1,1 +1,265 @@
-<p>driver works!</p>
+<div class="row animated fadeIn fast">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Conductor</h4>
+                <h6 class="card-subtitle">{{subTitle}}</h6>
+                <form class="form-horizontal p-t-20"
+                    [formGroup]="driverForm">
+                    <!-- <div class="form-group row"
+                            *ngIf="driverSelected">
+                        <label for="photoDriver" class="col-sm-4 control-label">Foto</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <img [src]="driverSelected.img | img: 'drivers'" 
+                                     class="w200"/>
+                            </div>
+                        </div>
+                    </div>                     -->
+
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="form-group row">
+                                <label for="firstName" class="col-sm-2 control-label">Nombre*</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="text"
+                                                formControlName="firstName" 
+                                                class="form-control" 
+                                                id="firstName" 
+                                                placeholder="Nombres">
+                                    </div>
+                                </div>
+                                <label for="lastName" class="col-sm-2 control-label">Apellidos*</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="text"
+                                                formControlName="lastName" 
+                                                class="form-control" 
+                                                id="lastName" 
+                                                placeholder="Apellidos">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="documentType" class="col-sm-2 control-label">Tipo de Documento*</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <select class="form-control" formControlName="documentType" id="documentType">
+                                            <option value="">Seleccione</option>
+                                            <option *ngFor="let item of typeOfDocuments" value="{{item.lookupCodeValue}}">{{item.lookupCodeName}}</option>                                    
+                                        </select>
+                                    </div>
+                                </div>
+                                <label for="dateOfBirth" class="col-sm-2 control-label">Fecha Nac.*</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="date"
+                                                formControlName="dateOfBirth" 
+                                                class="form-control" 
+                                                id="dateOfBirth" 
+                                                placeholder="Fecha Nac.">
+                                    </div>
+                                </div>                                
+                            </div>
+                            <div class="form-group row">
+                                <label for="documentNumber" class="col-sm-2 control-label">Nro de Documento*</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <input type="text"           
+                                                formControlName = "documentNumber"                             
+                                                class="form-control" 
+                                                id="documentNumber" 
+                                                placeholder="Numero de documento">
+                                    </div>
+                                </div>
+                                <label for="documentExpiration" class="col-sm-2 control-label">Fecha de Expiracion*</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="date"
+                                                formControlName="documentExpiration" 
+                                                class="form-control" 
+                                                id="documentExpiration" 
+                                                placeholder="Fecha de Expiracion">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="antecedentesPolicialesExpiration" class="col-sm-2 control-label">Vigencia Antec. Polic.</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="date"
+                                                formControlName="antecedentesPolicialesExpiration" 
+                                                class="form-control" 
+                                                id="antecedentesPolicialesExpiration" 
+                                                placeholder="Vigencia Antec. Polic.">
+                                    </div>
+                                </div>
+                                <label for="antecedentesPenalesExpiration" class="col-sm-2 control-label">Vigencia Antec. Penal.</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="date"
+                                                formControlName="antecedentesPenalesExpiration" 
+                                                class="form-control" 
+                                                id="antecedentesPenalesExpiration" 
+                                                placeholder="Vigencia Antec. Penal.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ruc" class="col-sm-2 control-label">Ruc*</label>
+                                <div class="col-sm-3">
+                                    <app-search-company 
+                                        (valorSalida)="onValorSalida($event)"
+                                        [ruc]="company?.ruc"
+                                    >
+                                    </app-search-company>
+                                    <!-- <div class="input-group">
+                                        <div class="input-group-addon"><i class="ti-lock"></i></div>
+                                        <input type="text"
+                                                formControlName="ruc" 
+                                                class="form-control" 
+                                                id="ruc" 
+                                                placeholder="ruc">
+                                    </div> -->
+                                </div>                                
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-5">
+                                    <div class="checkbox checkbox-primary p-t-0">
+                                        <input id="checkbox-signup" type="checkbox" formControlName="enableIMO">
+                                        <label for="checkbox-signup"> Habilitado IMO</label>
+                                    </div>
+                                </div>  
+                                <label for="address" class="col-sm-2 control-label">Direccion</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group">
+                                        <input type="text"
+                                                formControlName="address" 
+                                                class="form-control" 
+                                                id="address" 
+                                                placeholder="direccion">
+                                        <!-- <div class="input-group-addon"><i class="ti-world"></i></div> -->
+                                        <!-- <textarea formControlName = "address"
+                                                rows="3"                                                                               
+                                                class="form-control" 
+                                                id="address" 
+                                                placeholder="direccion">
+                                        </textarea> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                
+                            </div>
+                            <div class="form-group row">
+                                
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div *ngIf="driverSelected" class="col-2">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Avatar</h4>
+                                        <h6 class="card-subtitle">Imagen del conductor</h6>
+                                        <div class="text-center">
+                                            <!-- <img *ngIf="!imgTemp" [src]="driverSelected?.imgUrl" class="img-avatar"> -->
+                                            <img *ngIf="!imgTemp" [src]="!driverSelected ? noImageDriver : driverSelected!.imgUrl" class="img-avatar">
+                                            <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
+                                        </div>
+                                        <input type="file"
+                                                (change)="changeImage($any($event.target).files[0])">
+                                        <br>
+                                        <br>
+                                        <button type="button" 
+                                                class="btn btn-success btn-block waves-effect waves-light m-r-10"
+                                                [disabled]="!imgUpload"
+                                                (click)="uploadImage()">
+                                            <i class="fa fa-save"></i>
+                                            Cambiar Imagen
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>                                                  
+                    <div class="form-group row">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <!-- <h4 class="card-title">Conductores</h4> -->
+                                            <h5 class="card-subtitle">Licencias</h5>
+                                        </div>
+                                        <div class="col">
+                                            <div class="text-right">
+                                                <button class="btn btn-primary"
+                                                (click)="addLicense()">
+                                                    <i class="fa fa-user-o"></i> 
+                                                    Agregar Licencia
+                                                </button>                                                
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tipo de Brevete</th>
+                                                        <th>Nro Brevete</th>
+                                                        <th>Fecha de Expiracion</th>                                    
+                                                        <th class="text-nowrap">Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let item of driverLicences">
+                                                        <td>{{getLicenseNameByLicenseType(item.licenseType)}}</td>
+                                                        <td>{{item.licenseNumber}}</td>
+                                                        <td>{{item.licenseExpiration}}</td>
+                                                        <td class="text-nowrap">
+                                                            <a data-toggle="tooltip" data-original-title="Editar" class="cursor" (click)="editLicense(item)"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                            <a data-toggle="tooltip" data-original-title="Borrar" class="cursor" (click)="deleteLicense(item)"> <i class="fa fa-close text-danger"></i> </a>
+                                                        </td>
+                                                    </tr>                                                    
+                                                </tbody>
+                                            </table>        
+                                        </div>
+                                    </div>
+                                    <div class="form-group row m-b-0" >
+                                        <div class="offset-sm-3 col-sm-6">
+                                            <button type="submit"
+                                                    [disabled]="formIsValid()"
+                                                    class="btn btn-success waves-effect waves-light"
+                                                    (click)="saveDriver()">
+                                                <i class="fa fa-save"></i>
+                                                Guardar
+                                            </button>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>    
+                                                                                
+                    </div>
+                    <!-- <div class="form-group row m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button type="submit"
+                                    [disabled]="formIsValid()"
+                                    class="btn btn-success waves-effect waves-light"
+                                    (click)="saveDriver()">
+                                <i class="fa fa-save"></i>
+                                Guardar
+                            </button>
+                        </div>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>

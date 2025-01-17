@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using FluentEmail.Core;
 using sicotyc.entities.DataTransferObjects;
+using sicotyc.entities.Enum;
 using sicotyc.entities.Models;
 
 namespace sicotyc.Server
@@ -35,11 +37,40 @@ namespace sicotyc.Server
                 .ReverseMap();
             CreateMap<CompanyForRegistrationDto, Company>().ReverseMap();
             CreateMap<CompanyDto, Company>().ReverseMap();
-            CreateMap<CompanyForUpdateDto, Company>().ReverseMap();
+            //CreateMap<CompanyForUpdateDto, Company>().ReverseMap();
+            CreateMap<CompanyForUpdateDto, Company>()
+                .ForMember(d => d.CompanyComercialName, opt => opt.MapFrom(src => src.CompanyComercialName))
+                .ForMember(d => d.CompanyEmail, opt => opt.MapFrom(src => src.CompanyEmail))
+                .ForMember(d => d.CompanyPhone, opt => opt.MapFrom(src => src.CompanyPhone))
+                .ForMember(d => d.UpdateDtm, opt => opt.MapFrom(src => src.LastUpdatedOn))
+                .ForMember(d => d.CompanyTypes, opt => opt.MapFrom(src => 
+                    src.CompanyTypes != null
+                        ? src.CompanyTypes.Select(type => new CompanyType { Ruc = src.Ruc, LookupCodeValue = type}).ToList()
+                        : new List<CompanyType>()))                
+                .ReverseMap()
+                .ForMember(dto => dto.CompanyTypes, opt => opt.MapFrom(src => 
+                    src.CompanyTypes != null
+                        ? src.CompanyTypes.Select(ct => ct.LookupCodeValue).ToList()
+                        : new List<string>()))
+                .ForMember(dto => dto.LastUpdatedOn, opt => opt.MapFrom(src => src.UpdateDtm));
             CreateMap<Company, SearchResultDto>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(o => o.CompanyId))
                 .ForMember(d => d.Name, opt => opt.MapFrom(o => o.CompanyName));
-
+            CreateMap<DriverDto, Driver>().ReverseMap();
+            CreateMap<DriverForCreationDto, Driver>().ReverseMap();
+            CreateMap<DriverForUpdateDto, Driver>().ReverseMap();
+            CreateMap<DriverLicenseDto, DriverLicense>();
+            CreateMap<DriverLicenseForCreationDto, DriverLicense>().ReverseMap();
+            CreateMap<DriverLicenseForUpdateDto, DriverLicense>().ReverseMap();
+            CreateMap<Driver, SearchResultDto>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(o => o.DriverId))
+                .ForMember(d => d.Name, opt => opt.MapFrom(o => o.FirstName + " " + o.LastName));
+            CreateMap<UnitTransportForRegistrationDto, UnitTransport>().ReverseMap();
+            CreateMap<UnitTransportDto, UnitTransport>().ReverseMap();
+            CreateMap<UnitTransportForUpdateDto, UnitTransport>().ReverseMap();
+            CreateMap<UnitTransport, SearchResultDto>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(o => o.UnitTransportId))
+                .ForMember(d => d.Name, opt => opt.MapFrom(o => o.Plate));
         }
     }
 }

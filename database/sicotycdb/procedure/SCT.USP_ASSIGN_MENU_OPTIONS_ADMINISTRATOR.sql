@@ -1,4 +1,4 @@
-USE Sicotyc2023
+USE SicotycDB
 GO
 
 /***************************************************************************************************************
@@ -35,14 +35,14 @@ BEGIN
 
 	TRUNCATE TABLE SCT.OPTIONS_ROLE
 
-	INSERT INTO SCT.OPTIONS_ROLE (RoleId, OptionId)
+	INSERT INTO SCT.OPTIONS_ROLE (Id, OptionId)
 		SELECT
 			@ROL_ID
 		   ,OptionId
 		FROM SCT.OPTIONS
 
 	SELECT
-		RoleId
+		Id
 	   ,OptionId
 	FROM SCT.OPTIONS_ROLE
 END

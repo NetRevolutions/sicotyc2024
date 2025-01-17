@@ -8,12 +8,14 @@ namespace sicotyc.entities.Models
     [Table("COMPANY", Schema = "SCT")]
     public class Company : TrackingBase
     {
+        public Guid CompanyId { get; set; } = Guid.NewGuid();
         [Key]
-        public Guid CompanyId { get; set; }
         [Required(ErrorMessage = "El valor del Ruc es requerido")]
-        [RucValidation(ErrorMessage = "El Ruc debe tener 11 digitos numericos")]
-        public string? Ruc { get; set; }
+        [RucValidation(ErrorMessage = "El Ruc debe tener 11 digitos numericos")]        
+        public required string Ruc { get; set; }
+        [Required(ErrorMessage ="Nombre de la empresa es requerido")]        
         public string? CompanyName { get; set; }
+        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "[NULL]")]        
         public string? CompanyComercialName { get; set; }
         public CompanyStateEnum? CompanyState { get; set; }
         public CompanyConditionEnum? CompanyCondition { get; set; }
@@ -21,5 +23,12 @@ namespace sicotyc.entities.Models
         public string? CompanyEmail { get; set; }
         public string? CompanyPhone { get; set; }
 
+        // Relation 1:1
+
+        // Relation 1:*  
+
+        // Relation *:*        
+        public ICollection<UserCompany>? UserCompanies { get; set; }
+        public ICollection<CompanyType>? CompanyTypes { get; set; }
     }
 }

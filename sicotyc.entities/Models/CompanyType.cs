@@ -4,11 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace sicotyc.entities.Models
 {
     [Table("COMPANY_TYPE", Schema = "SCT")]
-    public class CompanyType : TrackingBase
+    public class CompanyType
     {
-        [Key]
-        public Guid CompanyTypeId { get; set; }
-        [Required(ErrorMessage = "El tipo de empresa es requerido")]
-        public string? CompanyTypeName { get; set; }
+        //[ForeignKey("Company")]
+        public string Ruc { get; set; }
+        public Company Company { get; set; }
+
+        //[ForeignKey("LookupCode")]
+        [Column("TypeOfCompany")]
+        public string LookupCodeValue { get; set; }
+        public LookupCode TypeOfCompany { get; set; }
     }
 }

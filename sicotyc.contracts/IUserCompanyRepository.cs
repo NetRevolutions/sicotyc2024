@@ -5,15 +5,18 @@ namespace sicotyc.contracts
     public interface IUserCompanyRepository
     {
         Task<bool> ExistUserCompanyAsync(UserCompany userCompany, bool trackChanges);
-        Task<List<string>> GetUserIdsByCompanyId(Guid companyId, bool trackChanges);
-        Task<Guid> GetCompanyIdByUserIdAsync(string userId, bool trackChanges);
-        Task<string> GetUserIdByCompanyIdAsync(Guid companyId, bool trackChanges);
-        Task<Company> GetCompanyByUserIdAsync(string userId, bool trackChanges);
+        //Task<List<Guid>> GetUserIdsByCompanyId(Guid companyId, bool trackChanges);
+        Task<List<Guid>> GetUserIdsByCompanyRuc(string ruc, bool trackChanges);
+        //Task<Guid> GetCompanyIdByUserIdAsync(Guid userId, bool trackChanges);
+        Task<string> GetCompanyRucByUserIdAsync(Guid userId, bool trackChanges);
+        //Task<Guid> GetUserIdByCompanyIdAsync(Guid companyId, bool trackChanges);
+        Task<Guid> GetUserIdByCompanyRucAsync(string ruc, bool trackChanges);
+        Task<Company> GetCompanyByUserIdAsync(Guid userId, bool trackChanges);
 
         void CreateUserCompany(UserCompany userCompany);
         void DeleteUserCompany(UserCompany userCompany);
-        Task<List<Company>> GetAllCompanyIdsByUserIdAsync(string userId, bool trackChanges);
-        Task DeleteAllCompaniesAssociatedUserAsync(string userId, bool trackChanges);
+        Task<List<Company>> GetAllCompanyIdsByUserIdAsync(Guid userId, bool trackChanges);
+        Task DeleteAllCompaniesAssociatedUserAsync(Guid userId, bool trackChanges);
 
     }
 }

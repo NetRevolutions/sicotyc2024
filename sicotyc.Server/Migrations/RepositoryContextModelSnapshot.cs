@@ -22,66 +22,7 @@ namespace sicotyc.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedName")
-                        .IsUnique()
-                        .HasDatabaseName("RoleNameIndex")
-                        .HasFilter("[NormalizedName] IS NOT NULL");
-
-                    b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "d779c86c-c6bf-4151-838b-579b68e05d69",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "bad0d50b-47af-4dc7-92ef-968409fa349e",
-                            Name = "Forwarder",
-                            NormalizedName = "FORWARDER"
-                        },
-                        new
-                        {
-                            Id = "82d48293-9816-4418-9a23-f3b6238c71e9",
-                            Name = "Forwarder-Coordinator",
-                            NormalizedName = "FORWARDER-COORDINATOR"
-                        },
-                        new
-                        {
-                            Id = "2cd049a2-39a1-4846-ae01-f03dbf6c8db1",
-                            Name = "Forwarder-Biller",
-                            NormalizedName = "FORWARDER-BILLER"
-                        },
-                        new
-                        {
-                            Id = "c24b7267-398f-4983-a2e3-b2828c0a9d49",
-                            Name = "Agency",
-                            NormalizedName = "AGENCY"
-                        });
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,9 +36,8 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -106,7 +46,7 @@ namespace sicotyc.Server.Migrations
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,9 +60,8 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -131,7 +70,7 @@ namespace sicotyc.Server.Migrations
                     b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -142,9 +81,8 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -153,13 +91,13 @@ namespace sicotyc.Server.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -168,10 +106,10 @@ namespace sicotyc.Server.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -189,15 +127,14 @@ namespace sicotyc.Server.Migrations
 
             modelBuilder.Entity("sicotyc.entities.Models.Company", b =>
                 {
-                    b.Property<Guid>("CompanyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Ruc")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CompanyComercialName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanyCondition")
-                        .HasColumnType("int");
+                    b.Property<string>("CompanyCondition")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CompanyEmail")
                         .HasColumnType("nvarchar(max)");
@@ -205,14 +142,18 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("CompanyFiscalAddress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("CompanyName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CompanyPhone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanyState")
-                        .HasColumnType("int");
+                    b.Property<string>("CompanyState")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreateDtm")
                         .HasColumnType("datetime2")
@@ -227,10 +168,6 @@ namespace sicotyc.Server.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletedOn");
 
-                    b.Property<string>("Ruc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime?>("UpdateDtm")
                         .HasColumnType("datetime2")
                         .HasColumnName("LastUpdatedOn");
@@ -239,58 +176,23 @@ namespace sicotyc.Server.Migrations
                         .HasMaxLength(60)
                         .HasColumnType("nvarchar(60)");
 
-                    b.HasKey("CompanyId");
+                    b.HasKey("Ruc");
 
                     b.ToTable("COMPANY", "SCT");
                 });
 
-            modelBuilder.Entity("sicotyc.entities.Models.CompanyCompanyType", b =>
-                {
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CompanyTypeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("CompanyId", "CompanyTypeId");
-
-                    b.HasIndex("CompanyTypeId");
-
-                    b.ToTable("COMPANY_COMPANY_TYPE", "SCT");
-                });
-
             modelBuilder.Entity("sicotyc.entities.Models.CompanyType", b =>
                 {
-                    b.Property<Guid>("CompanyTypeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Ruc")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("CompanyTypeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("LookupCodeValue")
+                        .HasColumnType("nvarchar(50)")
+                        .HasColumnName("TypeOfCompany");
 
-                    b.Property<DateTime>("CreateDtm")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CreatedOn");
+                    b.HasKey("Ruc", "LookupCodeValue");
 
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<DateTime?>("DeleteDtm")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DeletedOn");
-
-                    b.Property<DateTime?>("UpdateDtm")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("LastUpdatedOn");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.HasKey("CompanyTypeId");
+                    b.HasIndex("LookupCodeValue");
 
                     b.ToTable("COMPANY_TYPE", "SCT");
                 });
@@ -374,10 +276,10 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("AntecedentePolicialesExpiration")
+                    b.Property<DateTime?>("AntecedentesPenalesExpiration")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("AntecedentesPenalesExpiration")
+                    b.Property<DateTime?>("AntecedentesPolicialesExpiration")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("CreateDtm")
@@ -408,13 +310,16 @@ namespace sicotyc.Server.Migrations
                     b.Property<bool>("EnableIMO")
                         .HasColumnType("bit");
 
-                    b.Property<string>("FirsName")
+                    b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ruc")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdateDtm")
@@ -454,7 +359,11 @@ namespace sicotyc.Server.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletedOn");
 
+                    b.Property<Guid>("DriverLicenseId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime?>("LicenseExpiration")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("UpdateDtm")
@@ -468,21 +377,6 @@ namespace sicotyc.Server.Migrations
                     b.HasKey("DriverId", "LicenseNumber", "LicenseType");
 
                     b.ToTable("DRIVER_LICENSE", "SCT");
-                });
-
-            modelBuilder.Entity("sicotyc.entities.Models.DriverWhareHouse", b =>
-                {
-                    b.Property<Guid>("DriverId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("WhareHouseId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("DriverId", "WhareHouseId");
-
-                    b.HasIndex("WhareHouseId");
-
-                    b.ToTable("DRIVER_WHAREHOUSE", "SCT");
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.LookupCode", b =>
@@ -510,14 +404,16 @@ namespace sicotyc.Server.Migrations
 
                     b.Property<string>("LookupCodeName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("LookupCodeOrder")
                         .HasColumnType("int");
 
                     b.Property<string>("LookupCodeValue")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime?>("UpdateDtm")
                         .HasColumnType("datetime2")
@@ -536,198 +432,228 @@ namespace sicotyc.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("867c1549-7132-4e8e-174a-08da70ae983a"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8196),
+                            Id = new Guid("5c2d783a-8d86-40db-a682-abff1ebe1325"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7187),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
-                            LookupCodeName = "Por Eje",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "L1 - Dos Ruedas - Hasta 50 cm3 - Vel. Max. 50 km/h",
                             LookupCodeOrder = 1,
-                            LookupCodeValue = "ByAxis"
+                            LookupCodeValue = "L1"
                         },
                         new
                         {
-                            Id = new Guid("7e603067-a1ed-4b52-174b-08da70ae983a"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8199),
+                            Id = new Guid("43d3b835-0099-4c90-97e8-a90e46263981"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7190),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
-                            LookupCodeName = "Por Eje2",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "L2 - Tres Ruedas - Hasta 50 cm3 - Vel. Max. 50 km/h",
                             LookupCodeOrder = 2,
-                            LookupCodeValue = "ByAxis2"
+                            LookupCodeValue = "L2"
                         },
                         new
                         {
-                            Id = new Guid("1a011e51-2471-4ccd-174c-08da70ae983a"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8201),
+                            Id = new Guid("6b440bd4-1fc3-4ff0-a657-d2da4cd7667c"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7193),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
-                            LookupCodeName = "Por Eje3",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "L3 - Dos Ruedas - Mas de 50 cm3 - Vel. Mayor 50 km/h",
                             LookupCodeOrder = 3,
-                            LookupCodeValue = "ByAxis3"
+                            LookupCodeValue = "L3"
                         },
                         new
                         {
-                            Id = new Guid("23078793-cd0a-4718-2aa4-08da71da4714"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8203),
+                            Id = new Guid("15fb0388-449a-493e-8b25-b5c9d48724de"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7195),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
-                            LookupCodeName = "Por Eje4",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "L4 - Tres Ruedas Asimetricas al Eje Longitudinal",
                             LookupCodeOrder = 4,
-                            LookupCodeValue = "ByAxis4"
+                            LookupCodeValue = "L4"
                         },
                         new
                         {
-                            Id = new Guid("47b84a27-c75a-44d3-174d-08da70ae983a"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8206),
+                            Id = new Guid("e3023e84-144e-4c66-b508-1d6c03c8e452"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7196),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
-                            LookupCodeName = "Por Eje5",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "L5 - Tres Ruedas Simetricas al Eje Longitudinal, Peso menor a 1 TN",
                             LookupCodeOrder = 5,
-                            LookupCodeValue = "ByAxis5"
+                            LookupCodeValue = "L5"
                         },
                         new
                         {
-                            Id = new Guid("2d253e01-afa1-4a59-bc6a-26526f0d8498"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8208),
+                            Id = new Guid("69b2e6e4-3652-43f5-bbe7-46319d143f1e"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7198),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            LookupCodeName = "Documento Nacional de Identidad",
-                            LookupCodeOrder = 1,
-                            LookupCodeValue = "DNI"
-                        },
-                        new
-                        {
-                            Id = new Guid("8dc0180a-2ffc-4807-803a-37aab6ecaab2"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8209),
-                            CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            LookupCodeName = "Carnet de Extranjería",
-                            LookupCodeOrder = 2,
-                            LookupCodeValue = "CEX"
-                        },
-                        new
-                        {
-                            Id = new Guid("de0cc597-ad66-4497-acab-33617eb077bd"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8211),
-                            CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            LookupCodeName = "Pasaporte",
-                            LookupCodeOrder = 3,
-                            LookupCodeValue = "PASS"
-                        },
-                        new
-                        {
-                            Id = new Guid("792f255c-2b8b-42e6-9968-2855373e5c86"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8213),
-                            CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            LookupCodeName = "Partida de Nacimiento",
-                            LookupCodeOrder = 4,
-                            LookupCodeValue = "PNAC"
-                        },
-                        new
-                        {
-                            Id = new Guid("b2a7d680-b5dc-41d1-9792-695602fc2954"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8215),
-                            CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            LookupCodeName = "Carnet de FFAA",
-                            LookupCodeOrder = 5,
-                            LookupCodeValue = "CFFAA"
-                        },
-                        new
-                        {
-                            Id = new Guid("fe8b2536-5a20-4680-8dfe-526000df87e1"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8216),
-                            CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            LookupCodeName = "Pasaporte Diplomatico",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "M1 - Hasta 9 Asientos (Inc. conductor)",
                             LookupCodeOrder = 6,
-                            LookupCodeValue = "PASSD"
+                            LookupCodeValue = "M1"
                         },
                         new
                         {
-                            Id = new Guid("eaf628ee-9413-472e-a5b7-3c9d45f10cf0"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8218),
+                            Id = new Guid("fc61f0ae-1fac-4f04-a87a-7fe542e4398e"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7200),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("e4d10bc8-a160-4a9d-bc87-c94cf849e14c"),
-                            LookupCodeName = "Empresa de Transporte",
-                            LookupCodeOrder = 1,
-                            LookupCodeValue = "ET"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "M2 - Mas de 9 asientos - PBV Maximo 5 TN",
+                            LookupCodeOrder = 7,
+                            LookupCodeValue = "M2"
                         },
                         new
                         {
-                            Id = new Guid("58250d62-975a-4883-81f7-946c91cf2dec"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8220),
+                            Id = new Guid("b997a2d6-aa12-46e8-b074-2222c388fcc1"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7202),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("e4d10bc8-a160-4a9d-bc87-c94cf849e14c"),
-                            LookupCodeName = "Otros",
-                            LookupCodeOrder = 2,
-                            LookupCodeValue = "OT"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "M3 - Mas de 9 asientos - PBV Mayor 5 TN",
+                            LookupCodeOrder = 8,
+                            LookupCodeValue = "M3"
                         },
                         new
                         {
-                            Id = new Guid("6963984f-c5e0-4ed9-9647-46ac7054e344"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8221),
+                            Id = new Guid("e50c94ee-a2fc-4817-be47-fc24a2e762fd"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7203),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            LookupCodeName = "IMPORTACION",
-                            LookupCodeOrder = 1,
-                            LookupCodeValue = "IMPO"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "N1 - De PBV de 3.5 TN o menos",
+                            LookupCodeOrder = 9,
+                            LookupCodeValue = "N1"
                         },
                         new
                         {
-                            Id = new Guid("e83581fc-e05c-4c80-b5c2-e381fd7765d7"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8223),
+                            Id = new Guid("acad96fe-fcc8-428b-b597-33e75dd3a5ea"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7205),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            LookupCodeName = "EXPORTACION",
-                            LookupCodeOrder = 2,
-                            LookupCodeValue = "EXPO"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "N2 - De PBV mayor a 3.5 TN hasta 12 TN",
+                            LookupCodeOrder = 10,
+                            LookupCodeValue = "N2"
                         },
                         new
                         {
-                            Id = new Guid("5f38d3fd-f34e-45eb-aebf-512f5ebd94ee"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8225),
+                            Id = new Guid("7568f431-f970-42f2-860b-52b3d56e89f7"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7207),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            LookupCodeName = "CARGA SUELTA",
-                            LookupCodeOrder = 3,
-                            LookupCodeValue = "CS"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "N3 - De PBV mayor a 12 TN",
+                            LookupCodeOrder = 11,
+                            LookupCodeValue = "N3"
                         },
                         new
                         {
-                            Id = new Guid("fdc11a23-1dc7-4160-bb9d-019579c56e46"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8227),
+                            Id = new Guid("b95c8dbf-b7bc-4a4c-82cf-2ec93d976934"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7208),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            LookupCodeName = "DEVOLUCIÓN DE VACÍO",
-                            LookupCodeOrder = 4,
-                            LookupCodeValue = "DV"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "O1 - Remolques de PBV de 0.75 TN o menos",
+                            LookupCodeOrder = 12,
+                            LookupCodeValue = "O1"
                         },
                         new
                         {
-                            Id = new Guid("e5c70df3-cf54-477f-881d-7d142f0b51aa"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8228),
+                            Id = new Guid("c4a84b0a-bd4a-44b5-854e-6895ee11c347"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7210),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            LookupCodeName = "TRACCIÓN",
-                            LookupCodeOrder = 5,
-                            LookupCodeValue = "TX"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "O2 - Remolques de PBV mayor a 0.75 TN hasta 3.5 TN",
+                            LookupCodeOrder = 13,
+                            LookupCodeValue = "O2"
                         },
                         new
                         {
-                            Id = new Guid("8bd83659-b611-488d-aaac-e5d418bac06c"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8230),
+                            Id = new Guid("69522111-2411-4920-ad1c-7a60b8d15a2f"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7212),
                             CreatedBy = "SYSTEM",
-                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            LookupCodeName = "CAMA BAJA",
-                            LookupCodeOrder = 6,
-                            LookupCodeValue = "CB"
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "O3 - Remolques de PBV mayor a 3.5 TN hasta 10 TN",
+                            LookupCodeOrder = 14,
+                            LookupCodeValue = "O3"
+                        },
+                        new
+                        {
+                            Id = new Guid("14b7d51d-1584-4224-8c9b-fd3da3de7b23"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7213),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "O4 - Remolques de PBV mayor a 10 TN",
+                            LookupCodeOrder = 15,
+                            LookupCodeValue = "O4"
+                        },
+                        new
+                        {
+                            Id = new Guid("4cfe7678-6e98-4ce9-a031-9a9e6d205996"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7216),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SA - Casas Rodantes",
+                            LookupCodeOrder = 16,
+                            LookupCodeValue = "SA"
+                        },
+                        new
+                        {
+                            Id = new Guid("7a989cd1-be51-44c7-9e5b-a506942a0836"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7218),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SB - Vehiculos Blindados para el transporte de Valores",
+                            LookupCodeOrder = 17,
+                            LookupCodeValue = "SB"
+                        },
+                        new
+                        {
+                            Id = new Guid("da120915-15f5-46fc-af15-fee8d5939f86"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7225),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SC - Ambulancias",
+                            LookupCodeOrder = 18,
+                            LookupCodeValue = "SC"
+                        },
+                        new
+                        {
+                            Id = new Guid("8185bf65-4cb0-45ad-85e2-5782302ec1fe"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7226),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SD - Vehiculos Funerarios",
+                            LookupCodeOrder = 19,
+                            LookupCodeValue = "SD"
+                        },
+                        new
+                        {
+                            Id = new Guid("852e1cdc-8ba1-4615-acee-fc1692dc2d44"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7228),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SE - Bomberos",
+                            LookupCodeOrder = 20,
+                            LookupCodeValue = "SE"
+                        },
+                        new
+                        {
+                            Id = new Guid("ef6bfaf8-6b4b-40fd-a13a-6bdc27d8bec0"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7230),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SF - Vehiculos Celulares",
+                            LookupCodeOrder = 21,
+                            LookupCodeValue = "SF"
+                        },
+                        new
+                        {
+                            Id = new Guid("603ecb5e-9e89-462c-89b6-eedd06337574"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7231),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            LookupCodeName = "SG - Porta Tropas",
+                            LookupCodeOrder = 22,
+                            LookupCodeValue = "SG"
                         },
                         new
                         {
                             Id = new Guid("752ce625-da67-4842-b19d-18c5572dbbce"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8231),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7233),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "USERNAME",
@@ -737,7 +663,7 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("37a294bb-d8e2-4655-80a8-a2fe719766d4"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8233),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7235),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "FIRSTNAME",
@@ -747,7 +673,7 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("e129c250-de59-45d3-8794-58e073ff8064"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8235),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7236),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "LASTNAME",
@@ -757,7 +683,7 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("6b1b516f-9073-4657-8a4c-9cb7ebe8ea25"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8236),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7238),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "EMAIL",
@@ -767,7 +693,7 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("1aec098a-859a-4586-80b6-b6f4beb848fb"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8238),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7239),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "ID",
@@ -777,7 +703,7 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("50bd3490-2377-4945-9229-f018f6b07bf8"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8239),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7241),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "PHONENUMBER",
@@ -787,7 +713,7 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("f7ab3cf1-afe9-4b2b-977f-953d9f3b9275"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8241),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7243),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "ROLE",
@@ -797,12 +723,562 @@ namespace sicotyc.Server.Migrations
                         new
                         {
                             Id = new Guid("8e009c6d-5920-4135-8a26-49ec04c6e7d5"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8243),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7245),
                             CreatedBy = "SYSTEM",
                             LookupCodeGroupId = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
                             LookupCodeName = "IMG",
                             LookupCodeOrder = 8,
                             LookupCodeValue = "Img"
+                        },
+                        new
+                        {
+                            Id = new Guid("78d4d89c-efc4-4672-9b41-bfb5bf6ce748"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7246),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("d86c0ad0-1f0f-4d1d-b2c1-232874477770"),
+                            LookupCodeName = "Habido",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "HABIDO"
+                        },
+                        new
+                        {
+                            Id = new Guid("e109ec6d-3b84-4978-b725-e00cbe152819"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7248),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("d86c0ad0-1f0f-4d1d-b2c1-232874477770"),
+                            LookupCodeName = "No Habido",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "NO_HABIDO"
+                        },
+                        new
+                        {
+                            Id = new Guid("e0a65440-da87-454d-aafc-cd59a53a92d1"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7249),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            LookupCodeName = "Activo",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "ACTIVO"
+                        },
+                        new
+                        {
+                            Id = new Guid("a2305318-91ce-4da7-aa32-dc00dc3a129b"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7251),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            LookupCodeName = "Obligado a llevar Contabilidad",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "OBLIGADO_LLEVAR_CONTABILIDAD"
+                        },
+                        new
+                        {
+                            Id = new Guid("15db719f-1d18-406d-bc4b-144df7dce134"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7252),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            LookupCodeName = "Baja Temporal",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "BAJA_TEMPORAL"
+                        },
+                        new
+                        {
+                            Id = new Guid("1d6bfbaf-130a-48d3-b87a-16bc27544b17"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7254),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            LookupCodeName = "Baja Definitiva",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "BAJA_DEFINITIVA"
+                        },
+                        new
+                        {
+                            Id = new Guid("1f0c7bcb-2f90-4ec4-89fa-87c7ec50a96a"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7255),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            LookupCodeName = "Omiso",
+                            LookupCodeOrder = 5,
+                            LookupCodeValue = "OMISO"
+                        },
+                        new
+                        {
+                            Id = new Guid("0304a87a-e49f-4811-a2a7-e68faf0f6930"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7258),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            LookupCodeName = "Obligado a emitir comprobantes electronicos",
+                            LookupCodeOrder = 6,
+                            LookupCodeValue = "OBLIGADO_EMITIR_COMPROBANTE_ELECTRONICO"
+                        },
+                        new
+                        {
+                            Id = new Guid("798912f4-7813-4126-9c99-c9921f85da6b"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7292),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("f6112698-650a-4567-8a85-b73755ae39c0"),
+                            LookupCodeName = "DIESEL",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "DSL"
+                        },
+                        new
+                        {
+                            Id = new Guid("53b2d295-6628-4f70-bacd-887a7fe4c34f"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7294),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("f6112698-650a-4567-8a85-b73755ae39c0"),
+                            LookupCodeName = "Gasolina",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "GAS"
+                        },
+                        new
+                        {
+                            Id = new Guid("2807add9-17f6-4d7d-afb4-5a66de3feab0"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7296),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("f6112698-650a-4567-8a85-b73755ae39c0"),
+                            LookupCodeName = "GLP (Gas Licuado de Petroleo)",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "GLP"
+                        },
+                        new
+                        {
+                            Id = new Guid("1e083ea3-4b61-4576-94fb-2cb0691f56bb"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7298),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("f6112698-650a-4567-8a85-b73755ae39c0"),
+                            LookupCodeName = "GNV (Gas Natural Vehicular)",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "GNV"
+                        },
+                        new
+                        {
+                            Id = new Guid("2d253e01-afa1-4a59-bc6a-26526f0d8498"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7299),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
+                            LookupCodeName = "Documento Nacional de Identidad",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "DNI"
+                        },
+                        new
+                        {
+                            Id = new Guid("8dc0180a-2ffc-4807-803a-37aab6ecaab2"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7301),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
+                            LookupCodeName = "Carnet de Extranjería",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "CEX"
+                        },
+                        new
+                        {
+                            Id = new Guid("de0cc597-ad66-4497-acab-33617eb077bd"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7303),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
+                            LookupCodeName = "Pasaporte",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "PASS"
+                        },
+                        new
+                        {
+                            Id = new Guid("792f255c-2b8b-42e6-9968-2855373e5c86"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7304),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
+                            LookupCodeName = "Partida de Nacimiento",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "PNAC"
+                        },
+                        new
+                        {
+                            Id = new Guid("b2a7d680-b5dc-41d1-9792-695602fc2954"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7306),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
+                            LookupCodeName = "Carnet de FFAA",
+                            LookupCodeOrder = 5,
+                            LookupCodeValue = "CFFAA"
+                        },
+                        new
+                        {
+                            Id = new Guid("fe8b2536-5a20-4680-8dfe-526000df87e1"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7308),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
+                            LookupCodeName = "Pasaporte Diplomatico",
+                            LookupCodeOrder = 6,
+                            LookupCodeValue = "PASSD"
+                        },
+                        new
+                        {
+                            Id = new Guid("eaf628ee-9413-472e-a5b7-3c9d45f10cf0"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7309),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("e4d10bc8-a160-4a9d-bc87-c94cf849e14c"),
+                            LookupCodeName = "Empresa de Transporte",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "ET"
+                        },
+                        new
+                        {
+                            Id = new Guid("3d6ee99d-39d4-471c-bceb-4d89c3a75b21"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7311),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("e4d10bc8-a160-4a9d-bc87-c94cf849e14c"),
+                            LookupCodeName = "Agencia",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "AG"
+                        },
+                        new
+                        {
+                            Id = new Guid("58250d62-975a-4883-81f7-946c91cf2dec"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7313),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("e4d10bc8-a160-4a9d-bc87-c94cf849e14c"),
+                            LookupCodeName = "Otros",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "OT"
+                        },
+                        new
+                        {
+                            Id = new Guid("11e436c6-929e-41d2-bb40-ef58b0a6c54a"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7314),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-I",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "A1"
+                        },
+                        new
+                        {
+                            Id = new Guid("d8d6121d-f8dd-4042-a45f-d3f4d9304d1d"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7316),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-IIa",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "A2A"
+                        },
+                        new
+                        {
+                            Id = new Guid("bdaac09a-fb61-4c12-8756-08cf07bb8cdd"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7317),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-IIb",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "A2B"
+                        },
+                        new
+                        {
+                            Id = new Guid("335af8da-4070-4382-9948-78f5d7c608ad"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7319),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-IIIa",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "A3A"
+                        },
+                        new
+                        {
+                            Id = new Guid("16ff9b37-0c2b-425a-b13b-d7e4113a56f1"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7320),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-IIIb",
+                            LookupCodeOrder = 5,
+                            LookupCodeValue = "A3B"
+                        },
+                        new
+                        {
+                            Id = new Guid("b65d8f64-a4a7-4a67-9554-8bbe686f1918"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7322),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-IIIc",
+                            LookupCodeOrder = 6,
+                            LookupCodeValue = "A3C"
+                        },
+                        new
+                        {
+                            Id = new Guid("8fff4f82-3314-4f5b-a255-661d5b5b2a6e"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7324),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "B-I",
+                            LookupCodeOrder = 7,
+                            LookupCodeValue = "B1"
+                        },
+                        new
+                        {
+                            Id = new Guid("4a12b60a-033e-495e-98a8-7899a952a4d2"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7325),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "B-IIa",
+                            LookupCodeOrder = 8,
+                            LookupCodeValue = "B2A"
+                        },
+                        new
+                        {
+                            Id = new Guid("d49052cc-b76c-41ed-97a2-0586745a44bc"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7327),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "B-IIb",
+                            LookupCodeOrder = 9,
+                            LookupCodeValue = "B2B"
+                        },
+                        new
+                        {
+                            Id = new Guid("fdc88de9-5c83-43f7-a689-6aed7fe375c2"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7333),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "B-IIc",
+                            LookupCodeOrder = 10,
+                            LookupCodeValue = "B2C"
+                        },
+                        new
+                        {
+                            Id = new Guid("14e4dfed-e5ae-4a07-886a-f8a685e1bb03"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7334),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            LookupCodeName = "A-IV o Especial",
+                            LookupCodeOrder = 11,
+                            LookupCodeValue = "A4"
+                        },
+                        new
+                        {
+                            Id = new Guid("867c1549-7132-4e8e-174a-08da70ae983a"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7336),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
+                            LookupCodeName = "Por Eje",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "ByAxis"
+                        },
+                        new
+                        {
+                            Id = new Guid("7e603067-a1ed-4b52-174b-08da70ae983a"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7337),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
+                            LookupCodeName = "Por Eje2",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "ByAxis2"
+                        },
+                        new
+                        {
+                            Id = new Guid("1a011e51-2471-4ccd-174c-08da70ae983a"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7339),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
+                            LookupCodeName = "Por Eje3",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "ByAxis3"
+                        },
+                        new
+                        {
+                            Id = new Guid("23078793-cd0a-4718-2aa4-08da71da4714"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7341),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
+                            LookupCodeName = "Por Eje4",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "ByAxis4"
+                        },
+                        new
+                        {
+                            Id = new Guid("47b84a27-c75a-44d3-174d-08da70ae983a"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7342),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
+                            LookupCodeName = "Por Eje5",
+                            LookupCodeOrder = 5,
+                            LookupCodeValue = "ByAxis5"
+                        },
+                        new
+                        {
+                            Id = new Guid("6963984f-c5e0-4ed9-9647-46ac7054e344"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7344),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
+                            LookupCodeName = "IMPORTACION",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "IMPO"
+                        },
+                        new
+                        {
+                            Id = new Guid("e83581fc-e05c-4c80-b5c2-e381fd7765d7"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7345),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
+                            LookupCodeName = "EXPORTACION",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "EXPO"
+                        },
+                        new
+                        {
+                            Id = new Guid("5f38d3fd-f34e-45eb-aebf-512f5ebd94ee"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7347),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
+                            LookupCodeName = "CARGA SUELTA",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "CS"
+                        },
+                        new
+                        {
+                            Id = new Guid("fdc11a23-1dc7-4160-bb9d-019579c56e46"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7348),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
+                            LookupCodeName = "DEVOLUCIÓN DE VACÍO",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "DV"
+                        },
+                        new
+                        {
+                            Id = new Guid("e5c70df3-cf54-477f-881d-7d142f0b51aa"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7350),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
+                            LookupCodeName = "TRACCIÓN",
+                            LookupCodeOrder = 5,
+                            LookupCodeValue = "TX"
+                        },
+                        new
+                        {
+                            Id = new Guid("8bd83659-b611-488d-aaac-e5d418bac06c"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7352),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
+                            LookupCodeName = "CAMA BAJA",
+                            LookupCodeOrder = 6,
+                            LookupCodeValue = "CB"
+                        },
+                        new
+                        {
+                            Id = new Guid("8b22ce5a-1d4c-436a-92dc-bff4c9af8565"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7353),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "REMOLCADOR",
+                            LookupCodeOrder = 1,
+                            LookupCodeValue = "REM"
+                        },
+                        new
+                        {
+                            Id = new Guid("99da2463-52a3-4e35-978b-99c3c7a8c7fc"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7355),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "PLATAFORMA DE  40 PIES (2 EJES)",
+                            LookupCodeOrder = 2,
+                            LookupCodeValue = "PLAT40S2"
+                        },
+                        new
+                        {
+                            Id = new Guid("2ea5c93e-b7e5-41d9-8db1-dce45c0975da"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7356),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "PLATAFORMA DE  40 PIES (3 EJES)",
+                            LookupCodeOrder = 3,
+                            LookupCodeValue = "PLAT40S3"
+                        },
+                        new
+                        {
+                            Id = new Guid("b18cc534-6c71-43e7-b3a7-c0ff2d8f7cd6"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7358),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "PLATAFORMA DE  20 PIES (2 EJES)",
+                            LookupCodeOrder = 4,
+                            LookupCodeValue = "PLAT20S2"
+                        },
+                        new
+                        {
+                            Id = new Guid("f9775a11-583d-435b-a9c9-1b30d6b08e65"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7359),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "CONTAINERA DE 40 PIES (2 EJES)",
+                            LookupCodeOrder = 5,
+                            LookupCodeValue = "CONT40S2"
+                        },
+                        new
+                        {
+                            Id = new Guid("80779654-c53e-4502-b230-39476d0b5a31"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7361),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "CONTAINERA DE 40 PIES (3 EJES)",
+                            LookupCodeOrder = 6,
+                            LookupCodeValue = "CONT40S3"
+                        },
+                        new
+                        {
+                            Id = new Guid("1c8b7baf-7a76-4469-94b1-b6b79b87d3bc"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7362),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "CONTAINERA DE 20 PIES (2 EJES)",
+                            LookupCodeOrder = 7,
+                            LookupCodeValue = "CONT20S2"
+                        },
+                        new
+                        {
+                            Id = new Guid("aac495f0-cf83-40c2-90bc-b6edab8d02d5"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7364),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "FURGON CERRADO",
+                            LookupCodeOrder = 8,
+                            LookupCodeValue = "FURGCER"
+                        },
+                        new
+                        {
+                            Id = new Guid("a15fb960-6ed5-4562-8a91-76f069380bdc"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7366),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "FURGON ALAS DE GAVIOTA",
+                            LookupCodeOrder = 9,
+                            LookupCodeValue = "FURGALGAV"
+                        },
+                        new
+                        {
+                            Id = new Guid("0a66a417-0aaa-4aec-9cc6-e93a29598191"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7368),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "CAMA BAJA 40 PIES",
+                            LookupCodeOrder = 10,
+                            LookupCodeValue = "CB40"
+                        },
+                        new
+                        {
+                            Id = new Guid("ce065324-c0f1-401d-a3b4-b4284204ab8b"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7369),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "CAMA BAJA 20 PIES",
+                            LookupCodeOrder = 11,
+                            LookupCodeValue = "CB20"
+                        },
+                        new
+                        {
+                            Id = new Guid("47aa2631-2500-49b9-bb9a-b52dce33c3d4"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(7371),
+                            CreatedBy = "SYSTEM",
+                            LookupCodeGroupId = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            LookupCodeName = "CAMA CUNA 40 PIES",
+                            LookupCodeOrder = 12,
+                            LookupCodeValue = "CC40"
                         });
                 });
 
@@ -847,38 +1323,80 @@ namespace sicotyc.Server.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8013),
+                            Id = new Guid("a0860957-dc94-4006-86fc-b9ccf4f78a33"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6969),
                             CreatedBy = "SYSTEM",
-                            Name = "TIPO DE PAGO PEAJE"
+                            Name = "CATEGORIA VEHICULOS"
+                        },
+                        new
+                        {
+                            Id = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6977),
+                            CreatedBy = "SYSTEM",
+                            Name = "CLAIMS PERMITIDOS"
+                        },
+                        new
+                        {
+                            Id = new Guid("d86c0ad0-1f0f-4d1d-b2c1-232874477770"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6979),
+                            CreatedBy = "SYSTEM",
+                            Name = "CONDICION EMPRESA"
+                        },
+                        new
+                        {
+                            Id = new Guid("b0dd9a3b-a5ed-4960-b94b-155ae7809e86"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6980),
+                            CreatedBy = "SYSTEM",
+                            Name = "ESTADO EMPRESA"
+                        },
+                        new
+                        {
+                            Id = new Guid("f6112698-650a-4567-8a85-b73755ae39c0"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6982),
+                            CreatedBy = "SYSTEM",
+                            Name = "TIPO DE COMBUSTIBLE"
                         },
                         new
                         {
                             Id = new Guid("86d227dc-e0ca-4a78-85f4-83a6eb30cbc7"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8023),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6983),
                             CreatedBy = "SYSTEM",
                             Name = "TIPO DE DOC. IDENTIDAD"
                         },
                         new
                         {
                             Id = new Guid("e4d10bc8-a160-4a9d-bc87-c94cf849e14c"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8025),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6984),
                             CreatedBy = "SYSTEM",
                             Name = "TIPO DE EMPRESA"
                         },
                         new
                         {
+                            Id = new Guid("ab544e6e-6107-45bb-bf5b-b89401dc8afc"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6986),
+                            CreatedBy = "SYSTEM",
+                            Name = "TIPO DE LICENCIA DE CONDUCIR"
+                        },
+                        new
+                        {
+                            Id = new Guid("71b0316a-9831-499a-b9bb-08da70ae70ed"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6988),
+                            CreatedBy = "SYSTEM",
+                            Name = "TIPO DE PAGO PEAJE"
+                        },
+                        new
+                        {
                             Id = new Guid("c6ed82d5-4a24-464b-bebd-f33c0b7f7d80"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8026),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6990),
                             CreatedBy = "SYSTEM",
                             Name = "TIPO DE SERVICIO"
                         },
                         new
                         {
-                            Id = new Guid("cda56e87-1b44-4625-9f19-ac7eb282a9b7"),
-                            CreateDtm = new DateTime(2024, 5, 24, 5, 9, 0, 807, DateTimeKind.Utc).AddTicks(8027),
+                            Id = new Guid("74fa91f9-2019-4e0b-97c5-63b790594515"),
+                            CreateDtm = new DateTime(2025, 1, 6, 3, 9, 23, 249, DateTimeKind.Utc).AddTicks(6991),
                             CreatedBy = "SYSTEM",
-                            Name = "CLAIMS PERMITIDOS"
+                            Name = "TIPO DE UNIDAD DE TRANSPORTE"
                         });
                 });
 
@@ -936,28 +1454,29 @@ namespace sicotyc.Server.Migrations
 
             modelBuilder.Entity("sicotyc.entities.Models.MenuOptionRole", b =>
                 {
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<Guid>("OptionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("RoleId", "OptionId");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("OptionId", "Id");
+
+                    b.HasIndex("Id");
 
                     b.ToTable("OPTIONS_ROLE", "SCT");
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.OptionByRole", b =>
                 {
-                    b.Property<Guid>("OptionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Icon")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<Guid>("OptionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("OptionLevel")
                         .HasColumnType("int");
@@ -974,14 +1493,154 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("OptionId");
-
-                    b.ToTable("OptionByRoles");
+                    b.ToTable("OptionByRole");
                 });
 
-            modelBuilder.Entity("sicotyc.entities.Models.TransportDetail", b =>
+            modelBuilder.Entity("sicotyc.entities.Models.Role", b =>
                 {
-                    b.Property<Guid>("TransportDetailId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("091249cd-a7b3-467d-8938-2aa534324e21"),
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = new Guid("4a784ae9-f240-48e9-a98d-57f8b557d922"),
+                            Name = "Forwarder",
+                            NormalizedName = "FORWARDER"
+                        },
+                        new
+                        {
+                            Id = new Guid("e9accb7a-dfd4-43d8-9038-ea8bf23b270d"),
+                            Name = "Forwarder-Coordinator",
+                            NormalizedName = "FORWARDER-COORDINATOR"
+                        },
+                        new
+                        {
+                            Id = new Guid("45825849-2dc8-4631-beac-aaf53f844c6e"),
+                            Name = "Forwarder-Biller",
+                            NormalizedName = "FORWARDER-BILLER"
+                        },
+                        new
+                        {
+                            Id = new Guid("34872081-8ad9-4a28-bd76-29be97039208"),
+                            Name = "Agency",
+                            NormalizedName = "AGENCY"
+                        });
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.UnitTransport", b =>
+                {
+                    b.Property<Guid>("UnitTransportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AdditionalNotes")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDtm")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("CreatedOn");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<DateTime?>("DeleteDtm")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("DeletedOn");
+
+                    b.Property<string>("FabricationYear")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Fuel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModelYear")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Plate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ruc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SoatExpiredDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("TechnicalReviewExpiredDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UnitTransportDetailId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdateDtm")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("LastUpdatedOn");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<string>("VehicleConfiguration")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("VehicleQualificationExpirationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("VehicleQualificationNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UnitTransportId");
+
+                    b.HasIndex("UnitTransportDetailId")
+                        .IsUnique();
+
+                    b.ToTable("UNIT_TRANSPORT", "SCT");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.UnitTransportDetail", b =>
+                {
+                    b.Property<Guid>("UnitTransportDetailId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -1015,88 +1674,16 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("Width")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TransportDetailId");
+                    b.HasKey("UnitTransportDetailId");
 
-                    b.ToTable("TRANSPORT_DETAIL", "SCT");
-                });
-
-            modelBuilder.Entity("sicotyc.entities.Models.UnitTransport", b =>
-                {
-                    b.Property<Guid>("UnitTransportId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AdditinalNotes")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreateDtm")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("CreatedOn");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<DateTime?>("DeleteDtm")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DeletedOn");
-
-                    b.Property<DateTime?>("FabricationYear")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Fuel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModelYear")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Plate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("SoatExpiredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("TechnicalReviewExpiredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("TransportDetailId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdateDtm")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("LastUpdatedOn");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<string>("VehicleConfiguration")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("VehicleQualificationExpirationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("VehicleQualificationNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UnitTransportId");
-
-                    b.HasIndex("TransportDetailId");
-
-                    b.ToTable("UNIT_TRANSPORT", "SCT");
+                    b.ToTable("UNIT_TRANSPORT_DETAIL", "SCT");
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.User", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -1113,13 +1700,17 @@ namespace sicotyc.Server.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -1150,6 +1741,9 @@ namespace sicotyc.Server.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<Guid?>("UserDetailId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -1164,20 +1758,24 @@ namespace sicotyc.Server.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("UserDetailId")
+                        .IsUnique()
+                        .HasFilter("[UserDetailId] IS NOT NULL");
+
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.UserCompany", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("CompanyId")
+                    b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Ruc")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasIndex("CompanyId");
+                    b.HasKey("Id", "Ruc");
+
+                    b.HasIndex("Ruc");
 
                     b.ToTable("USER_COMPANY", "SCT");
                 });
@@ -1201,6 +1799,7 @@ namespace sicotyc.Server.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.Property<DateTime?>("DateOfBirth")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DeleteDtm")
@@ -1213,9 +1812,6 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("DocumentType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime?>("UpdateDtm")
                         .HasColumnType("datetime2")
                         .HasColumnName("LastUpdatedOn");
@@ -1225,8 +1821,6 @@ namespace sicotyc.Server.Migrations
                         .HasColumnType("nvarchar(60)");
 
                     b.HasKey("UserDetailId");
-
-                    b.HasIndex("Id");
 
                     b.ToTable("USER_DETAIL", "SCT");
                 });
@@ -1246,9 +1840,6 @@ namespace sicotyc.Server.Migrations
                     b.Property<string>("AliasName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreateDtm")
                         .HasColumnType("datetime2")
                         .HasColumnName("CreatedOn");
@@ -1262,6 +1853,10 @@ namespace sicotyc.Server.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DeletedOn");
 
+                    b.Property<string>("Ruc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime?>("UpdateDtm")
                         .HasColumnType("datetime2")
                         .HasColumnName("LastUpdatedOn");
@@ -1272,21 +1867,21 @@ namespace sicotyc.Server.Migrations
 
                     b.HasKey("WhareHouseId");
 
-                    b.HasIndex("CompanyId");
+                    b.HasIndex("Ruc");
 
                     b.ToTable("WHAREHOUSE", "SCT");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("sicotyc.entities.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
                     b.HasOne("sicotyc.entities.Models.User", null)
                         .WithMany()
@@ -1295,7 +1890,7 @@ namespace sicotyc.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
                     b.HasOne("sicotyc.entities.Models.User", null)
                         .WithMany()
@@ -1304,9 +1899,9 @@ namespace sicotyc.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("sicotyc.entities.Models.Role", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1319,7 +1914,7 @@ namespace sicotyc.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
                     b.HasOne("sicotyc.entities.Models.User", null)
                         .WithMany()
@@ -1328,28 +1923,29 @@ namespace sicotyc.Server.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("sicotyc.entities.Models.CompanyCompanyType", b =>
+            modelBuilder.Entity("sicotyc.entities.Models.CompanyType", b =>
                 {
+                    b.HasOne("sicotyc.entities.Models.LookupCode", "TypeOfCompany")
+                        .WithMany("CompanyTypes")
+                        .HasForeignKey("LookupCodeValue")
+                        .HasPrincipalKey("LookupCodeValue")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("sicotyc.entities.Models.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sicotyc.entities.Models.CompanyType", "CompanyType")
-                        .WithMany()
-                        .HasForeignKey("CompanyTypeId")
+                        .WithMany("CompanyTypes")
+                        .HasForeignKey("Ruc")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Company");
 
-                    b.Navigation("CompanyType");
+                    b.Navigation("TypeOfCompany");
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.ComplementTransport", b =>
                 {
-                    b.HasOne("sicotyc.entities.Models.TransportDetail", "TransportDetail")
+                    b.HasOne("sicotyc.entities.Models.UnitTransportDetail", "TransportDetail")
                         .WithMany()
                         .HasForeignKey("TransportDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -1361,31 +1957,12 @@ namespace sicotyc.Server.Migrations
             modelBuilder.Entity("sicotyc.entities.Models.DriverLicense", b =>
                 {
                     b.HasOne("sicotyc.entities.Models.Driver", "Driver")
-                        .WithMany()
+                        .WithMany("DriverLicenses")
                         .HasForeignKey("DriverId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Driver");
-                });
-
-            modelBuilder.Entity("sicotyc.entities.Models.DriverWhareHouse", b =>
-                {
-                    b.HasOne("sicotyc.entities.Models.Driver", "Driver")
-                        .WithMany()
-                        .HasForeignKey("DriverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sicotyc.entities.Models.WhareHouse", "WhareHouse")
-                        .WithMany()
-                        .HasForeignKey("WhareHouseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Driver");
-
-                    b.Navigation("WhareHouse");
                 });
 
             modelBuilder.Entity("sicotyc.entities.Models.LookupCode", b =>
@@ -1399,41 +1976,60 @@ namespace sicotyc.Server.Migrations
                     b.Navigation("LookupCodeGroup");
                 });
 
-            modelBuilder.Entity("sicotyc.entities.Models.UnitTransport", b =>
+            modelBuilder.Entity("sicotyc.entities.Models.MenuOptionRole", b =>
                 {
-                    b.HasOne("sicotyc.entities.Models.TransportDetail", "TransportDetail")
-                        .WithMany()
-                        .HasForeignKey("TransportDetailId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("TransportDetail");
-                });
-
-            modelBuilder.Entity("sicotyc.entities.Models.UserCompany", b =>
-                {
-                    b.HasOne("sicotyc.entities.Models.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("sicotyc.entities.Models.User", "User")
-                        .WithMany()
+                    b.HasOne("sicotyc.entities.Models.Role", "Role")
+                        .WithMany("OptionRole")
                         .HasForeignKey("Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Company");
+                    b.HasOne("sicotyc.entities.Models.MenuOption", "Option")
+                        .WithMany("OptionRole")
+                        .HasForeignKey("OptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Option");
+
+                    b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("sicotyc.entities.Models.UserDetail", b =>
+            modelBuilder.Entity("sicotyc.entities.Models.UnitTransport", b =>
+                {
+                    b.HasOne("sicotyc.entities.Models.UnitTransportDetail", "UnitTransportDetail")
+                        .WithOne("UnitTransport")
+                        .HasForeignKey("sicotyc.entities.Models.UnitTransport", "UnitTransportDetailId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UnitTransportDetail");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.User", b =>
+                {
+                    b.HasOne("sicotyc.entities.Models.UserDetail", "UserDetail")
+                        .WithOne("User")
+                        .HasForeignKey("sicotyc.entities.Models.User", "UserDetailId");
+
+                    b.Navigation("UserDetail");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.UserCompany", b =>
                 {
                     b.HasOne("sicotyc.entities.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Id");
+                        .WithMany("UserCompanies")
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("sicotyc.entities.Models.Company", "Company")
+                        .WithMany("UserCompanies")
+                        .HasForeignKey("Ruc")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
 
                     b.Navigation("User");
                 });
@@ -1442,16 +2038,58 @@ namespace sicotyc.Server.Migrations
                 {
                     b.HasOne("sicotyc.entities.Models.Company", "Company")
                         .WithMany()
-                        .HasForeignKey("CompanyId")
+                        .HasForeignKey("Ruc")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("sicotyc.entities.Models.Company", b =>
+                {
+                    b.Navigation("CompanyTypes");
+
+                    b.Navigation("UserCompanies");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.Driver", b =>
+                {
+                    b.Navigation("DriverLicenses");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.LookupCode", b =>
+                {
+                    b.Navigation("CompanyTypes");
+                });
+
             modelBuilder.Entity("sicotyc.entities.Models.LookupCodeGroup", b =>
                 {
                     b.Navigation("LookupCodes");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.MenuOption", b =>
+                {
+                    b.Navigation("OptionRole");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.Role", b =>
+                {
+                    b.Navigation("OptionRole");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.UnitTransportDetail", b =>
+                {
+                    b.Navigation("UnitTransport");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.User", b =>
+                {
+                    b.Navigation("UserCompanies");
+                });
+
+            modelBuilder.Entity("sicotyc.entities.Models.UserDetail", b =>
+                {
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

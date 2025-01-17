@@ -17,5 +17,7 @@ namespace sicotyc.entities.Models
         public int OptionOrder { get; set; }
         public int OptionLevel { get; set; }
         public Guid? OptionParentId { get; set; }
+
+        public ICollection<MenuOptionRole>? OptionRole { get; set; }
     }
 }

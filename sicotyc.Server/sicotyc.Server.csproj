@@ -15,6 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Uploads\Drivers\7effc042-9b7a-479c-89ad-365937529e2c.jpg" />
+    <None Remove="Uploads\Drivers\c021ade3-c879-4eda-848a-7ae8324a52d3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AspNetCoreRateLimit" Version="5.0.0" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="FluentEmail.Core" Version="3.0.2" />
@@ -42,9 +47,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
+    <Folder Include="Uploads\Drivers\" />
+    <Folder Include="Uploads\Warehouses\" />
     <Folder Include="Uploads\Users\" />
-    <Folder Include="Uploads\Transports\" />
+    <Folder Include="Uploads\UnitTransports\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">{{title}}</h4>
@@ -8,8 +8,8 @@
                     [formGroup]="companyForm"
                     (submit)="save()">
                     <div class="form-group row">
-                        <label for="ruc" class="col-sm-4 control-label">Ruc*</label>
-                        <div class="col-sm-8">
+                        <label for="ruc" class="col-sm-2 control-label">Ruc*</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -22,8 +22,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="companyName" class="col-sm-4 control-label">Nombre de Empresa</label>
-                        <div class="col-sm-8">
+                        <label for="companyName" class="col-sm-2 control-label">Nombre de Empresa</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -34,10 +34,8 @@
                                     placeholder="Nombre de la empresa">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="companyComercialName" class="col-sm-4 control-label">Nombre Comercial*</label>
-                        <div class="col-sm-8">
+                        <label for="companyComercialName" class="col-sm-2 control-label">Nombre Comercial*</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -48,10 +46,10 @@
                                     placeholder="Ingrese un nombre comercial">
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="form-group row">
-                        <label for="companyState" class="col-sm-4 control-label">Estado de la empresa</label>
-                        <div class="col-sm-8">
+                        <label for="companyState" class="col-sm-2 control-label">Estado de la empresa</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -62,10 +60,8 @@
                                     placeholder="Estado de la empresa">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="companyCondition" class="col-sm-4 control-label">Condicion de la empresa</label>
-                        <div class="col-sm-8">
+                        <label for="companyCondition" class="col-sm-2 control-label">Condicion de la empresa</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -78,8 +74,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="companyFiscalAddress" class="col-sm-4 control-label">Direccion Fiscal</label>
-                        <div class="col-sm-8">
+                        <label for="companyFiscalAddress" class="col-sm-2 control-label">Direccion Fiscal</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -90,10 +86,8 @@
                                     placeholder="Direccion de la empresa">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="companyEmail" class="col-sm-4 control-label">Correo de la empresa*</label>
-                        <div class="col-sm-8">
+                        <label for="companyEmail" class="col-sm-2 control-label">Correo de la empresa*</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -106,8 +100,8 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="companyPhone" class="col-sm-4 control-label">Telefono de la empresa*</label>
-                        <div class="col-sm-8">
+                        <label for="companyPhone" class="col-sm-2 control-label">Telefono de la empresa*</label>
+                        <div class="col-sm-4">
                             <div class="input-group">
                                 <!-- <div class="input-group-addon"><i class="ti-user"></i></div> -->
                                 <input 
@@ -118,6 +112,24 @@
                                     placeholder="Telefono de la empresa">
                             </div>
                         </div>
+                        <label class="col-sm-2 control-label">Tipo de Empresa*</label>
+                        <div class="col-sm-4">
+                            <!-- <pre>{{ companyTypes | json }}</pre>
+                            <pre>{{ companyTypesSelected | json }}</pre> -->
+                            <div class="checkbox checkbox-info">
+                                <div *ngFor="let item of companyTypesDB; let i=index">        
+                                    <input 
+                                            id ="typeOfCompany_{{i}}"
+                                            type="checkbox"
+                                            class="form-control" 
+                                            [value]="item.lookupCodeValue" 
+                                            [checked]="companyTypesSelected.includes(item.lookupCodeValue)"                                       
+                                            (change)="onCompanyTypeChange($event)"
+                                        >
+                                    <label for="typeOfCompany_{{i}}">{{item.lookupCodeName}}</label>
+                                </div>
+                            </div>                                         
+                        </div>  
                     </div>
                     <div class="form-group row m-b-0">
                         <div class="offset-sm-3 col-sm-9">

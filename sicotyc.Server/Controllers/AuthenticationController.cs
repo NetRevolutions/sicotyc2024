@@ -23,7 +23,7 @@ namespace sicotyc.Server.Controllers
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<Role> _roleManager;
         private readonly IAuthenticationManager _authManager;
         private readonly IRepositoryManager _repository;
         private readonly IWebHostEnvironment _hostingEnvironment;
@@ -35,7 +35,7 @@ namespace sicotyc.Server.Controllers
         public AuthenticationController(ILoggerManager logger,
             IMapper mapper,
             UserManager<User> userManager,
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<Role> roleManager,
             IAuthenticationManager authManager,
             IRepositoryManager repository,
             IWebHostEnvironment hostingEnvironment,
@@ -71,11 +71,14 @@ namespace sicotyc.Server.Controllers
             var userDB = await _userManager.FindByNameAsync(user.UserName);
             var rolesUser = _userManager.GetRolesAsync(userDB).Result.ToList();
 
+            var token = await _authManager.CreateTokenAsync();
+            var menu = await GetMenuItems(userDB.Id.ToString());
+            
 
-            return Ok(new
+            return Ok(new 
             {
-                Token = await _authManager.CreateTokenAsync(),
-                Menu = await GetMenuItems(userDB.Id),
+                Token = token,
+                Menu = menu,
                 Roles = rolesUser
             });
         }
@@ -229,17 +232,17 @@ namespace sicotyc.Server.Controllers
                     var userDto = _mapper.Map<UserDto>(renewToken.Result.User);
                     userDto.Roles = userDto.Roles = _userManager.GetRolesAsync(new User
                     {
-                        Id = userDto.Id,
+                        Id = new Guid(userDto.Id),
                         FirstName = userDto.FirstName,
                         LastName = userDto.LastName,
                         Email = userDto.Email,
                         UserName = userDto.UserName
                     }).Result.ToList();
 
-                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(uid, false);
+                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(uid), false);
                     userDto.Ruc = company.Ruc;
 
-                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(uid, false);
+                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(uid), false);
                     userDto.UserDetail = userDetail;
 
                     return Ok(new
@@ -285,6 +288,14 @@ namespace sicotyc.Server.Controllers
                             break;
                         case "AGENCY":
                             tuple = Tuple.Create(rol.Name, "AGENCIA");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-BILLER":
+                            tuple = Tuple.Create(rol.Name, "FACTURADOR DE TRANSPORTE");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-COORDINATOR":
+                            tuple = Tuple.Create(rol.Name, "COORDINADOR DE TRANSPORTE");
                             finalRoles.Add(tuple);
                             break;
                         default:
@@ -340,6 +351,14 @@ namespace sicotyc.Server.Controllers
                             break;
                         case "AGENCY":
                             tuple = Tuple.Create(rol.Name, "AGENCIA");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-BILLER":
+                            tuple = Tuple.Create(rol.Name, "FACTURADOR DE TRANSPORTE");
+                            finalRoles.Add(tuple);
+                            break;
+                        case "FORWARDER-COORDINATOR":
+                            tuple = Tuple.Create(rol.Name, "COORDINADOR DE TRANSPORTE");
                             finalRoles.Add(tuple);
                             break;
                         default:
@@ -477,7 +496,7 @@ namespace sicotyc.Server.Controllers
                 // Validacion para solo registrar 1 cuenta por ruc
                 if (companyDB != null)
                 {
-                    List<string> userIds = await _repository.UserCompany.GetUserIdsByCompanyId(companyDB.CompanyId, trackChanges: false);
+                    List<Guid> userIds = await _repository.UserCompany.GetUserIdsByCompanyRuc(companyDB.Ruc, trackChanges: false);
                     if (userIds.Count > 0)
                     {
                         resultProcess.Success = false;
@@ -518,7 +537,7 @@ namespace sicotyc.Server.Controllers
                     {
                         CompanyId = Guid.NewGuid(),
                         Ruc = userForRegistration.Ruc,
-                        CreatedBy = user.Id
+                        CreatedBy = user.Id.ToString()
                     };
                     _repository.Company.CreateCompany(company);
                     await _repository.SaveAsync();
@@ -528,7 +547,7 @@ namespace sicotyc.Server.Controllers
                     UserCompany userCompany = new UserCompany()
                     {
                         Id = user.Id,
-                        CompanyId = company.CompanyId
+                        Ruc = company.Ruc
                     };
                     _repository.UserCompany.CreateUserCompany(userCompany);
                     await _repository.SaveAsync();
@@ -539,7 +558,7 @@ namespace sicotyc.Server.Controllers
                     UserCompany userCompany = new UserCompany()
                     {
                         Id = user.Id,
-                        CompanyId = companyDB.CompanyId
+                        Ruc = companyDB.Ruc
                     };
                     _repository.UserCompany.CreateUserCompany(userCompany);
                     await _repository.SaveAsync();
@@ -552,8 +571,8 @@ namespace sicotyc.Server.Controllers
                 if (userForRegistration.UserDetail != null)
                 {
                     var userDetailForCreationDto = _mapper.Map<UserDetailForCreationDto>(userForRegistration.UserDetail);
-                    userDetailForCreationDto.Id = user.Id;
-                    userDetailForCreationDto.CreatedBy = user.Id;
+                    userDetailForCreationDto.Id = user.Id.ToString();
+                    userDetailForCreationDto.CreatedBy = user.Id.ToString();
                     await _repository.SaveAsync();
                 }
 
@@ -615,7 +634,7 @@ namespace sicotyc.Server.Controllers
                     // Roles
                     userDto.Roles = _userManager.GetRolesAsync(new User
                     {
-                        Id = userDto.Id,
+                        Id = new Guid(userDto.Id),
                         FirstName = userDto.FirstName,
                         LastName = userDto.LastName,
                         Email = userDto.Email,
@@ -623,11 +642,11 @@ namespace sicotyc.Server.Controllers
                     }).Result.ToList();
 
                     // Ruc
-                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(userDto.Id, false);
+                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.Ruc = company.Ruc;
 
                     // UserDetail
-                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(userDto.Id, false);
+                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.UserDetail = userDetail;
                 }
 
@@ -648,7 +667,7 @@ namespace sicotyc.Server.Controllers
         [HttpGet("users/collection({ids})")]
         [ServiceFilter(typeof(ValidationTokenFilter))]
         public async Task<IActionResult> GetUsersByIdCollection(
-            [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<string> ids)
+            [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
         {
 
             try
@@ -673,7 +692,7 @@ namespace sicotyc.Server.Controllers
                     //Roles
                     userDto.Roles = _userManager.GetRolesAsync(new User
                     {
-                        Id = userDto.Id,
+                        Id = new Guid(userDto.Id),
                         FirstName = userDto.FirstName,
                         LastName = userDto.LastName,
                         Email = userDto.Email,
@@ -681,11 +700,11 @@ namespace sicotyc.Server.Controllers
                     }).Result.ToList();
 
                     // Ruc
-                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(userDto.Id, trackChanges: false);
+                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(userDto.Id), trackChanges: false);
                     userDto.Ruc = company.Ruc;
 
                     // UserDetail
-                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(userDto.Id, false);
+                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.UserDetail = userDetail;
                 }
 
@@ -718,7 +737,7 @@ namespace sicotyc.Server.Controllers
                     // Roles
                     userDto.Roles = _userManager.GetRolesAsync(new User
                     {
-                        Id = userDto.Id,
+                        Id = new Guid(userDto.Id),
                         FirstName = userDto.FirstName,
                         LastName = userDto.LastName,
                         Email = userDto.Email,
@@ -726,11 +745,11 @@ namespace sicotyc.Server.Controllers
                     }).Result.ToList();
 
                     // Ruc
-                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(userDto.Id, false);
+                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.Ruc = company.Ruc;
 
                     // UserDetail
-                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(userDto.Id, false);
+                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.UserDetail = userDetail;
 
                     return Ok(new { data = userDto });
@@ -762,7 +781,7 @@ namespace sicotyc.Server.Controllers
                     // Roles
                     userDto.Roles = _userManager.GetRolesAsync(new User
                     {
-                        Id = userDto.Id,
+                        Id = new Guid(userDto.Id),
                         FirstName = userDto.FirstName,
                         LastName = userDto.LastName,
                         Email = userDto.Email,
@@ -770,11 +789,11 @@ namespace sicotyc.Server.Controllers
                     }).Result.ToList();
 
                     // Ruc
-                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(userDto.Id, false);
+                    Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.Ruc = company.Ruc;
 
                     // UserDetail
-                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(userDto.Id, false);
+                    UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(userDto.Id), false);
                     userDto.UserDetail = userDetail;
 
                     return Ok(new { data = userDto });
@@ -784,6 +803,31 @@ namespace sicotyc.Server.Controllers
             {
                 _logger.LogError($"Hubo un error al tratar de realizar la busqueda de usuario por email, aca el detalle: {ex.Message}");
                 return BadRequest("Hubo un error al tratar de realizar la busqueda de usuario por email");
+            }
+        }
+
+
+        // Read
+        [HttpGet("user/docNumber/{docNumber}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> GetUserByDocNumber(string docNumber)
+        {
+            try
+            {
+                var userDetailResult = await _repository.UserDetail.GetUserDetailByNumDocAsync(docNumber, trackChanges: false);
+                if (userDetailResult != null)
+                {
+                    return await GetUser(userDetailResult.User.Id);                    
+                }
+                else 
+                {
+                    return NoContent();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Hubo un error al tratar de realizar la busqueda de usuario por numero de documento, aca el detalle: {ex.Message}");
+                return BadRequest("Hubo un error al tratar de realizar la busqueda de usuario por numero de documento");
             }
         }
 
@@ -820,7 +864,7 @@ namespace sicotyc.Server.Controllers
                         await _userManager.RemoveFromRolesAsync(userDB, userDBRoles);
 
                         // 2.- Add the current roles
-                        var currentUserRoles = userDto.Roles;
+                        var currentUserRoles = userDto.Roles;                        
                         if (currentUserRoles != null)
                         {
                             await _userManager.AddToRolesAsync(userDB, currentUserRoles);
@@ -842,13 +886,13 @@ namespace sicotyc.Server.Controllers
                             await _repository.SaveAsync();
 
                             // Eliminamos cualquier otro UserCompany asociado al Id del usuario
-                            await _repository.UserCompany.DeleteAllCompaniesAssociatedUserAsync(userDto.Id, false);
+                            await _repository.UserCompany.DeleteAllCompaniesAssociatedUserAsync(new Guid(userDto.Id), false);
 
                             // Insertamos el nuevo registro en la table UserCompany
                             UserCompany userCompany = new UserCompany()
                             {
-                                Id = userDto.Id,
-                                CompanyId = companyDB.CompanyId
+                                Id = new Guid(userDto.Id),
+                                Ruc = companyDB.Ruc
                             };
 
                             _repository.UserCompany.CreateUserCompany(userCompany);
@@ -860,13 +904,13 @@ namespace sicotyc.Server.Controllers
 
                             // 5.- Si existe... obtener el id y actualizar en la tabla userCompany
                             // Eliminamos cualquier otro UserCompany asociado al Id del usuario
-                            await _repository.UserCompany.DeleteAllCompaniesAssociatedUserAsync(userDto.Id, false);
+                            await _repository.UserCompany.DeleteAllCompaniesAssociatedUserAsync(new Guid(userDto.Id), false);
 
                             // Insertamos el nuevo registro en la table UserCompany
                             UserCompany userCompany = new UserCompany()
                             {
-                                Id = userDto.Id,
-                                CompanyId = companyDB.CompanyId
+                                Id = new Guid(userDto.Id),
+                                Ruc = companyDB.Ruc
                             };
 
                             _repository.UserCompany.CreateUserCompany(userCompany);
@@ -874,22 +918,24 @@ namespace sicotyc.Server.Controllers
                         }
 
                         #region UserDetail
-                        UserDetail userDetailDB = await _repository.UserDetail.GetUserDetailByUserIdAsync(userDto.Id, true);
+                        UserDetail userDetailDB = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(userDto.Id), true);
                         if (userDetailDB == null)
                         {
                             // Validamos si tenemos data de UserDetail para crear
                             if (userDto.UserDetail != null)
                             {
-                                // Creamos data de UserDetail
-                                //var userDetailForCreationDto = _mapper.Map<UserDetailForCreationDto>(userDto.UserDetail);
-                                //userDetailForCreationDto.CreatedBy = userDto.Id;
+                                // Creamos data de UserDetail                                
                                 var userDetailForCreationDto = new UserDetailForCreationDto();
                                 _mapper.Map(userDto.UserDetail, userDetailForCreationDto);
                                 userDetailForCreationDto.CreatedBy = id.ToString();
 
+
+
                                 var userDetailDto = _mapper.Map<UserDetail>(userDetailForCreationDto);
                                 _repository.UserDetail.CreateUserDetail(userDetailDto);
                                 await _repository.SaveAsync();
+                                userDB.UserDetailId = userDetailDto.UserDetailId;
+                                await _userManager.UpdateAsync(userDB);
                             }
                         }
                         else
@@ -955,18 +1001,18 @@ namespace sicotyc.Server.Controllers
                 }
 
                 // 3.- Delete from userCompany
-                var companyId = await _repository.UserCompany.GetCompanyIdByUserIdAsync(userDB.Id, false);
-                if (companyId != null)
-                {
-                    UserCompany userCompany = new UserCompany()
-                    {
-                        Id = userDB.Id,
-                        CompanyId = companyId,
-                    };
+                //var companyid = await _repository.usercompany.getcompanyidbyuseridasync(userdb.id.tostring(), false);
+                //if (companyid != null)
+                //{
+                //    usercompany usercompany = new usercompany()
+                //    {
+                //        id = userdb.id.tostring(),
+                //        companyid = companyid,
+                //    };
 
-                    _repository.UserCompany.DeleteUserCompany(userCompany);
-                    await _repository.SaveAsync();
-                }
+                //    _repository.usercompany.deleteusercompany(usercompany);
+                //    await _repository.saveasync();
+                //}
 
                 // 4.- Delete user
                 var result = await _userManager.DeleteAsync(userDB);
@@ -1000,7 +1046,7 @@ namespace sicotyc.Server.Controllers
         {
             try
             {
-                UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(id.ToString(), false);
+                UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(id, false);
                 // TODO: Revisar si se necesita mapper
 
                 if (userDetail == null)
@@ -1127,7 +1173,7 @@ namespace sicotyc.Server.Controllers
             return claims;
         }
 
-        private async Task<List<IdentityRole>> GetAllRolesAsync()
+        private async Task<List<Role>> GetAllRolesAsync()
         {
             try
             {
@@ -1249,17 +1295,17 @@ namespace sicotyc.Server.Controllers
                         _mapper.Map(userDB, userDto);
                         userDto.Roles = userDto.Roles = _userManager.GetRolesAsync(new User
                         {
-                            Id = userDto.Id,
+                            Id = new Guid(userDto.Id),
                             FirstName = userDto.FirstName,
                             LastName = userDto.LastName,
                             Email = userDto.Email,
                             UserName = userDto.UserName
                         }).Result.ToList();
 
-                        Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(uid, false);
+                        Company company = await _repository.UserCompany.GetCompanyByUserIdAsync(new Guid(uid), false);
                         userDto.Ruc = company.Ruc;
 
-                        UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(uid, false);
+                        UserDetail userDetail = await _repository.UserDetail.GetUserDetailByUserIdAsync(new Guid(uid), false);
                         userDto.UserDetail = userDetail;
                     }
                 }

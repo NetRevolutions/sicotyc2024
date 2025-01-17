@@ -1,1 +1,126 @@
-<p>unit-transports works!</p>
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input type="text"
+                        class="form-control"
+                        placeholder="Buscar unidad de transporte..."
+                        #txtTerm
+                        (keyup)="search(txtTerm.value)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <label for="lookupCodeGroup" class="col-sm-2 control-label">Tipo</label>
+                    <div class="col-sm-4">
+                        <div class="input-group" id="lookupCodeGroup">
+                            <select class="form-control" (change)="onChangeBrand($event)" >
+                                <option value="">Seleccione</option>
+                                <option *ngFor="let b of brands" value="{{b.lookupCodeValue}}">{{b.lookupCodeName}}</option>                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row animated fadeIn fast"
+    *ngIf="loading">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor espere</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="card-title">Unidades de Transporte</h4>
+                        <h6 class="card-subtitle">Unidades de Transporte registrados en la aplicacion</h6>
+                    </div>
+                    <div class="col">
+                        <div class="text-right">
+                            <a class="btn btn-primary"
+                               routerLink="/mantenimientos/unit-transports/new">
+                                <i class="fa fa-car-o"></i> 
+                                Crear Unidad de Transporte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Avatar</th>
+                                <th>Placa</th>
+                                <th>Tipo</th>
+                                <th>Año</th>
+                                <th>SOAT</th>
+                                <th>Revision Tecnica</th>                                
+                                <th class="text-nowrap">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of unitTransports">
+                                <td class="text-center">
+                                    <img [src]="item.imgUrl" 
+                                            alt="Avatar de Unidad de Transporte" 
+                                            class="avatar cursor"
+                                            (click)="openModalImage(item)">
+                                </td>
+                                <td>{{item.plate}}</td>
+                                <td>{{item.brand}}</td>
+                                <td>{{item.fabricationYear}}</td>
+                                <td>{{item.soatExpiredDate}}</td>
+                                <td>{{item.technicalReviewExpiredDate}}</td>                                
+                                <td class="text-nowrap">
+                                    <a 
+                                        [routerLink]="['/mantenimientos', 'unit-transports', item.unitTransportId]" 
+                                        data-toggle="tooltip" 
+                                        data-original-title="Editar"
+                                        class="cursor"> 
+                                        <i class="fa fa-pencil text-inverse m-r-10"></i> 
+                                    </a>
+                                    <a                                          
+                                        data-toggle="tooltip" 
+                                        data-original-title="Borrar"
+                                        class="cursor"
+                                        (click)="delete(item)"> 
+                                        <i class="fa fa-close text-danger"></i> 
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div *ngIf="txtTerm.value.length === 0">
+                    <app-pagination
+                        [totalItems]="pagination.totalItems"
+                        [itemsPerPage]="pagination.pageSize"
+                        (paginaCambiada)="changePage($event)">                    
+                    </app-pagination>
+                    <!-- <button (click)="changePage(-5)" class="btn btn-secondary">Anteriores</button>
+                    &nbsp;
+                    <button (click)="changePage(5)" class="btn btn-secondary">Siguientes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

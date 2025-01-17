@@ -1,14 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
+import { EnumLookupCodeGroups } from 'src/app/enum/enums.enum';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 // Interfaces
 import { ICompany } from 'src/app/interfaces/company.interface';
 import { IPagination } from 'src/app/interfaces/pagination.interface';
+import { ILookupCode } from 'src/app/interfaces/lookup.interface';
 
 // Services
 import { SearchesService } from 'src/app/services/searches.service';
 import { CompanyService } from 'src/app/services/company.service';
+import { LookupService } from 'src/app/services/lookup.service';
 
 @Component({
   selector: 'app-companies',
@@ -26,15 +30,19 @@ export class CompaniesComponent implements OnInit, OnDestroy {
   
   public companies: ICompany[] = [];
   public companiesTemp: ICompany[] = [];
+  public companyTypesDB: ILookupCode[] = [];
   public useSearch: boolean = false;
   public companiesSubs: Subscription = new Subscription();
-
+  
   constructor(
     private searchService: SearchesService,
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private lookupService: LookupService,
+    private sanitizer: DomSanitizer
     ) {};
   
   ngOnInit(): void {
+    this.loadCompanyTypes();
     this.loadCompanies();
   }; 
 
@@ -49,14 +57,14 @@ export class CompaniesComponent implements OnInit, OnDestroy {
       this.pagination.pageSize = resp.pagination.pageSize;
       this.pagination.pageNumber = resp.pagination.pageNumber;
       this.pagination.totalItems = resp.pagination.totalCount;
-      this.companies = resp.data;
-      this.companiesTemp = resp.data;
+      this.companies = this.processRespData(resp.data);
+      this.companiesTemp = this.processRespData(resp.data);
       this.loading = false;
     });
   };
   
   search(searchTerm: string) {
-    if (searchTerm.length === 0) {
+    if (searchTerm.length <= 2) {
       this.useSearch = false;
       return this.companies = this.companiesTemp;
     }  
@@ -69,7 +77,7 @@ export class CompaniesComponent implements OnInit, OnDestroy {
 
         this.companyService.getCompaniesByIdCollection(ids)
         .subscribe((resp: any) => {
-          this.companies = resp.data;
+          this.companies = this.processRespData(resp.data);
         });
       }
       else {
@@ -118,4 +126,29 @@ export class CompaniesComponent implements OnInit, OnDestroy {
       }
     })
   };
+
+  loadCompanyTypes() {
+    this.lookupService.getLookupCodesByLCGNameALL(EnumLookupCodeGroups.TIPO_DE_EMPRESA)
+    .subscribe((resp: any) => {
+      this.companyTypesDB = resp.data;
+    })
+  };
+
+  processRespData(companyData: ICompany[]) {
+    if (companyData.length > 0) {
+      companyData.forEach(element => {
+        if (element.companyTypes != null && element.companyTypes.length > 0) {
+          let stringCompanyTypes = '<ul>';
+          element.companyTypes.forEach(ct => {
+            stringCompanyTypes += '<li>' + this.companyTypesDB.find(f => f.lookupCodeValue == ct)?.lookupCodeName + '</li>'
+          });
+          stringCompanyTypes += '</ul>';
+          // Usa DomSanitizer para marcar el HTML como seguro
+        element.companyTypesHtml = this.sanitizer.bypassSecurityTrustHtml(stringCompanyTypes);
+        }        
+      });
+    }
+    return companyData;
+    
+  }
 }

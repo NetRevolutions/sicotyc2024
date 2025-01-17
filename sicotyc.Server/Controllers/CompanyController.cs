@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using FluentEmail.Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using sicotyc.contracts;
 using sicotyc.entities.DataTransferObjects;
+using sicotyc.entities.Enum;
 using sicotyc.entities.Models;
 using sicotyc.entities.RequestFeatures;
 using sicotyc.Server.ActionFilters;
@@ -17,7 +20,7 @@ namespace sicotyc.Server.Controllers
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<Role> _roleManager;
         private readonly IAuthenticationManager _authManager;
         private readonly IRepositoryManager _repository;
         private readonly IConfiguration _configuration;
@@ -25,7 +28,7 @@ namespace sicotyc.Server.Controllers
         public CompanyController(ILoggerManager logger,
             IMapper mapper,
             UserManager<User> userManager,
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<Role> roleManager,
             IAuthenticationManager authManager,
             IRepositoryManager repository,
             IConfiguration configuration)
@@ -61,9 +64,34 @@ namespace sicotyc.Server.Controllers
                     companyEntity.CreatedBy = claims.Count() > 0 ? claims.Find(x => x.Type == "Id").Value : "system";
 
                     _repository.Company.CreateCompany(companyEntity);
+
+                    //await _repository.SaveAsync();                    
+
+                    // Company Type section                    
+                    if (companyForRegistration.CompanyTypes?.Count() > 0 && !string.IsNullOrEmpty(companyForRegistration.Ruc))
+                    { 
+                        // 1.- Delete all CompanyTypes
+                        await _repository.CompanyType.DeleteAllCompanyTypeByRuc(companyForRegistration.Ruc, true);
+                        foreach (var companyTypeValue in companyForRegistration.CompanyTypes)
+                        {
+                            CompanyType ct = new CompanyType()
+                            { 
+                                Ruc = companyForRegistration.Ruc,
+                                LookupCodeValue = companyTypeValue
+                            };
+
+                            _repository.CompanyType.CreateCompanyType(ct);
+                            
+                        }
+                    }
                     await _repository.SaveAsync();
 
                     var companyToReturn = _mapper.Map<CompanyForRegistrationDto>(companyEntity);
+
+                    // TODO: Review
+                    //if (companyForRegistration.CompanyType?.Count() > 0) {
+                    //    companyToReturn.CompanyType = companyForRegistration.CompanyType;
+                    //}
 
                     return CreatedAtRoute("CompanyByRuc", new { ruc = companyToReturn.Ruc }, companyToReturn);
                 }
@@ -92,7 +120,16 @@ namespace sicotyc.Server.Controllers
             }
             else { 
                 var companyDto = _mapper.Map<CompanyDto>(company);
-                return Ok(companyDto);
+
+                // CompanyType section
+                var companyTypes = await _repository.CompanyType.GetCompanyTypesByRuc(company.Ruc, trackChanges: false);
+
+                if (companyTypes.Count > 0)
+                {
+                    companyDto.CompanyTypes = companyTypes;
+                }
+
+                return Ok(new { data = companyDto });
             }
         }
 
@@ -109,10 +146,40 @@ namespace sicotyc.Server.Controllers
             }
             else
             {
+
                 var companyDto = _mapper.Map<CompanyDto>(company);
-                return Ok(companyDto);
+
+                // CompanyType section
+                var companyTypes = await _repository.CompanyType.GetCompanyTypesByRuc(company.Ruc, trackChanges: false);
+
+                if (companyTypes.Count > 0)
+                {
+                    companyDto.CompanyTypes = companyTypes;
+                }
+
+                return Ok(new { data = companyDto });
             }
         }
+
+        [HttpGet("ruc/name/{searchName}", Name = "CompanySearch")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> GetCompaniesBySearchName(string searchName)
+        { 
+            var companies = await _repository.Company.GetCompaniesByNameAsync(searchName, trackChanges: false);
+            
+            var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
+
+            // Company Type section
+            var companyTypesDB = await _repository.CompanyType.GetAllCompanyTypes();
+
+            foreach (var companyDto in companiesDto)
+            {
+                companyDto.CompanyTypes = companyTypesDB.Where(w => w.Ruc.Equals(companyDto.Ruc)).Select(s => s.LookupCodeValue);
+            }
+
+            return Ok(new { data = companiesDto });            
+        }
+
 
         [HttpGet("GetCompanies")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
@@ -123,6 +190,17 @@ namespace sicotyc.Server.Controllers
                 var companiesDb = await _repository.Company.GetAllCompaniesAsync(companyParameters, trackChanges: false);
 
                 var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companiesDb);
+
+                // Company Type section
+                //var lookupCodeGroup = await _repository.LookupCodeGroup.GetLookupCodeGroupByNameAsync(LookupCodeGroupEnum.TIPO_DE_EMPRESA.ToString(), false);
+                //var lookupCodes = await _repository.LookupCode.GetLookupCodesAsync(lookupCodeGroup.Id, false);
+                //var lookupCodeValues = lookupCodes.ToList().Select(c => c.LookupCodeValue).ToList();
+                var companyTypesDB = await _repository.CompanyType.GetAllCompanyTypes();                
+
+                foreach (var companyDto in companiesDto)
+                { 
+                    companyDto.CompanyTypes = companyTypesDB.Where(w => w.Ruc.Equals(companyDto.Ruc)).Select(s => s.LookupCodeValue);
+                }
 
                 return Ok(new { 
                     data = companiesDto,
@@ -145,6 +223,14 @@ namespace sicotyc.Server.Controllers
             {
                 var companiesDb = await _repository.Company.GetAllCompaniesAsync(trackChanges: false);
                 var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companiesDb);
+
+                // Company Type section
+                var companyTypesDB = await _repository.CompanyType.GetAllCompanyTypes();
+
+                foreach (var companyDto in companiesDto)
+                {
+                    companyDto.CompanyTypes = companyTypesDB.Where(w => w.Ruc.Equals(companyDto.Ruc)).Select(s => s.LookupCodeValue);
+                }
 
                 return Ok(companiesDto);
             }
@@ -173,6 +259,15 @@ namespace sicotyc.Server.Controllers
             }
 
             var companiesToReturn = _mapper.Map<IEnumerable<CompanyDto>>(companyEntities);
+
+            // Company Type section
+            var companyTypesDB = await _repository.CompanyType.GetAllCompanyTypes();
+
+            foreach (var companyToReturn in companiesToReturn)
+            {
+                companyToReturn.CompanyTypes = companyTypesDB.Where(w => w.Ruc.Equals(companyToReturn.Ruc)).Select(s => s.LookupCodeValue);
+            }
+
             return Ok(companiesToReturn);
         }
 
@@ -188,10 +283,16 @@ namespace sicotyc.Server.Controllers
                 {
                     _logger.LogInfo($"La empresa con id: {id} no existe en la base de datos.");
                     return NotFound();
-                }                
-                
-                _mapper.Map(companyDto, companyDB);
+                }
 
+                _mapper.Map(companyDto, companyDB);                
+
+                // Company Type section
+                if (companyDto.CompanyTypes?.Count() > 0 && !string.IsNullOrEmpty(companyDto.Ruc))
+                {
+                    // 1.- Delete all CompanyTypes
+                    await _repository.CompanyType.DeleteAllCompanyTypeByRuc(companyDto.Ruc, true);                    
+                }
 
                 await _repository.SaveAsync();
 
@@ -219,6 +320,10 @@ namespace sicotyc.Server.Controllers
                 }
 
                 _repository.Company.DeleteCompany(companyDB);
+
+                // Company Type section
+                await _repository.CompanyType.DeleteAllCompanyTypeByRuc(companyDB.Ruc, true);
+
                 await _repository.SaveAsync();
 
                 return NoContent();

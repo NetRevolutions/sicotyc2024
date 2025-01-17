@@ -1,4 +1,4 @@
-USE Sicotyc2023
+USE SicotycDB
 GO
 
 /***************************************************************************************************************
@@ -123,10 +123,10 @@ BEGIN
 		 , O.OptionLevel
 		 , O.OptionParentId
 		 , IsEnabled = (CASE
-			   WHEN R.RoleId IS NULL THEN CAST(0 AS BIT)
+			   WHEN R.Id IS NULL THEN CAST(0 AS BIT)
 			   ELSE CAST(1 AS BIT)
 		   END)
 	FROM @MenuOptions O
 		LEFT JOIN SCT.OPTIONS_ROLE R ON O.OptionId = R.OptionId
-			AND R.RoleId = @ROLE_ID
+			AND R.Id = @ROLE_ID
 END

@@ -1,4 +1,4 @@
-USE Sicotyc2023
+USE SicotycDB
 GO
 
 /***************************************************************************************************************
@@ -39,11 +39,11 @@ BEGIN
 	IF (@ROL_ID IS NOT NULL)
 	BEGIN
 		DELETE SCT.OPTIONS_ROLE
-		WHERE RoleId = @ROL_ID
+		WHERE Id = @ROL_ID
 
-		INSERT INTO SCT.OPTIONS_ROLE (RoleId, OptionId)
+		INSERT INTO SCT.OPTIONS_ROLE (Id, OptionId)
 		SELECT @ROL_ID, Item FROM SCT.UFN_DECODE_UNIQUEIDENTIFIER_LIST(@strOptionIds)
 
-		SELECT RoleId, OptionId FROM SCT.OPTIONS_ROLE WHERE RoleId = @ROL_ID
+		SELECT Id, OptionId FROM SCT.OPTIONS_ROLE WHERE Id = @ROL_ID
 	END	
 END

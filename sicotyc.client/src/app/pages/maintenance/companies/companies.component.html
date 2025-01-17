@@ -34,7 +34,7 @@
                         <div class="text-right">
                             <button class="btn btn-primary mr-1"
                                routerLink="/mantenimientos/companies/new">
-                                <i class="fa fa-user-o"></i> 
+                                <i class="fa fa-building-o"></i> 
                                 Crear Empresa
                             </button>                            
                             <button class="btn btn-warning">
@@ -51,7 +51,8 @@
                                 <th>Empresa</th>
                                 <th>Nombre Comercial</th>
                                 <th>RUC</th>
-                                <th>Estado Contribuyente</th>                                
+                                <th>Estado Contribuyente</th>
+                                <th>Tipo de Empresa</th>                                
                                 <th class="text-nowrap">Acciones</th>
                             </tr>
                         </thead>
@@ -60,7 +61,8 @@
                                 <td>{{item.companyName}}</td>
                                 <td>{{item.companyComercialName}}</td>
                                 <td>{{item.ruc}}</td>
-                                <td>{{item.companyState}}</td>                                
+                                <td>{{item.companyState}}</td>
+                                <td [innerHTML]="item.companyTypesHtml"></td>                               
                                 <td class="text-nowrap">
                                     <a 
                                         [routerLink]="['/mantenimientos', 'companies', item.companyId]"

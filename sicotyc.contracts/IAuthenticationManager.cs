@@ -13,7 +13,7 @@ namespace sicotyc.contracts
         Task<RenewToken> RenewTokenAsync(string userId);
         Task<ResultProcess> ValidateToken(string token);
         Task<PagedList<User>> GetUsersAsync(UserParameters userParameters, bool trackChanges);
-        Task<List<User>> GetUsersByIdCollectionAsync(IEnumerable<string> ids, bool trackChanges);
+        Task<List<User>> GetUsersByIdCollectionAsync(IEnumerable<Guid> ids, bool trackChanges);
         Task<List<ClaimMetadata>> GetClaimsAsync(string token);
     }
 }

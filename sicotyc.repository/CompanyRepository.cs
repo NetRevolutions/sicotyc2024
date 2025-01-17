@@ -56,6 +56,18 @@ namespace sicotyc.repository
             await FindByCondition(o => o.Ruc.Equals(ruc), trackChanges)
             .SingleOrDefaultAsync();
 
+        public async Task<IEnumerable<Company>> GetCompaniesByNameAsync(string searchName, bool trackChanges)
+        {
+            var companies = new List<Company>();
+            companies = await FindAll(trackChanges)
+                .Where(c => c.CompanyName.Contains(searchName) ||
+                        c.CompanyComercialName.Contains(searchName))
+                .OrderBy(o => o.Ruc)
+                .ToListAsync();
+
+            return companies;
+        }
+
         public void CreateCompany(Company company) => Create(company);
 
         public void DeleteCompany(Company company) => Delete(company);

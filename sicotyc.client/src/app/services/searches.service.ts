@@ -8,12 +8,14 @@ import { environment } from 'src/environments/environment';
 // Models
 import { User } from '../models/user.model';
 
-
 // Services
 import { ValidationErrorsCustomizeService } from './validation-errors-customize.service';
+
+// Interfaces
 import { ILookupCode, ILookupCodeGroup } from '../interfaces/lookup.interface';
 import { ICompany } from '../interfaces/company.interface';
-
+import { IDriver } from '../interfaces/driver.interface';
+import { IUnitTransport } from '../interfaces/unit-transport.interface';
 
 
 const base_url = environment.base_url;
@@ -58,14 +60,22 @@ export class SearchesService {
 
   private transformLookupCodes(results: any): ILookupCode[] {
     return results;
-  }
+  };
 
   private transformCompanies(results: any): ICompany[] {
     return results;
-  }
+  };
+
+  private transformDrivers(results: any): IDriver[] {
+    return results;
+  };
+
+  private transformUnitTransports(results: any): IUnitTransport[] {
+    return results;
+  };
 
   search(
-    collection: 'USERS'|'TRANSPORTS'|'LOOKUPCODEGROUPS'|'LOOKUPCODES'|'COMPANIES',
+    collection: 'USERS'|'TRANSPORTS'|'LOOKUPCODEGROUPS'|'LOOKUPCODES'|'COMPANIES'|'DRIVERS'|'UNITTRANSPORTS',
     term: string,
 
     ) {
@@ -84,6 +94,10 @@ export class SearchesService {
             return this.transformLookupCodes(resp);
           case 'COMPANIES':
             return this.transformCompanies(resp);
+          case 'DRIVERS':
+            return this.transformDrivers(resp);
+          case 'UNITTRANSPORTS':
+            return this.transformUnitTransports(resp);
           default:
             return [];
         };

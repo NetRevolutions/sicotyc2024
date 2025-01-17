@@ -21,7 +21,7 @@ import { ITuple } from 'src/app/interfaces/tuple.interface';
   styles: [
   ]
 })
-export class UsersComponent implements OnInit, OnDestroy{
+export class UsersComponent implements OnInit, OnDestroy{  
   public users: User[] = [];
   public usersTemp: User[] = [];
   public pagination: IPagination = {
@@ -56,7 +56,7 @@ export class UsersComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.imgSubs.unsubscribe(); // Con esto evitamos fuga de memoria
   };
-
+  
   loadUsers() {
     this.loading = true;
     this.userService.loadUsers(this.pagination)
@@ -114,11 +114,11 @@ export class UsersComponent implements OnInit, OnDestroy{
       return Swal.fire('Error', 'No puede borrarse a si mismo', 'error');
     }
 
-    if (user.roles?.indexOf('Administrator') !== -1) // Tiene un rol con el valor 'Administrator'
+    if (user.roles?.indexOf('Administrator') !== -1) // Tiene un rol con el valor 'Administrador'
     {
-      // Validamos el rol del usuario logueado tiene al menos un rol 'Administrator'
+      // Validamos el rol del usuario logueado tiene al menos un rol 'Administrador'
       if ( !(this.userService.roles.indexOf('Administrator') !== -1) ) {
-        return Swal.fire('Error', 'Solo un usuario con rol Administrator puede borrar a otro usuario Administrator', 'error');
+        return Swal.fire('Error', 'Solo un usuario con rol Administrador puede borrar a otro usuario Administrador', 'error');
       } 
       else {
         this.confirmDeleteUser(user);
@@ -161,15 +161,12 @@ export class UsersComponent implements OnInit, OnDestroy{
     });
   };
 
-  onSelectedValues(user: User) {
-    // TODO: Validar que no me este actualizando yo mismo
-    console.log('userId_logued',this.userService.uid);
-    console.log('userId_changed', user.id);
+  onSelectedValues(user: User) {    
     if (user.roles?.indexOf('Administrator') !== -1)
     {
       Swal.fire({
-        title: "Convertir en Administrator?",
-        text: `Esta a punto de asignar a ${ user.firstName } el rol Administrator, estas seguro?`,
+        title: "Convertir en Administrador?",
+        text: `Esta a punto de asignar a ${ user.firstName } el rol Administrador, estas seguro?`,
         icon: "question",
         showCancelButton: true,
         confirmButtonText: "Si, procede"
@@ -220,8 +217,7 @@ export class UsersComponent implements OnInit, OnDestroy{
   };
 
   openModalImage(user: User)
-  {
-    console.log(user);
+  {    
     this.modalImageService.openModal('USERS', user.id, user.img)
   }
 }

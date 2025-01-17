@@ -231,7 +231,24 @@ export class UserService {
   };
 
   getUserByEmail(email: string) {
-    const url = `${base_url}/authentication/user/email/${email}`
+    const url = `${base_url}/authentication/user/email/${email}`;
+    return this.http.get(url)
+      .pipe(
+        map((resp: any) => {      
+          const { firstName, lastName, userName, email, phoneNumber, img = '', roles, id, ruc, userDetail } = resp.data;    
+          const user = new User(firstName, lastName, userName, email, '', img, phoneNumber, roles, id, ruc, userDetail);
+          return {
+            data: user
+          };
+        }),
+        catchError(error => {
+          return throwError(() => new Error(this.validationErrorsCustomize.messageCatchError(error)));
+        })   
+      );
+  };
+
+  getUserByNumDoc(numDoc: string) {
+    const url = `${base_url}/authentication/user/docNumber/${numDoc}`;
     return this.http.get(url)
       .pipe(
         map((resp: any) => {      
@@ -267,7 +284,7 @@ export class UserService {
         return throwError(() => new Error(this.validationErrorsCustomize.messageCatchError(error)));
       })
     );
-  }
+  };
 
   //#region Menu - Roles
   getMenuOptions(user: User) {

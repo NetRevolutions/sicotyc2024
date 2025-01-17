@@ -9,7 +9,7 @@ namespace sicotyc.entities.Models
         [Key]
         public Guid WhareHouseId { get; set; }
         [ForeignKey(nameof(Company))]
-        public Guid CompanyId { get; set; }
+        public string Ruc { get; set; }
         public Company? Company { get; set; }
 
         public string? AliasName { get; set; }

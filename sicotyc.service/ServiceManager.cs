@@ -1,36 +1,25 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using sicotyc.contracts;
-using sicotyc.entities.Models;
 using sicotyc.service.contracts;
 
 namespace sicotyc.service
 {
     public sealed class ServiceManager : IServiceManager
-    {
-        private readonly Lazy<ILookupCodeGroupService> _lookupCodeGroupService;
-        private readonly Lazy<ILookupCodeService> _lookupCodeService;
+    {        
         private readonly Lazy<ISearchService> _searchService;
         private readonly Lazy<ISunatService> _sunatService;
 
-        public ServiceManager(IRepositoryManager repositoryManager,
+        public ServiceManager(IRepositoryManager repository,                                
                                 ILoggerManager logger,
                                 IMapper mapper,
-                                UserManager<User> userManager,
                                 IAuthenticationManager authManager)
-        {
-            _lookupCodeGroupService = new Lazy<ILookupCodeGroupService>(() => new LookupCodeGroupService(repositoryManager, logger, mapper));
-            _lookupCodeService = new Lazy<ILookupCodeService>(() => new LookupCodeService(repositoryManager, logger, mapper));
-            _searchService = new Lazy<ISearchService>(() => new SearchService(repositoryManager, mapper));
-            _sunatService = new Lazy<ISunatService>(() => new SunatService(repositoryManager, mapper));
-        }
-
-        public ILookupCodeGroupService LookupCodeGroupService => _lookupCodeGroupService.Value;
-
-        public ILookupCodeService LookupCodeService => _lookupCodeService.Value;
+        {            
+            _searchService = new Lazy<ISearchService>(() => new SearchService(repository, mapper));
+            _sunatService = new Lazy<ISunatService>(() => new SunatService(repository, mapper));
+        }        
 
         public ISearchService SearchService => _searchService.Value;
 
-        public ISunatService SunatService => _sunatService.Value;
+        public ISunatService Sunat => _sunatService.Value;       
     }
 }
