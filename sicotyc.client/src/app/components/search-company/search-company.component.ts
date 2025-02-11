@@ -13,9 +13,9 @@ import { ModalCompanyService } from 'src/app/services/modal-company.service';
   ]
 })
 export class SearchCompanyComponent implements OnInit {
-  @Input() ruc?: string = ''  
+  public ruc?: string = ''  
   @Input() btnClass: string = 'btn-primary';
-  @Output() valorSalida: EventEmitter<ICompany> = new EventEmitter();
+  @Output() valorSalidaSearchCompany: EventEmitter<ICompany> = new EventEmitter();
 
   constructor(
     public modalCompanyService: ModalCompanyService
@@ -25,14 +25,14 @@ export class SearchCompanyComponent implements OnInit {
     this.btnClass = `btn ${ this.btnClass }`;
   };  
 
-  buscarEmpresa() {   
+  buscarEmpresa() {  
+    this.ruc = ''; 
     this.modalCompanyService.openModal();
   };
 
   onModalCompanyResult(result: any) {
-    // modalCompanyService.companyResult
-    console.log(this.modalCompanyService.companyResult);
-    console.log(result);
+    if (result) this.ruc = result.ruc;  
+    this.valorSalidaSearchCompany.emit(result);
   };
   
 }

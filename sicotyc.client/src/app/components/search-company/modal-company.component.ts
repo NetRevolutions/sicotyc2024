@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EnumLookupCodeGroups } from 'src/app/enum/enums.enum';
@@ -32,6 +32,9 @@ export class ModalCompanyComponent implements OnInit{
   public companyTypesSelected: string[] = []; // Lista de valores seleccionados  
 
   public modalContentWidth: string = '880px'; // Default: 500px
+
+  @Input() ruc?: string = '';
+  @Output() valorSalidaModal: EventEmitter<ICompany> = new EventEmitter();
 
   constructor(
     public modalCompanyService: ModalCompanyService,
@@ -175,8 +178,8 @@ export class ModalCompanyComponent implements OnInit{
     return companyData;    
   };  
 
-  seleccionar(entity: ICompany) {    
-    this.modalCompanyService.companyResult.emit(entity);
+  seleccionar(entity: ICompany) {
+    this.valorSalidaModal.emit(entity);
     this.resetValues();
     this.closeModal();
   };

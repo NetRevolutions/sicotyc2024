@@ -10,4 +10,9 @@
   <ItemGroup>
     <Folder Include="dist\" />
   </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties _1vscode_4launch_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>
